@@ -14,7 +14,7 @@
 <meta property="og:description" content="1&amp;#x3001;&amp;#x4F9D;&amp;#x8D56;&amp;#x5E93;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x7F16;&amp;#x8BD1;&amp;#x548C;&amp;#x5B89;&amp;#x88C5;Nginx1.9.0  
 &amp;#x5148;&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x540D;&amp;#x4E3A;nginx&amp;#x4E14; &amp;#x6CA1;&amp;#x6709;&amp;#x7">
 <meta property="og:image" content="http://blog.kuleyang.com/2016/04/20/CentOS6-5编译安装Nginx1-9/Screen Shot 2016-04-20 at 06.38.42.jpg">
-<meta property="og:updated_time" content="2016-04-19T22:40:41.000Z">
+<meta property="og:updated_time" content="2016-04-19T22:47:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS6.5编译安装Nginx1.9">
 <meta name="twitter:description" content="1&amp;#x3001;&amp;#x4F9D;&amp;#x8D56;&amp;#x5E93;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x7F16;&amp;#x8BD1;&amp;#x548C;&amp;#x5B89;&amp;#x88C5;Nginx1.9.0  
@@ -100,11 +100,13 @@
 <p><strong>2&#x3001;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x505A;&#x597D;&#x540E;&#xFF0C;&#x5C31;&#x5F00;&#x59CB;&#x6B63;&#x5F0F;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;Nginx-1.9</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ94s5vtca9Z opt]# cd nginx-1.9.15</span><br><span class="line">[root@iZ94s5vtca9Z nginx-1.9.15]# ./configure \</span><br><span class="line">--prefix=/usr/share/nginx \</span><br><span class="line">--sbin-path=/usr/sbin/nginx \</span><br><span class="line">--conf-path=/etc/nginx/nginx.conf \</span><br><span class="line">--error-log-path=/var/log/nginx/error.log \</span><br><span class="line">--http-log-path=/var/log/nginx/access.log \</span><br><span class="line">--pid-path=/var/run/nginx/nginx.pid  \</span><br><span class="line">--lock-path=/var/lock/nginx.lock \</span><br><span class="line">--user=www \</span><br><span class="line">--group=www \</span><br><span class="line">--with-http_ssl_module \</span><br><span class="line">--with-http_v2_module \</span><br><span class="line">--with-http_dav_module \</span><br><span class="line">--with-http_flv_module \</span><br><span class="line">--with-http_realip_module \</span><br><span class="line">--with-http_addition_module \</span><br><span class="line">--with-http_xslt_module \</span><br><span class="line">--with-http_stub_status_module \</span><br><span class="line">--with-http_sub_module \</span><br><span class="line">--with-http_random_index_module \</span><br><span class="line">--with-http_degradation_module \</span><br><span class="line">--with-http_secure_link_module \</span><br><span class="line">--with-http_gzip_static_module \</span><br><span class="line">--with-http_perl_module \</span><br><span class="line">--with-pcre \</span><br><span class="line">--with-zlib=../zlib-1.2.8/ \</span><br><span class="line">--with-debug \</span><br><span class="line">--with-file-aio \</span><br><span class="line">--with-mail \</span><br><span class="line">--with-mail_ssl_module \</span><br><span class="line">--http-client-body-temp-path=/var/tmp/nginx/client_body \</span><br><span class="line">--http-proxy-temp-path=/var/tmp/nginx/proxy \</span><br><span class="line">--http-fastcgi-temp-path=/var/tmp/nginx/fastcgi \</span><br><span class="line">--http-uwsgi-temp-path=/var/tmp/nginx/uwsgi \</span><br><span class="line">--http-scgi-temp-path=/var/tmp/nginx/scgi \</span><br><span class="line">--with-stream \</span><br><span class="line">--with-ld-opt=&quot;-Wl,-E&quot;</span><br><span class="line">[root@iZ94s5vtca9Z nginx-1.9.15]# make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 <p>&#x9644;&#x56FE;&#xFF1A;<br><img src="/2016/04/20/CentOS6-5&#x7F16;&#x8BD1;&#x5B89;&#x88C5;Nginx1-9/Screen Shot 2016-04-20 at 06.38.42.jpg" alt="Screenshot"></p>
+<p><strong>3&#x3001;&#x914D;&#x7F6E;Nginx1.9&#xFF0C;&#x4F7F;&#x4E4B;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;</strong></p>
+<p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;&#xFF0C;&#x5305;&#x62EC;&#x5F00;&#x673A;&#x542F;&#x52A8;&#x3001;SSL/HTTPS&#x670D;&#x52A1;&#x7B49;&#x3002;&#x5176;&#x4E2D;&#xFF0C;Nginx&#x670D;&#x52A1;&#x63A7;&#x5236;&#x811A;&#x672C; nginx &#x89C1;&#x6587;&#x7AE0;&#xFF1A;<a href="https://typecodes.com/web/nginxserviceoptshell.html" target="_blank" rel="external">&#x300A;Nginx&#x670D;&#x52A1;&#x542F;&#x52A8;&#x3001;&#x505C;&#x6B62;&#x548C;&#x91CD;&#x542F;&#x7B49;&#x64CD;&#x4F5C;&#x7684;SHELL&#x811A;&#x672C;&#x300B;</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.kuleyang.com/2016/04/20/CentOS6-5编译安装Nginx1-9/" data-id="cin7zspxq0000nqljg25qg2nd" class="article-share-link">Share</a>
+      <a data-url="http://blog.kuleyang.com/2016/04/20/CentOS6-5编译安装Nginx1-9/" data-id="cin82ihcn0000kqljrtw7d635" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos-6-5-Nginx-编译安装/">centos,6.5,Nginx,编译安装</a></li></ul>
@@ -113,6 +115,20 @@
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2016/04/20/Nginx服务启动、停止和重启等操作的SHELL脚本/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Nginx服务启动、停止和重启等操作的SHELL脚本
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
@@ -127,7 +143,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos-6-5-Nginx-编译安装/">centos,6.5,Nginx,编译安装</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx-Nginx-shell/">Nginx,Nginx shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos-6-5-Nginx-编译安装/">centos,6.5,Nginx,编译安装</a></li></ul>
     </div>
   </div>
 
@@ -137,7 +153,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/centos-6-5-Nginx-编译安装/" style="font-size: 10px;">centos,6.5,Nginx,编译安装</a>
+      <a href="/tags/Nginx-Nginx-shell/" style="font-size: 10px;">Nginx,Nginx shell</a> <a href="/tags/centos-6-5-Nginx-编译安装/" style="font-size: 10px;">centos,6.5,Nginx,编译安装</a>
     </div>
   </div>
 
@@ -157,6 +173,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/20/Nginx服务启动、停止和重启等操作的SHELL脚本/">Nginx服务启动、停止和重启等操作的SHELL脚本</a>
+          </li>
         
           <li>
             <a href="/2016/04/20/CentOS6-5编译安装Nginx1-9/">CentOS6.5编译安装Nginx1.9</a>
