@@ -1743,6 +1743,11 @@
 .fa-heartbeat:before {
   content: "\f21e";
 }
+
+.fa-github:before {
+  content: "../images/github.svg";
+}
+
 .fa-venus:before {
   content: "\f221";
 }
