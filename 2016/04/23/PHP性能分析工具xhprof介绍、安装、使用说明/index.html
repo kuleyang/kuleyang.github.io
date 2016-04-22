@@ -1,0 +1,639 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="安装,PHP,xhprof," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="技术分享" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="XHProf (A Hierarchical Profiler For PHP)&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x7684;&amp;#x5206;&amp;#x5C42;&amp;#x6027;&amp;#x80FD;&amp;#x6D4B;&amp;#x91CF;&amp;#x5206;&amp;#x6790;&amp;#x5668;&amp;#xFF0C;&amp;#x662F;C&amp;#x5B9E;&amp;#x73B0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP性能分析工具xhprof介绍、安装、使用说明">
+<meta property="og:url" content="http://blog.kuleyang.com/2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/index.html">
+<meta property="og:site_name" content="技术分享">
+<meta property="og:description" content="XHProf (A Hierarchical Profiler For PHP)&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x7684;&amp;#x5206;&amp;#x5C42;&amp;#x6027;&amp;#x80FD;&amp;#x6D4B;&amp;#x91CF;&amp;#x5206;&amp;#x6790;&amp;#x5668;&amp;#xFF0C;&amp;#x662F;C&amp;#x5B9E;&amp;#x73B0">
+<meta property="og:updated_time" content="2016-04-22T20:38:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP性能分析工具xhprof介绍、安装、使用说明">
+<meta name="twitter:description" content="XHProf (A Hierarchical Profiler For PHP)&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x7684;&amp;#x5206;&amp;#x5C42;&amp;#x6027;&amp;#x80FD;&amp;#x6D4B;&amp;#x91CF;&amp;#x5206;&amp;#x6790;&amp;#x5668;&amp;#xFF0C;&amp;#x662F;C&amp;#x5B9E;&amp;#x73B0">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> PHP性能分析工具xhprof介绍、安装、使用说明 | 技术分享 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?94f2a8bbfb8374b1e513b6e1759bb48f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">技术分享</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一点一滴</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-mygithub">
+          <a href="https://github.com/kuleyang" rel="section">
+            
+              <i class="menu-item-icon fa fa-github fa-fw"></i> <br />
+            
+            我的github
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP性能分析工具xhprof介绍、安装、使用说明
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-23T03:53:37+08:00" content="2016-04-23">
+              2016-04-23
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>XHProf (A Hierarchical Profiler For PHP)&#x662F;&#x4E00;&#x4E2A;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x5206;&#x5C42;&#x6027;&#x80FD;&#x6D4B;&#x91CF;&#x5206;&#x6790;&#x5668;&#xFF0C;&#x662F;C&#x5B9E;&#x73B0;&#x7684;PHP Zend&#x6269;&#x5C55;&#xFF0C;&#x6700;&#x521D;&#x662F;facebook&#x7684;&#x5927;&#x795E;&#x4EEC;&#x5199;&#x7684;&#xFF0C;&#x662F;&#x5206;&#x5C42;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7EA7;&#x522B;&#x7684;&#x5206;&#x6790;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x3001;CPU&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x3001;&#x5185;&#x5B58;&#x6D88;&#x8017;&#x7684;PHP&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;&#x3002;XHProf &#x9664;&#x4E86;&#x7528;C&#x5B9E;&#x73B0;&#x7684;Zend&#x6269;&#x5C55;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;PHP&#x5B9E;&#x73B0;&#x7684;&#x754C;&#x9762;&#xFF0C;&#x4F7F;&#x5F97;&#x67E5;&#x770B;XHProf&#x5206;&#x6790;&#x7ED3;&#x679C;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x3002;  </p>
+<p><strong>&#x672C;&#x6587;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x73AF;&#x5883;&#xFF0C;Centos 6.5,PHP 7.0,Nginx 1.9&#x3002;</strong></p>
+<h3 id="&#x5B89;&#x88C5;xhprof"><a href="#&#x5B89;&#x88C5;xhprof" class="headerlink" title="&#x5B89;&#x88C5;xhprof"></a>&#x5B89;&#x88C5;xhprof</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@kuleyang opt]# git clone -b php7 https://github.com/RustJason/xhprof.git</span><br><span class="line">[root@kuleyang opt]# cd xhprof/</span><br><span class="line">[root@kuleyang xhprof]# cd extension/</span><br><span class="line">[root@kuleyang extension]# phpize</span><br><span class="line">[root@kuleyang extension]# ./configure</span><br><span class="line">[root@kuleyang extension]# make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="xhprof&#x8FD0;&#x884C;&#x65F6;&#x914D;&#x7F6E;&#xFF08;php-ini&#x4E2D;&#x52A0;&#x5165;&#xFF09;"><a href="#xhprof&#x8FD0;&#x884C;&#x65F6;&#x914D;&#x7F6E;&#xFF08;php-ini&#x4E2D;&#x52A0;&#x5165;&#xFF09;" class="headerlink" title="xhprof&#x8FD0;&#x884C;&#x65F6;&#x914D;&#x7F6E;&#xFF08;php.ini&#x4E2D;&#x52A0;&#x5165;&#xFF09;"></a>xhprof&#x8FD0;&#x884C;&#x65F6;&#x914D;&#x7F6E;&#xFF08;php.ini&#x4E2D;&#x52A0;&#x5165;&#xFF09;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">extension=xhprof.so</span><br><span class="line">xhprof.output_dir=/tmp/xhprof</span><br></pre></td></tr></table></figure>
+<p>&#x5176;&#x4E2D;xhprof.output_dir&#x914D;&#x7F6E;&#x9879;&#x6307;&#x5B9A;&#x4E86;xhprof&#x751F;&#x6210;&#x7684;&#x5206;&#x6790;&#x62A5;&#x544A;&#x4FDD;&#x5B58;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x8981;&#x6C42;&#x6B64;&#x76EE;&#x5F55;&#x5177;&#x6709;&#x53EF;&#x5199;&#x6743;&#x9650;&#xFF08;&#x4E0D;&#x7BA1;PHP CLI&#xFF0C;&#x8FD8;&#x662F;&#x505A;&#x4E3A;Web Server&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#xFF09;</p>
+<h3 id="php-m&#x67E5;&#x770B;&#x6269;&#x5C55;&#x662F;&#x5426;&#x52A0;&#x8F7D;"><a href="#php-m&#x67E5;&#x770B;&#x6269;&#x5C55;&#x662F;&#x5426;&#x52A0;&#x8F7D;" class="headerlink" title="php -m&#x67E5;&#x770B;&#x6269;&#x5C55;&#x662F;&#x5426;&#x52A0;&#x8F7D;"></a>php -m&#x67E5;&#x770B;&#x6269;&#x5C55;&#x662F;&#x5426;&#x52A0;&#x8F7D;</h3><h3 id="&#x5B89;&#x88C5;Graphviz&#xFF08;&#x5C06;XHProf&#x7684;&#x5206;&#x6790;&#x62A5;&#x544A;&#x4EE5;&#x7A0B;&#x5E8F;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#x6765;&#x5C55;&#x73B0;&#xFF09;"><a href="#&#x5B89;&#x88C5;Graphviz&#xFF08;&#x5C06;XHProf&#x7684;&#x5206;&#x6790;&#x62A5;&#x544A;&#x4EE5;&#x7A0B;&#x5E8F;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#x6765;&#x5C55;&#x73B0;&#xFF09;" class="headerlink" title="&#x5B89;&#x88C5;Graphviz&#xFF08;&#x5C06;XHProf&#x7684;&#x5206;&#x6790;&#x62A5;&#x544A;&#x4EE5;&#x7A0B;&#x5E8F;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#x6765;&#x5C55;&#x73B0;&#xFF09;"></a>&#x5B89;&#x88C5;Graphviz&#xFF08;&#x5C06;XHProf&#x7684;&#x5206;&#x6790;&#x62A5;&#x544A;&#x4EE5;&#x7A0B;&#x5E8F;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#x6765;&#x5C55;&#x73B0;&#xFF09;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@kuleyang opt]# wget http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.38.0.tar.gz</span><br><span class="line">[root@kuleyang opt]# tar zxvf graphviz-2.38.0.tar.gz</span><br><span class="line">[root@kuleyang opt]# cd graphviz-2.38.0</span><br><span class="line">[root@kuleyang graphviz-2.38.0]# ./configure</span><br><span class="line">[root@kuleyang graphviz-2.38.0]# make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>&#x5982;&#x52A0;&#x4E0A;&#x2013;prefix&#x7F16;&#x8BD1;&#x53C2;&#x6570;&#xFF0C;&#x8BF7;&#x5C06;&#x5B89;&#x88C5;&#x5B8C;&#x6BD5;&#x7684;&#x4E3B;&#x76EE;&#x5F55;&#x4E2D;&#x7684;bin&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#x52A0;&#x5165;&#x5230;&#x73AF;&#x5883;&#x53D8;&#x91CF;PATH&#x4E2D;&#xFF0C;&#x53E6;&#x5916;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x5982;&#x679C;&#x901A;&#x8FC7;XHProf&#x63D0;&#x4F9B;&#x7684;PHP UI&#x754C;&#x9762;&#x67E5;&#x770B;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#xFF0C;&#x9700;&#x8981;&#x5C06;PHP&#x7684;proc_open&#x7C7B;&#x7684;&#x51FD;&#x6570;&#x6253;&#x5F00;&#x3002;</p>
+<h3 id="&#x5173;&#x4E8E;XHProf&#x7684;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4ECB;&#x7ECD;"><a href="#&#x5173;&#x4E8E;XHProf&#x7684;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4ECB;&#x7ECD;" class="headerlink" title="&#x5173;&#x4E8E;XHProf&#x7684;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4ECB;&#x7ECD;"></a>&#x5173;&#x4E8E;XHProf&#x7684;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4ECB;&#x7ECD;</h3><p><a href="http://web.archive.org/web/20110514095512/" target="_blank" rel="external">http://web.archive.org/web/20110514095512/</a><br><a href="http://mirror.facebook.net/facebook/xhprof/doc.html" target="_blank" rel="external">http://mirror.facebook.net/facebook/xhprof/doc.html</a></p>
+<h3 id="&#x4F7F;&#x7528;XHProf&#x4E4B;&#x524D;&#x9700;&#x8981;&#x660E;&#x767D;&#x7684;&#x6982;&#x5FF5;"><a href="#&#x4F7F;&#x7528;XHProf&#x4E4B;&#x524D;&#x9700;&#x8981;&#x660E;&#x767D;&#x7684;&#x6982;&#x5FF5;" class="headerlink" title="&#x4F7F;&#x7528;XHProf&#x4E4B;&#x524D;&#x9700;&#x8981;&#x660E;&#x767D;&#x7684;&#x6982;&#x5FF5;"></a>&#x4F7F;&#x7528;XHProf&#x4E4B;&#x524D;&#x9700;&#x8981;&#x660E;&#x767D;&#x7684;&#x6982;&#x5FF5;</h3><p>&#x603B;&#x8868;&#x683C;&#x62A5;&#x544A;&#xFF08;Flat profile&#xFF09;&#xFF1A;&#x5C55;&#x793A;&#x4E86;&#x603B;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7EA7;&#x522B;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x62EC;Inclusive&#x548C;Exclusive&#x7684;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x3001;CUP&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x3001;&#x5185;&#x5B58;&#x5F00;&#x9500;&#x3002;  </p>
+<p>&#x5B50;&#x8868;&#x683C;&#x62A5;&#x544A;&#xFF1A;&#x5C55;&#x793A;&#x4E86;&#x5355;&#x4E2A;&#x51FD;&#x6570;&#x660E;&#x7EC6;&#x7684;&#x8C03;&#x7528;&#x5F00;&#x9500;&#xFF0C;&#x5305;&#x542B;   </p>
+<h4 id="&#x5F53;&#x524D;&#x51FD;&#x6570;&#xFF08;current-functions&#xFF09;&#x6240;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#xFF08;child-functions&#xFF09;&#x3001;&#x8C03;&#x7528;&#x5F53;&#x524D;&#x51FD;&#x6570;&#xFF08;parent-functions&#xFF09;&#x7684;&#x51FD;&#x6570;&#x5217;&#x8868;"><a href="#&#x5F53;&#x524D;&#x51FD;&#x6570;&#xFF08;current-functions&#xFF09;&#x6240;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#xFF08;child-functions&#xFF09;&#x3001;&#x8C03;&#x7528;&#x5F53;&#x524D;&#x51FD;&#x6570;&#xFF08;parent-functions&#xFF09;&#x7684;&#x51FD;&#x6570;&#x5217;&#x8868;" class="headerlink" title="&#x5F53;&#x524D;&#x51FD;&#x6570;&#xFF08;current functions&#xFF09;&#x6240;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#xFF08;child functions&#xFF09;&#x3001;&#x8C03;&#x7528;&#x5F53;&#x524D;&#x51FD;&#x6570;&#xFF08;parent functions&#xFF09;&#x7684;&#x51FD;&#x6570;&#x5217;&#x8868;"></a>&#x5F53;&#x524D;&#x51FD;&#x6570;&#xFF08;current functions&#xFF09;&#x6240;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#xFF08;child functions&#xFF09;&#x3001;&#x8C03;&#x7528;&#x5F53;&#x524D;&#x51FD;&#x6570;&#xFF08;parent functions&#xFF09;&#x7684;&#x51FD;&#x6570;&#x5217;&#x8868;</h4><h4 id="&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x51FD;&#x6570;&#x53CA;&#x8C03;&#x7528;&#x7684;&#x6B21;&#x6570;"><a href="#&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x51FD;&#x6570;&#x53CA;&#x8C03;&#x7528;&#x7684;&#x6B21;&#x6570;" class="headerlink" title="&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x51FD;&#x6570;&#x53CA;&#x8C03;&#x7528;&#x7684;&#x6B21;&#x6570;"></a>&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x51FD;&#x6570;&#x53CA;&#x8C03;&#x7528;&#x7684;&#x6B21;&#x6570;</h4><h4 id="&#x88AB;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF08;child-functions&#xFF09;&#x5728;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF08;current-functions&#xFF09;&#x7684;&#x603B;&#x65F6;&#x95F4;&#x6D88;&#x8017;&#x6240;&#x5360;&#x65F6;&#x95F4;&#x6BD4;&#x4F8B;"><a href="#&#x88AB;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF08;child-functions&#xFF09;&#x5728;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF08;current-functions&#xFF09;&#x7684;&#x603B;&#x65F6;&#x95F4;&#x6D88;&#x8017;&#x6240;&#x5360;&#x65F6;&#x95F4;&#x6BD4;&#x4F8B;" class="headerlink" title="&#x88AB;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF08;child functions&#xFF09;&#x5728;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF08;current functions&#xFF09;&#x7684;&#x603B;&#x65F6;&#x95F4;&#x6D88;&#x8017;&#x6240;&#x5360;&#x65F6;&#x95F4;&#x6BD4;&#x4F8B;"></a>&#x88AB;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF08;child functions&#xFF09;&#x5728;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF08;current functions&#xFF09;&#x7684;&#x603B;&#x65F6;&#x95F4;&#x6D88;&#x8017;&#x6240;&#x5360;&#x65F6;&#x95F4;&#x6BD4;&#x4F8B;</h4><p>&#x5DEE;&#x5F02;&#x62A5;&#x544A;&#xFF1A;&#x6709;&#x53EF;&#x80FD;&#x8981;&#x6BD4;&#x8F83;&#x8FD0;&#x884C;&#x591A;&#x6B21;&#x7684;XHProf&#x62A5;&#x544A;&#xFF08;&#x5982;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x4EE3;&#x7801;&#x4E4B;&#x95F4;&#x7684;&#x6267;&#x884C;&#x60C5;&#x51B5;&#xFF0C;&#x4E3A;&#x4E86;&#x8BC4;&#x4EF7;&#x4E0D;&#x540C;&#x7B97;&#x6CD5;&#x4E0B;&#x7684;&#x7A0B;&#x5E8F;&#x6027;&#x80FD;&#xFF09;&#x3002;  </p>
+<p>&#x5408;&#x5E76;&#x62A5;&#x544A;&#xFF1A;&#x662F;&#x6307;&#x591A;&#x6B21;&#x7684;XHProf&#x62A5;&#x544A;&#x878D;&#x5408;&#x4E3A;&#x4E00;&#x4E2A;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x7528;&#x4E8E;&#x6C42;&#x5E73;&#x5747;&#x503C;&#xFF0C;&#x5206;&#x6790;&#x7A0B;&#x5E8F;&#x7684;&#x6574;&#x4F53;&#x8FD0;&#x884C;&#x60C5;&#x51B5;&#x3002;  </p>
+<p>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#xFF1A;XHProf&#x7684;&#x5206;&#x6790;&#x62A5;&#x544A;&#x4EE5;&#x7A0B;&#x5E8F;&#x7684;&#x6267;&#x884C;&#x6D41;&#x7A0B;&#x56FE;&#x6765;&#x5C55;&#x73B0;&#xFF0C;&#x8C03;&#x7528;&#x56FE;&#x80FD;&#x591F;&#x7A81;&#x51FA;&#x663E;&#x793A;&#x7A0B;&#x5E8F;&#x7684;&#x5173;&#x952E;&#x8DEF;&#x5F84;&#x3002;  </p>
+<p>&#x4F2A;&#x51FD;&#x6570;&#xFF1A;XHProf&#x8DDF;&#x8E2A;include, include_once, require and require_once&#x7B49;&#x64CD;&#x4F5C;&#x8BED;&#x53E5;&#xFF0C;&#x5C06;&#x5176;&#x5F53;&#x505A;&#x51FD;&#x6570;&#x6765;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x6B64;&#x7C7B;&#x64CD;&#x4F5C;&#x5728;Function Name&#x5217;&#x663E;&#x793A;&#x4E3A;load:: ,&#x5982;&#xFF1A;load::Application/Bootstrap.php&#xFF0C;&#x4EE3;&#x8868;incloude&#x6587;&#x4EF6;Application/Bootstrap.php&#x5904;&#x7406;&#x7684;&#x5F00;&#x9500;&#x60C5;&#x51B5;&#x3002;  </p>
+<p>&#x9012;&#x5F52;&#x8C03;&#x7528;&#xFF1A;&#x51FD;&#x6570;&#x540D;()@ &#xFF0C;&#x4EE3;&#x8868;&#x9012;&#x5F52;&#x8C03;&#x7528;&#xFF0C;&#x5176;&#x4E2D;n&#x4EE3;&#x8868;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x7684;&#x6DF1;&#x5EA6;&#x3002;  </p>
+<h3 id="XHProf-Zend-&#x6269;&#x5C55;&#x63D0;&#x4F9B;&#x7684;PHP&#x51FD;&#x6570;&#x4ECB;&#x7ECD;"><a href="#XHProf-Zend-&#x6269;&#x5C55;&#x63D0;&#x4F9B;&#x7684;PHP&#x51FD;&#x6570;&#x4ECB;&#x7ECD;" class="headerlink" title="XHProf Zend &#x6269;&#x5C55;&#x63D0;&#x4F9B;&#x7684;PHP&#x51FD;&#x6570;&#x4ECB;&#x7ECD;"></a>XHProf Zend &#x6269;&#x5C55;&#x63D0;&#x4F9B;&#x7684;PHP&#x51FD;&#x6570;&#x4ECB;&#x7ECD;</h3><h4 id="xhprof-enable"><a href="#xhprof-enable" class="headerlink" title="xhprof_enable"></a>xhprof_enable</h4><p>&#x51FD;&#x6570;&#x539F;&#x578B;&#xFF1A;void xhprof_enable ([ int $flags = 0 [, array $options ]] )<br>&#x529F;&#x80FD;&#xFF1A;&#x542F;&#x52A8; xhprof &#x6027;&#x80FD;&#x5206;&#x6790;&#x5668;<br>&#x53C2;&#x6570;&#xFF1A;$flags&#x53EF;&#x9009;&#x6807;&#x8BC6;&#xFF0C;&#x7531;XHProf&#x6269;&#x5C55;&#x5B9A;&#x4E49;&#xFF0C;XHPROF_FLAGS_NO_BUILTINS &#x4F7F;&#x5F97;&#x8DF3;&#x8FC7;&#x6240;&#x6709;&#x5185;&#x7F6E;&#xFF08;&#x5185;&#x90E8;&#xFF09;&#x51FD;&#x6570;&#xFF0C;XHPROF_FLAGS_CPU&#x4F7F;&#x8F93;&#x51FA;&#x7684;&#x6027;&#x80FD;&#x6570;&#x636E;&#x4E2D;&#x6DFB;&#x52A0; CPU &#x6570;&#x636E;&#xFF0C;XHPROF_FLAGS_MEMORY&#x4F7F;&#x8F93;&#x51FA;&#x7684;&#x6027;&#x80FD;&#x6570;&#x636E;&#x4E2D;&#x6DFB;&#x52A0;&#x5185;&#x5B58;&#x6570;&#x636E;&#xFF0C;&#x591A;&#x4E2A;&#x6807;&#x8BC6;&#x53EF;&#x901A;&#x8FC7;&#x4F4D;&#x8FD0;&#x7B97;&#x8FDB;&#x884C;&#x7EC4;&#x5408;&#xFF1B;$options array&#x7C7B;&#x578B;&#x7684;&#x53EF;&#x9009;&#x9009;&#x9879;&#xFF0C;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x4F20;&#x9012; &#x2018;ignored_functions&#x2019; &#x9009;&#x9879;&#x6765;&#x5FFD;&#x7565;&#x6027;&#x80FD;&#x5206;&#x6790;&#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x51FD;&#x6570;&#x3002;<br>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65E0;<br>&#x8BF4;&#x660E;&#xFF1A;&#x5728;&#x5F00;&#x59CB;&#x5206;&#x6790;&#x4EE3;&#x7801;&#x65F6;&#x8C03;&#x7528;&#x6B64;&#x51FD;&#x6570;  </p>
+<h4 id="xhprof-disable"><a href="#xhprof-disable" class="headerlink" title="xhprof_disable"></a>xhprof_disable</h4><p>&#x51FD;&#x6570;&#x539F;&#x578B;&#xFF1A;array xhprof_disable ( void )<br>&#x529F;&#x80FD;&#xFF1A;&#x505C;&#x6B62; xhprof &#x5206;&#x6790;&#x5668;<br>&#x53C2;&#x6570;&#xFF1A;&#x65E0;<br>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x672C;&#x6B21;&#x8FD0;&#x884C;&#x7684; array &#x7C7B;&#x578B;&#x7684; xhprof &#x6570;&#x636E;<br>&#x8BF4;&#x660E;&#xFF1A;&#x5728;&#x7ED3;&#x675F;&#x5206;&#x6790;&#x4EE3;&#x7801;&#x65F6;&#x8C03;&#x7528;&#x6B64;&#x51FD;&#x6570;  </p>
+<h4 id="xhprof-sample-enable"><a href="#xhprof-sample-enable" class="headerlink" title="xhprof_sample_enable"></a>xhprof_sample_enable</h4><p>&#x51FD;&#x6570;&#x539F;&#x578B;&#xFF1A;void xhprof_sample_enable ( void )<br>&#x529F;&#x80FD;&#xFF1A;&#x4EE5;&#x91C7;&#x6837;&#x6A21;&#x5F0F;&#x542F;&#x52A8; XHProf &#x6027;&#x80FD;&#x5206;&#x6790;<br>&#x53C2;&#x6570;&#xFF1A;&#x65E0;<br>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65E0;<br>&#x8BF4;&#x660E;&#xFF1A;xhprof_enable() &#x7684;&#x66F4;&#x8F7B;&#x91CF;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x4EE5;&#x91C7;&#x6837;&#x6A21;&#x5F0F;&#x5F00;&#x59CB;&#x6027;&#x80FD;&#x5206;&#x6790;&#x3002; &#x62BD;&#x6837;&#x7684;&#x95F4;&#x9694;&#x4E3A; 0.1 &#x79D2;&#xFF0C;&#x6837;&#x672C;&#x8BB0;&#x5F55;&#x4E86;&#x5B8C;&#x6574;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5806;&#x6808;&#x3002; &#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x60C5;&#x51B5;&#x662F;&#x4EE5;&#x8F83;&#x4F4E;&#x7684;&#x6027;&#x80FD;&#x5F00;&#x9500;&#x6765;&#x8FDB;&#x884C;&#x6027;&#x80FD;&#x76D1;&#x63A7;&#x548C;&#x8BCA;&#x65AD;&#x3002;  </p>
+<h4 id="xhprof-sample-disable"><a href="#xhprof-sample-disable" class="headerlink" title="xhprof_sample_disable"></a>xhprof_sample_disable</h4><p>&#x51FD;&#x6570;&#x539F;&#x578B;&#xFF1A;array xhprof_sample_disable ( void )<br>&#x529F;&#x80FD;&#xFF1A;&#x505C;&#x6B62; xhprof &#x6027;&#x80FD;&#x91C7;&#x6837;&#x5206;&#x6790;&#x5668;<br>&#x53C2;&#x6570;&#xFF1A;&#x65E0;<br>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x672C;&#x6B21;&#x8FD0;&#x884C;&#x7684;xhprof&#x91C7;&#x6837;&#x6570;&#x636E;&#xFF0C;array &#x7C7B;&#x578B;<br>&#x8BF4;&#x660E;&#xFF1A;&#x6682;&#x65E0;  </p>
+<h3 id="XHProf-UI&#x4ECB;&#x7ECD;"><a href="#XHProf-UI&#x4ECB;&#x7ECD;" class="headerlink" title="XHProf UI&#x4ECB;&#x7ECD;"></a>XHProf UI&#x4ECB;&#x7ECD;</h3><p>XHProf UI&#x662F;PHP&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x7528;&#x4E8E;&#x67E5;&#x770B;XHProf&#x5206;&#x6790;&#x62A5;&#x544A;&#xFF0C;&#x5206;&#x4E3A;&#x4E24;&#x4E2A;&#x90E8;&#x5206;xhprof_html&#x548C;xhprof_lib&#x3002;  </p>
+<p>xhprof_html&#x5305;&#x542B;&#x4E09;&#x4E2A;PHP&#x6587;&#x4EF6;&#xFF0C;</p>
+<h4 id="index-php-&#x5C55;&#x793A;&#x5355;&#x4E2A;xhprof&#x5206;&#x6790;&#x62A5;&#x544A;&#x8868;&#x6216;&#x8005;&#x591A;&#x4E2A;xhprof&#x62A5;&#x544A;&#x5DEE;&#x5F02;&#x8868;"><a href="#index-php-&#x5C55;&#x793A;&#x5355;&#x4E2A;xhprof&#x5206;&#x6790;&#x62A5;&#x544A;&#x8868;&#x6216;&#x8005;&#x591A;&#x4E2A;xhprof&#x62A5;&#x544A;&#x5DEE;&#x5F02;&#x8868;" class="headerlink" title="index.php: &#x5C55;&#x793A;&#x5355;&#x4E2A;xhprof&#x5206;&#x6790;&#x62A5;&#x544A;&#x8868;&#x6216;&#x8005;&#x591A;&#x4E2A;xhprof&#x62A5;&#x544A;&#x5DEE;&#x5F02;&#x8868;"></a>index.php: &#x5C55;&#x793A;&#x5355;&#x4E2A;xhprof&#x5206;&#x6790;&#x62A5;&#x544A;&#x8868;&#x6216;&#x8005;&#x591A;&#x4E2A;xhprof&#x62A5;&#x544A;&#x5DEE;&#x5F02;&#x8868;</h4><h4 id="callgraph-php&#xFF1A;&#x5C06;XHProf&#x7684;&#x5206;&#x6790;&#x62A5;&#x544A;&#x4EE5;&#x7A0B;&#x5E8F;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#x6765;&#x5C55;&#x73B0;&#xFF08;&#x4F7F;&#x7528;Graphviz&#xFF09;"><a href="#callgraph-php&#xFF1A;&#x5C06;XHProf&#x7684;&#x5206;&#x6790;&#x62A5;&#x544A;&#x4EE5;&#x7A0B;&#x5E8F;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#x6765;&#x5C55;&#x73B0;&#xFF08;&#x4F7F;&#x7528;Graphviz&#xFF09;" class="headerlink" title="callgraph.php&#xFF1A;&#x5C06;XHProf&#x7684;&#x5206;&#x6790;&#x62A5;&#x544A;&#x4EE5;&#x7A0B;&#x5E8F;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#x6765;&#x5C55;&#x73B0;&#xFF08;&#x4F7F;&#x7528;Graphviz&#xFF09;"></a>callgraph.php&#xFF1A;&#x5C06;XHProf&#x7684;&#x5206;&#x6790;&#x62A5;&#x544A;&#x4EE5;&#x7A0B;&#x5E8F;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#x6765;&#x5C55;&#x73B0;&#xFF08;&#x4F7F;&#x7528;Graphviz&#xFF09;</h4><h4 id="typeahead-php-&#x54CD;&#x5E94;AJAX&#x8BF7;&#x6C42;&#x51FD;&#x6570;&#x83B7;&#x53D6;&#x5B50;&#x8868;&#x683C;&#x62A5;&#x544A;&#x5730;&#x5740;&#xFF08;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;"><a href="#typeahead-php-&#x54CD;&#x5E94;AJAX&#x8BF7;&#x6C42;&#x51FD;&#x6570;&#x83B7;&#x53D6;&#x5B50;&#x8868;&#x683C;&#x62A5;&#x544A;&#x5730;&#x5740;&#xFF08;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;" class="headerlink" title="typeahead.php: &#x54CD;&#x5E94;AJAX&#x8BF7;&#x6C42;&#x51FD;&#x6570;&#x83B7;&#x53D6;&#x5B50;&#x8868;&#x683C;&#x62A5;&#x544A;&#x5730;&#x5740;&#xFF08;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;)"></a>typeahead.php: &#x54CD;&#x5E94;AJAX&#x8BF7;&#x6C42;&#x51FD;&#x6570;&#x83B7;&#x53D6;&#x5B50;&#x8868;&#x683C;&#x62A5;&#x544A;&#x5730;&#x5740;&#xFF08;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;)</h4><p>xhprof_lib&#x76EE;&#x5F55;&#x5305;&#x542B;&#x751F;&#x6210;&#x5355;&#x4E2A;xhprof&#x62A5;&#x544A;&#x8868;&#x683C;&#x3001;&#x6216;&#x8005;&#x5DEE;&#x5F02;&#x62A5;&#x544A;&#x8868;&#x683C;&#x3001;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x56FE;&#x7528;&#x5230;&#x7684;&#x7C7B;&#x3002;  </p>
+<p>&#x53E6;&#x5916;&#x5173;&#x4E8E;&#x4E5F;&#x6709;XHProf GUI&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x5206;&#x652F;&#xFF1A;<br><a href="https://github.com/preinheimer/xhprof" target="_blank" rel="external">https://github.com/preinheimer/xhprof</a></p>
+<h3 id="&#x8BBF;&#x95EE;XHProf-UI"><a href="#&#x8BBF;&#x95EE;XHProf-UI" class="headerlink" title="&#x8BBF;&#x95EE;XHProf UI"></a>&#x8BBF;&#x95EE;XHProf UI</h3><h4 id="&#x5355;&#x4E2A;XHProf&#x62A5;&#x544A;"><a href="#&#x5355;&#x4E2A;XHProf&#x62A5;&#x544A;" class="headerlink" title="&#x5355;&#x4E2A;XHProf&#x62A5;&#x544A;"></a>&#x5355;&#x4E2A;XHProf&#x62A5;&#x544A;</h4><p><code>http://&lt;xhprof-ui-address&gt;/index.php?run=&lt;run_id&gt;&amp;source=&lt;namespace&gt;</code></p>
+<p>&#x5176;&#x4E2D;run_id&#x662F;&#x5728;&#x6BCF;&#x6B21;&#x8FDB;&#x884C;&#x6027;&#x80FD;&#x5206;&#x6790;&#x65F6;&#x90FD;&#x4F1A;&#x5206;&#x914D;&#x7684;ID&#xFF0C;&#x7531;XHProfRuns_Default::save_run&#x8FD4;&#x56DE;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;run_id;source&#x662F;&#x6307;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#x53EA;&#x7528;&#x4E8E;&#x62A5;&#x544A;&#x5206;&#x7C7B;&#x3002;  </p>
+<h4 id="&#x5DEE;&#x5F02;&#x62A5;&#x544A;"><a href="#&#x5DEE;&#x5F02;&#x62A5;&#x544A;" class="headerlink" title="&#x5DEE;&#x5F02;&#x62A5;&#x544A;"></a>&#x5DEE;&#x5F02;&#x62A5;&#x544A;</h4><p><code>http://&lt;xhprof-ui-address&gt;/index.php?run1=&lt;run_id1&gt;&amp;run2=&lt;run_id2&gt;&amp;source=&lt;namespace&gt;</code></p>
+<p>&#x5176;&#x4E2D;run1&#x548C;run2&#x5206;&#x522B;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;run_id&#xFF0C;&#x4F9D;&#x6B21;&#x7C7B;&#x63A8;run3,run4&#x2026;</p>
+<h4 id="&#x5408;&#x5E76;&#x62A5;&#x544A;"><a href="#&#x5408;&#x5E76;&#x62A5;&#x544A;" class="headerlink" title="&#x5408;&#x5E76;&#x62A5;&#x544A;"></a>&#x5408;&#x5E76;&#x62A5;&#x544A;</h4><p><code>http://&lt;xhprof-ui-address&gt;/index.php?run=&lt;run_id1,run_id2,run_id3&gt;&amp;source=&lt;namespace&gt;</code></p>
+<h4 id="&#x5E26;&#x6743;&#x91CD;&#x7684;&#x5408;&#x5E76;&#x62A5;&#x544A;"><a href="#&#x5E26;&#x6743;&#x91CD;&#x7684;&#x5408;&#x5E76;&#x62A5;&#x544A;" class="headerlink" title="&#x5E26;&#x6743;&#x91CD;&#x7684;&#x5408;&#x5E76;&#x62A5;&#x544A;"></a>&#x5E26;&#x6743;&#x91CD;&#x7684;&#x5408;&#x5E76;&#x62A5;&#x544A;</h4><p><code>http://&lt;xhprof-ui-address&gt;/index.php?run=&lt;run_id1,run_id2,run_id3&gt;&amp;wts=20,30,50&amp;source=&lt;namespace&gt;</code></p>
+<h3 id="&#x4F7F;&#x7528;XHProf&#x793A;&#x4F8B;"><a href="#&#x4F7F;&#x7528;XHProf&#x793A;&#x4F8B;" class="headerlink" title="&#x4F7F;&#x7528;XHProf&#x793A;&#x4F8B;"></a>&#x4F7F;&#x7528;XHProf&#x793A;&#x4F8B;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">xhprof_enable(XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY);</span><br><span class="line"></span><br><span class="line">function splitElem(&amp;$a, $low, $high)</span><br><span class="line">{</span><br><span class="line">  $split_elem = $a[$low];</span><br><span class="line"></span><br><span class="line">  for(;;) {</span><br><span class="line">    while ($low &lt; $high &amp;&amp; $a[$high] &gt;= $split_elem)</span><br><span class="line">      $high--;</span><br><span class="line">    if ($low &gt;= $high) break;</span><br><span class="line">    $a[$low++] = $a[$high];</span><br><span class="line"></span><br><span class="line">    while ($low &lt; $high &amp;&amp; $a[$low] &lt;= $split_elem)</span><br><span class="line">      $low++;</span><br><span class="line">    if ($low &gt;= $high) break;</span><br><span class="line">    $a[$high--] = $a[$low];</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  $a[$low] = $split_elem;</span><br><span class="line"></span><br><span class="line">  return $high;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">function quickSort(&amp;$a, $low, $high)</span><br><span class="line">{</span><br><span class="line">  if ($low &gt;= $high || empty($a)) return;</span><br><span class="line"></span><br><span class="line">  $split_elem_index = splitElem($a, $low, $high);</span><br><span class="line">  quickSort($a, $low, $split_elem_index - 1);</span><br><span class="line">  quickSort($a, $split_elem_index+1, $high);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">$a = array();</span><br><span class="line"></span><br><span class="line">for ($i = 0; $i &lt; 30; $i++) {</span><br><span class="line">  $a[] = rand(125, 250);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">quickSort($a, 0, count($a) - 1);</span><br><span class="line"></span><br><span class="line">$xhprof_data = xhprof_disable();</span><br><span class="line"></span><br><span class="line">$XHPROF_ROOT = &quot;/Library/WebServer/Documents&quot;;</span><br><span class="line">include_once $XHPROF_ROOT . &quot;/xhprof_lib/utils/xhprof_lib.php&quot;;</span><br><span class="line">include_once $XHPROF_ROOT . &quot;/xhprof_lib/utils/xhprof_runs.php&quot;;</span><br><span class="line"></span><br><span class="line">$xhprof_runs = new XHProfRuns_Default();</span><br><span class="line">$run_id = $xhprof_runs-&gt;save_run($xhprof_data, &quot;xhprof_testing&quot;);</span><br><span class="line"></span><br><span class="line">echo &quot;http://localhost/xhprof_html/index.php?run={$run_id}&amp;source=xhprof_testing\n&quot;;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>&#x6CE8;&#x610F;&#xFF1A;<code>&lt;xhprof-ui-address&gt;</code>&#x7684;&#x8BBF;&#x95EE;&#x8DEF;&#x5F84;</p>
+<h3 id="xhprof&#x62A5;&#x544A;&#x793A;&#x4F8B;"><a href="#xhprof&#x62A5;&#x544A;&#x793A;&#x4F8B;" class="headerlink" title="xhprof&#x62A5;&#x544A;&#x793A;&#x4F8B;"></a>xhprof&#x62A5;&#x544A;&#x793A;&#x4F8B;</h3><p><code>http://&lt;xhprof-ui-address&gt;/wp-content/uploads/xhprof_html/index.php?run=5319c97be3376&amp;source=xhprof_testing</code></p>
+<p><code>http://&lt;xhprof-ui-address&gt;/wp-content/uploads/callgraph.png</code></p>
+<h3 id="XHProf&#x62A5;&#x544A;&#x5B57;&#x6BB5;&#x542B;&#x4E49;"><a href="#XHProf&#x62A5;&#x544A;&#x5B57;&#x6BB5;&#x542B;&#x4E49;" class="headerlink" title="XHProf&#x62A5;&#x544A;&#x5B57;&#x6BB5;&#x542B;&#x4E49;"></a>XHProf&#x62A5;&#x544A;&#x5B57;&#x6BB5;&#x542B;&#x4E49;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Function Name&#xFF1A;&#x65B9;&#x6CD5;&#x540D;&#x79F0;&#x3002;</span><br><span class="line">Calls&#xFF1A;&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x6B21;&#x6570;&#x3002;</span><br><span class="line">Calls%&#xFF1A;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6B21;&#x6570;&#x5728;&#x540C;&#x7EA7;&#x65B9;&#x6CD5;&#x603B;&#x6570;&#x8C03;&#x7528;&#x6B21;&#x6570;&#x4E2D;&#x6240;&#x5360;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x3002;</span><br><span class="line">Incl.Wall Time(microsec)&#xFF1A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5305;&#x62EC;&#x5B50;&#x65B9;&#x6CD5;&#x7684;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x3002;&#xFF08;&#x5355;&#x4F4D;&#xFF1A;&#x5FAE;&#x79D2;&#xFF09;</span><br><span class="line">IWall%&#xFF1A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;&#x3002;</span><br><span class="line">Excl. Wall Time(microsec)&#xFF1A;&#x65B9;&#x6CD5;&#x672C;&#x8EAB;&#x6267;&#x884C;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x4E0D;&#x5305;&#x62EC;&#x5B50;&#x65B9;&#x6CD5;&#x7684;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x3002;&#xFF08;&#x5355;&#x4F4D;&#xFF1A;&#x5FAE;&#x79D2;&#xFF09;</span><br><span class="line">EWall%&#xFF1A;&#x65B9;&#x6CD5;&#x672C;&#x8EAB;&#x6267;&#x884C;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;&#x3002;</span><br><span class="line">Incl. CPU(microsecs)&#xFF1A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x82B1;&#x8D39;&#x7684;CPU&#x65F6;&#x95F4;&#xFF0C;&#x5305;&#x62EC;&#x5B50;&#x65B9;&#x6CD5;&#x7684;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x3002;&#xFF08;&#x5355;&#x4F4D;&#xFF1A;&#x5FAE;&#x79D2;&#xFF09;</span><br><span class="line">ICpu%&#xFF1A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x82B1;&#x8D39;&#x7684;CPU&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;&#x3002;</span><br><span class="line">Excl. CPU(microsec)&#xFF1A;&#x65B9;&#x6CD5;&#x672C;&#x8EAB;&#x6267;&#x884C;&#x82B1;&#x8D39;&#x7684;CPU&#x65F6;&#x95F4;&#xFF0C;&#x4E0D;&#x5305;&#x62EC;&#x5B50;&#x65B9;&#x6CD5;&#x7684;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x3002;&#xFF08;&#x5355;&#x4F4D;&#xFF1A;&#x5FAE;&#x79D2;&#xFF09;</span><br><span class="line">ECPU%&#xFF1A;&#x65B9;&#x6CD5;&#x672C;&#x8EAB;&#x6267;&#x884C;&#x82B1;&#x8D39;&#x7684;CPU&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;&#x3002;</span><br><span class="line">Incl.MemUse(bytes)&#xFF1A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x5305;&#x62EC;&#x5B50;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x3002;&#xFF08;&#x5355;&#x4F4D;&#xFF1A;&#x5B57;&#x8282;&#xFF09;</span><br><span class="line">IMemUse%&#xFF1A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x767E;&#x5206;&#x6BD4;&#x3002;</span><br><span class="line">Excl.MemUse(bytes)&#xFF1A;&#x65B9;&#x6CD5;&#x672C;&#x8EAB;&#x6267;&#x884C;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x4E0D;&#x5305;&#x62EC;&#x5B50;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x3002;&#xFF08;&#x5355;&#x4F4D;&#xFF1A;&#x5B57;&#x8282;&#xFF09;</span><br><span class="line">EMemUse%&#xFF1A;&#x65B9;&#x6CD5;&#x672C;&#x8EAB;&#x6267;&#x884C;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x767E;&#x5206;&#x6BD4;&#x3002;</span><br><span class="line">Incl.PeakMemUse(bytes)&#xFF1A;Incl.MemUse&#x5CF0;&#x503C;&#x3002;&#xFF08;&#x5355;&#x4F4D;&#xFF1A;&#x5B57;&#x8282;&#xFF09;</span><br><span class="line">IPeakMemUse%&#xFF1A;Incl.MemUse&#x5CF0;&#x503C;&#x767E;&#x5206;&#x6BD4;&#x3002;</span><br><span class="line">Excl.PeakMemUse(bytes)&#xFF1A;Excl.MemUse&#x5CF0;&#x503C;&#x3002;&#x5355;&#x4F4D;&#xFF1A;&#xFF08;&#x5B57;&#x8282;&#xFF09;</span><br><span class="line">EPeakMemUse%&#xFF1A;Excl.MemUse&#x5CF0;&#x503C;&#x767E;&#x5206;&#x6BD4;&#x3002;</span><br></pre></td></tr></table></figure>
+<h3 id="&#x4F7F;&#x7528;XHProf&#x7684;&#x6CE8;&#x610F;"><a href="#&#x4F7F;&#x7528;XHProf&#x7684;&#x6CE8;&#x610F;" class="headerlink" title="&#x4F7F;&#x7528;XHProf&#x7684;&#x6CE8;&#x610F;"></a>&#x4F7F;&#x7528;XHProf&#x7684;&#x6CE8;&#x610F;</h3><p>&#x5BF9;&#x4E8E;&#x5E94;&#x8BE5;&#x4E0D;&#x5E94;&#x8BE5;&#x5C06;XHProf&#x90E8;&#x7F72;&#x5230;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#xFF0C;&#x6211;&#x8FD8;&#x4E0D;&#x77E5;&#x6653;&#xFF0C;&#x4F46;&#x662F;&#x5B98;&#x65B9;&#x8BF4;&#x53EF;&#x4EE5;&#xFF0C;&#x4F46;&#x662F;&#x6700;&#x597D;&#x662F;&#x91C7;&#x6837;&#x6A21;&#x5F0F;&#x8FDB;&#x884C;&#x5C1D;&#x8BD5;&#xFF0C;&#x4EE5;&#x964D;&#x4F4E;&#x670D;&#x52A1;&#x5668;&#x8D44;&#x6E90;&#x5F00;&#x9500;&#x3002;&#x6211;&#x4F7F;&#x7528;xhprof&#x4E5F;&#x53EA;&#x662F;&#x5728;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x3002;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/安装/" rel="tag">#安装</a>
+          
+            <a href="/tags/PHP/" rel="tag">#PHP</a>
+          
+            <a href="/tags/xhprof/" rel="tag">#xhprof</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/22/IP110打印机相关配置/" rel="next" title="IP110打印机相关配置">
+                <i class="fa fa-chevron-left"></i> IP110打印机相关配置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/"
+           data-title="PHP性能分析工具xhprof介绍、安装、使用说明" data-url="http://blog.kuleyang.com/2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Kule Yang" />
+          <p class="site-author-name" itemprop="name">Kule Yang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装xhprof"><span class="nav-number">1.</span> <span class="nav-text">安装xhprof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xhprof运行时配置（php-ini中加入）"><span class="nav-number">2.</span> <span class="nav-text">xhprof运行时配置（php.ini中加入）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php-m查看扩展是否加载"><span class="nav-number">3.</span> <span class="nav-text">php -m查看扩展是否加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Graphviz（将XHProf的分析报告以程序的函数调用图来展现）"><span class="nav-number">4.</span> <span class="nav-text">安装Graphviz（将XHProf的分析报告以程序的函数调用图来展现）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于XHProf的更详细的介绍"><span class="nav-number">5.</span> <span class="nav-text">关于XHProf的更详细的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用XHProf之前需要明白的概念"><span class="nav-number">6.</span> <span class="nav-text">使用XHProf之前需要明白的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#当前函数（current-functions）所调用的函数（child-functions）、调用当前函数（parent-functions）的函数列表"><span class="nav-number">6.1.</span> <span class="nav-text">当前函数（current functions）所调用的函数（child functions）、调用当前函数（parent functions）的函数列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#某个函数调用某些特定函数及调用的次数"><span class="nav-number">6.2.</span> <span class="nav-text">某个函数调用某些特定函数及调用的次数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#被调用函数（child-functions）在调用函数（current-functions）的总时间消耗所占时间比例"><span class="nav-number">6.3.</span> <span class="nav-text">被调用函数（child functions）在调用函数（current functions）的总时间消耗所占时间比例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHProf-Zend-扩展提供的PHP函数介绍"><span class="nav-number">7.</span> <span class="nav-text">XHProf Zend 扩展提供的PHP函数介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#xhprof-enable"><span class="nav-number">7.1.</span> <span class="nav-text">xhprof_enable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xhprof-disable"><span class="nav-number">7.2.</span> <span class="nav-text">xhprof_disable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xhprof-sample-enable"><span class="nav-number">7.3.</span> <span class="nav-text">xhprof_sample_enable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xhprof-sample-disable"><span class="nav-number">7.4.</span> <span class="nav-text">xhprof_sample_disable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHProf-UI介绍"><span class="nav-number">8.</span> <span class="nav-text">XHProf UI介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#index-php-展示单个xhprof分析报告表或者多个xhprof报告差异表"><span class="nav-number">8.1.</span> <span class="nav-text">index.php: 展示单个xhprof分析报告表或者多个xhprof报告差异表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#callgraph-php：将XHProf的分析报告以程序的函数调用图来展现（使用Graphviz）"><span class="nav-number">8.2.</span> <span class="nav-text">callgraph.php：将XHProf的分析报告以程序的函数调用图来展现（使用Graphviz）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#typeahead-php-响应AJAX请求函数获取子表格报告地址（可以忽略"><span class="nav-number">8.3.</span> <span class="nav-text">typeahead.php: 响应AJAX请求函数获取子表格报告地址（可以忽略)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问XHProf-UI"><span class="nav-number">9.</span> <span class="nav-text">访问XHProf UI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单个XHProf报告"><span class="nav-number">9.1.</span> <span class="nav-text">单个XHProf报告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#差异报告"><span class="nav-number">9.2.</span> <span class="nav-text">差异报告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并报告"><span class="nav-number">9.3.</span> <span class="nav-text">合并报告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带权重的合并报告"><span class="nav-number">9.4.</span> <span class="nav-text">带权重的合并报告</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用XHProf示例"><span class="nav-number">10.</span> <span class="nav-text">使用XHProf示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xhprof报告示例"><span class="nav-number">11.</span> <span class="nav-text">xhprof报告示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHProf报告字段含义"><span class="nav-number">12.</span> <span class="nav-text">XHProf报告字段含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用XHProf的注意"><span class="nav-number">13.</span> <span class="nav-text">使用XHProf的注意</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kule Yang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"kuleyang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
