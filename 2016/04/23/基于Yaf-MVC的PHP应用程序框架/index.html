@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="kuleyang" />
+  <meta name="keywords" content="PHP,Yaf,MVC,PHP7,框架," />
 
 
 
@@ -82,15 +82,40 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术分享">
-<meta property="og:url" content="http://blog.kuleyang.com/index.html">
+<meta name="description" content="#php-app
+&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;Yaf MVC&amp;#x7684;PHP&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E8F;&amp;#x6846;&amp;#x67B6;
+##&amp;#x9700;&amp;#x6C42;
+####&amp;#x8F6F;&amp;#x4EF6;&amp;#x7248;&amp;#x672C;
+
+PHP-5.4+
+Redis-2.6.17
+
+####PHP&amp;#x62">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Yaf MVC的PHP应用程序框架">
+<meta property="og:url" content="http://blog.kuleyang.com/2016/04/23/基于Yaf-MVC的PHP应用程序框架/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description">
+<meta property="og:description" content="#php-app
+&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;Yaf MVC&amp;#x7684;PHP&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E8F;&amp;#x6846;&amp;#x67B6;
+##&amp;#x9700;&amp;#x6C42;
+####&amp;#x8F6F;&amp;#x4EF6;&amp;#x7248;&amp;#x672C;
+
+PHP-5.4+
+Redis-2.6.17
+
+####PHP&amp;#x62">
+<meta property="og:updated_time" content="2016-04-23T11:09:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术分享">
-<meta name="twitter:description">
+<meta name="twitter:title" content="基于Yaf MVC的PHP应用程序框架">
+<meta name="twitter:description" content="#php-app
+&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;Yaf MVC&amp;#x7684;PHP&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E8F;&amp;#x6846;&amp;#x67B6;
+##&amp;#x9700;&amp;#x6C42;
+####&amp;#x8F6F;&amp;#x4EF6;&amp;#x7248;&amp;#x672C;
+
+PHP-5.4+
+Redis-2.6.17
+
+####PHP&amp;#x62">
 
 
 
@@ -108,7 +133,7 @@
   };
 </script>
 
-  <title> 技术分享 </title>
+  <title> 基于Yaf MVC的PHP应用程序框架 | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -139,9 +164,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -228,9 +251,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -250,10 +273,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/04/23/基于Yaf-MVC的PHP应用程序框架/" itemprop="url">
-                  基于Yaf MVC的PHP应用程序框架
-                </a>
+                基于Yaf MVC的PHP应用程序框架
               
             
           </h1>
@@ -300,9 +320,7 @@
       
 
       
-        
-          
-            <p>#php-app</p>
+        <p>#php-app</p>
 <p>&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;Yaf MVC&#x7684;PHP&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6846;&#x67B6;</p>
 <p>##&#x9700;&#x6C42;</p>
 <p>####&#x8F6F;&#x4EF6;&#x7248;&#x672C;</p>
@@ -452,993 +470,65 @@
 <p>&#x53E6;&#x5916;&#x9700;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x662F;&#x8981;&#x4FEE;&#x6539;xhprof_lib/utils/xhprof_lib.php&#x4E2D;</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xhprof_param_init</span><span class="params">($params)</span> </span>{</span><br><span class="line">  <span class="comment">/* Create variables specified in $params keys, init defaults */</span></span><br><span class="line">  <span class="keyword">foreach</span> ($params <span class="keyword">as</span> $k =&gt; $v) {</span><br><span class="line">    <span class="keyword">switch</span> ($v[<span class="number">0</span>]) {</span><br><span class="line">    <span class="keyword">case</span> XHPROF_STRING_PARAM:</span><br><span class="line">      $p = xhprof_get_string_param($k, $v[<span class="number">1</span>]);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> XHPROF_UINT_PARAM:</span><br><span class="line">      $p = xhprof_get_uint_param($k, $v[<span class="number">1</span>]);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> XHPROF_FLOAT_PARAM:</span><br><span class="line">      $p = xhprof_get_float_param($k, $v[<span class="number">1</span>]);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> XHPROF_BOOL_PARAM:</span><br><span class="line">      $p = xhprof_get_bool_param($k, $v[<span class="number">1</span>]);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      xhprof_error(<span class="string">&quot;Invalid param type passed to xhprof_param_init: &quot;</span></span><br><span class="line">                   . $v[<span class="number">0</span>]);</span><br><span class="line">      <span class="keyword">exit</span>();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ($k === <span class="string">&apos;run&apos;</span>) {</span><br><span class="line">      <span class="comment">// &#x8FD9;&#x91CC;&#x9700;&#x8981;&#x6539;&#x52A8;</span></span><br><span class="line">      <span class="comment">//$p = implode(&apos;,&apos;, array_filter(explode(&apos;,&apos;, $p), &apos;ctype_xdigit&apos;));</span></span><br><span class="line">      $p = implode(<span class="string">&apos;,&apos;</span>, explode(<span class="string">&apos;,&apos;</span>, $p));</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// create a global variable using the parameter name.</span></span><br><span class="line">    $GLOBALS[$k] = $p;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
     <div>
       
+        
+      
     </div>
 
     <div>
+      
+        
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/" itemprop="url">
-                  PHP性能分析工具xhprof介绍、安装、使用说明
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-23T03:53:37+08:00" content="2016-04-23">
-              2016-04-23
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/PHP/" rel="tag">#PHP</a>
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/Yaf/" rel="tag">#Yaf</a>
           
-
+            <a href="/tags/MVC/" rel="tag">#MVC</a>
           
-
+            <a href="/tags/PHP7/" rel="tag">#PHP7</a>
           
-          
-
+            <a href="/tags/框架/" rel="tag">#框架</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>XHProf (A Hierarchical Profiler For PHP)&#x662F;&#x4E00;&#x4E2A;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x5206;&#x5C42;&#x6027;&#x80FD;&#x6D4B;&#x91CF;&#x5206;&#x6790;&#x5668;&#xFF0C;&#x662F;C&#x5B9E;&#x73B0;&#x7684;PHP Zend&#x6269;&#x5C55;&#xFF0C;&#x6700;&#x521D;&#x662F;facebook&#x7684;&#x5927;&#x795E;&#x4EEC;&#x5199;&#x7684;&#xFF0C;&#x662F;&#x5206;&#x5C42;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7EA7;&#x522B;&#x7684;&#x5206;&#x6790;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x3001;CPU&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x3001;&#x5185;&#x5B58;&#x6D88;&#x8017;&#x7684;PHP&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;&#x3002;XHProf &#x9664;&#x4E86;&#x7528;C&#x5B9E;&#x73B0;&#x7684;Zend&#x6269;&#x5C55;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;PHP&#x5B9E;&#x73B0;&#x7684;&#x754C;&#x9762;&#xFF0C;&#x4F7F;&#x5F97;&#x67E5;&#x770B;XHProf&#x5206;&#x6790;&#x7ED3;&#x679C;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x3002;  </p>
-<p><strong>&#x672C;&#x6587;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x73AF;&#x5883;&#xFF0C;Centos 6.5,PHP 7.0,Nginx 1.9&#x3002;</strong></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/" rel="next" title="PHP性能分析工具xhprof介绍、安装、使用说明">
+                <i class="fa fa-chevron-left"></i> PHP性能分析工具xhprof介绍、安装、使用说明
+              </a>
+            
           </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/22/IP110打印机相关配置/" itemprop="url">
-                  IP110打印机相关配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-22T22:11:27+08:00" content="2016-04-22">
-              2016-04-22
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/22/IP110打印机相关配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/IP110打印机相关配置/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="Connecting-Computer-or-Smartphone-to-Printer-Directly-via-Wireless-LAN-Access-Point-Mode"><a href="#Connecting-Computer-or-Smartphone-to-Printer-Directly-via-Wireless-LAN-Access-Point-Mode" class="headerlink" title="Connecting Computer or Smartphone to Printer Directly via Wireless LAN (Access Point Mode)"></a>Connecting Computer or Smartphone to Printer Directly via Wireless LAN (Access Point Mode)</h2><p>The printer has a function to connect a computer or smartphone to the printer directly via wireless LAN, allowing you to perform printing operation. Follow the procedure below to use this function.</p>
-<ol>
-<li><a href="#change">Change printer setting.</a></li>
-<li><a href="#connect">Connect computer or smartphone to printer.</a></li>
-<li><a href="#perform">Perform printing operation.</a></li>
-</ol>
-<p>For more on printing operation, refer to device&#x2019;s or application&#x2019;s instruction manual.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/22/IP110打印机相关配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/22/Github使用GPG对评论及Tags签名/" itemprop="url">
-                  Github使用GPG对评论及Tags签名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-22T02:56:48+08:00" content="2016-04-22">
-              2016-04-22
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/22/Github使用GPG对评论及Tags签名/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/Github使用GPG对评论及Tags签名/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="&#x751F;&#x6210;&#x516C;&#x94A5;&#xFF08;&#x4E13;&#x4E8E;&#x7528;Github&#xFF09;"><a href="#&#x751F;&#x6210;&#x516C;&#x94A5;&#xFF08;&#x4E13;&#x4E8E;&#x7528;Github&#xFF09;" class="headerlink" title="&#x751F;&#x6210;&#x516C;&#x94A5;&#xFF08;&#x4E13;&#x4E8E;&#x7528;Github&#xFF09;"></a>&#x751F;&#x6210;&#x516C;&#x94A5;&#xFF08;&#x4E13;&#x4E8E;&#x7528;Github&#xFF09;</h3><p>&#x8BF7;&#x53C2;&#x7167;<a href="http://blog.kuleyang.com/2016/04/21/GPG&#x5165;&#x95E8;&#x6559;&#x7A0B;/">GPG&#x5165;&#x95E8;&#x6559;&#x7A0B;</a>&#xFF0C;&#x518D;&#x751F;&#x6210;&#x4E00;&#x5BF9;&#x516C;&#x79C1;&#x94A5;&#xFF0C;&#x4E13;&#x95E8;&#x7528;&#x4E8E;Github&#x3002;</p>
-<p><strong><em>&#x6CE8;&#x610F;&#x90AE;&#x4EF6;&#x5730;&#x5740;&#x5FC5;&#x987B;&#x662F;&#x4F60;git&#x63D0;&#x4EA4;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x90AE;&#x7BB1;</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">macbook:~ kule$ gpg2 --list-keys</span><br><span class="line">/Users/kule/.gnupg/pubring.gpg</span><br><span class="line">------------------------------</span><br><span class="line">pub   2048R/D5C40219 2016-04-21</span><br></pre></td></tr></table></figure>
-<p>&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF0C;&#x5BFC;&#x51FA;&#x516C;&#x94A5;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">macbook:~ kule$ gpg2 --armor --export D5C40219</span><br></pre></td></tr></table></figure>
-<p>&#x62F7;&#x8D1D;&#x4ECE;<code>-----BEGIN PGP PUBLIC KEY BLOCK-----</code>&#x5230;<code>-----END PGP PUBLIC KEY BLOCK-----</code>&#x5305;&#x62EC;&#x8FD9;&#x4E24;&#x754C;&#x7EBF;&#x5230;&#x526A;&#x5207;&#x677F;&#x3002;</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/22/Github使用GPG对评论及Tags签名/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/21/GPG入门教程/" itemprop="url">
-                  GPG入门教程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-21T22:52:22+08:00" content="2016-04-21">
-              2016-04-21
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/21/GPG入门教程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/21/GPG入门教程/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x8FD9;&#x8981;&#x7528;&#x5230;GnuPG&#x8F6F;&#x4EF6;&#xFF08;&#x7B80;&#x79F0;GPG&#xFF09;&#xFF0C;&#x5B83;&#x662F;&#x76EE;&#x524D;&#x6700;&#x6D41;&#x884C;&#x3001;&#x6700;&#x597D;&#x7528;&#x7684;&#x52A0;&#x5BC6;&#x5DE5;&#x5177;&#x4E4B;&#x4E00;&#x3002;</p>
-<h3 id="&#x4EC0;&#x4E48;&#x662F;GPG"><a href="#&#x4EC0;&#x4E48;&#x662F;GPG" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;GPG"></a>&#x4EC0;&#x4E48;&#x662F;GPG</h3><p><img src="/2016/04/21/GPG&#x5165;&#x95E8;&#x6559;&#x7A0B;/bg2013071202.png" alt="">  </p>
-<p>&#x8981;&#x4E86;&#x89E3;&#x4EC0;&#x4E48;&#x662F;GPG&#xFF0C;&#x5C31;&#x8981;&#x5148;&#x4E86;&#x89E3;<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">PGP</a>&#x3002;  </p>
-<p>1991&#x5E74;&#xFF0C;&#x7A0B;&#x5E8F;&#x5458;<a href="http://en.wikipedia.org/wiki/Phil_Zimmermann">Phil Zimmermann</a>&#x4E3A;&#x4E86;&#x907F;&#x5F00;&#x653F;&#x5E9C;&#x76D1;&#x89C6;&#xFF0C;&#x5F00;&#x53D1;&#x4E86;&#x52A0;&#x5BC6;&#x8F6F;&#x4EF6;PGP&#x3002;&#x8FD9;&#x4E2A;&#x8F6F;&#x4EF6;&#x975E;&#x5E38;&#x597D;&#x7528;&#xFF0C;&#x8FC5;&#x901F;&#x6D41;&#x4F20;&#x5F00;&#x6765;&#xFF0C;&#x6210;&#x4E86;&#x8BB8;&#x591A;&#x7A0B;&#x5E8F;&#x5458;&#x7684;&#x5FC5;&#x5907;&#x5DE5;&#x5177;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5B83;&#x662F;&#x5546;&#x4E1A;&#x8F6F;&#x4EF6;&#xFF0C;&#x4E0D;&#x80FD;&#x81EA;&#x7531;&#x4F7F;&#x7528;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x81EA;&#x7531;&#x8F6F;&#x4EF6;&#x57FA;&#x91D1;&#x4F1A;&#x51B3;&#x5B9A;&#xFF0C;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;PGP&#x7684;&#x66FF;&#x4EE3;&#x54C1;&#xFF0C;&#x53D6;&#x540D;&#x4E3A;GnuPG&#x3002;&#x8FD9;&#x5C31;&#x662F;GPG&#x7684;&#x7531;&#x6765;&#x3002; </p>
-<p>&#x672C;&#x6587;&#x7684;&#x4F7F;&#x7528;Mac osx&#x73AF;&#x5883;&#x4E3A;&#x547D;&#x4EE4;&#x884C;&#x3002;&#x5982;&#x679C;&#x638C;&#x63E1;&#x4E86;&#x547D;&#x4EE4;&#x884C;&#xFF0C;Windows &#x6216; Linux &#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x5C31;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x638C;&#x63E1;&#x3002;GPG&#x5E76;&#x4E0D;&#x96BE;&#x5B66;&#xFF0C;&#x5B66;&#x4F1A;&#x4E86;&#x5B83;&#xFF0C;&#x4ECE;&#x6B64;&#x5C31;&#x80FD;&#x8F7B;&#x677E;&#x4F20;&#x9012;&#x52A0;&#x5BC6;&#x4FE1;&#x606F;&#x3002;&#x5EFA;&#x8BAE;&#x8BFB;&#x8005;&#x4E00;&#x6B65;&#x6B65;&#x8DDF;&#x7740;&#x6559;&#x7A0B;&#x505A;&#xFF0C;&#x5BF9;&#x6BCF;&#x6761;&#x547D;&#x4EE4;&#x90FD;&#x81EA;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/21/GPG入门教程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/21/RSA算法原理/" itemprop="url">
-                  RSA算法原理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-21T21:09:31+08:00" content="2016-04-21">
-              2016-04-21
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/21/RSA算法原理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/21/RSA算法原理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x5F53;&#x4ECA;&#x8BA1;&#x7B97;&#x673A;&#x4E16;&#x754C;&#x6700;&#x91CD;&#x8981;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x5F53;&#x5C5E;&#x201C;&#x516C;&#x94A5;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x201D;&#x3002;</p>
-<p>&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x901A;&#x4FE1;&#x5B89;&#x5168;&#x7684;&#x57FA;&#x77F3;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86;&#x52A0;&#x5BC6;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x88AB;&#x7834;&#x89E3;&#x3002;&#x90A3;&#x4EC0;&#x4E48;&#x662F;&#x201C;&#x516C;&#x94A5;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x201D;&#x3002;</p>
-<h3 id="&#x76F8;&#x5173;&#x5386;&#x53F2;"><a href="#&#x76F8;&#x5173;&#x5386;&#x53F2;" class="headerlink" title="&#x76F8;&#x5173;&#x5386;&#x53F2;"></a>&#x76F8;&#x5173;&#x5386;&#x53F2;</h3><p>1976&#x5E74;&#x4EE5;&#x524D;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x52A0;&#x5BC6;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x540C;&#x4E00;&#x79CD;&#x6A21;&#x5F0F;&#xFF1A;</p>
-<blockquote>
-<ol>
-<li>&#x7532;&#x65B9;&#x9009;&#x62E9;&#x67D0;&#x4E00;&#x79CD;&#x52A0;&#x5BC6;&#x89C4;&#x5219;&#xFF0C;&#x5BF9;&#x4FE1;&#x606F;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;&#xFF1B;</li>
-<li>&#x4E59;&#x65B9;&#x4F7F;&#x7528;&#x540C;&#x4E00;&#x79CD;&#x89C4;&#x5219;&#xFF0C;&#x5BF9;&#x4FE1;&#x606F;&#x8FDB;&#x884C;&#x89E3;&#x5BC6;&#x3002;</li>
-</ol>
-</blockquote>
-<p>&#x7531;&#x4E8E;&#x52A0;&#x5BC6;&#x548C;&#x89E3;&#x5BC6;&#x4F7F;&#x7528;&#x540C;&#x6837;&#x89C4;&#x5219;&#xFF08;&#x7B80;&#x79F0;&#x201D;&#x5BC6;&#x94A5;&#x201D;&#xFF09;&#xFF0C;&#x8FD9;&#x88AB;&#x79F0;&#x4E3A;&#x201D;<a href="https://zh.wikipedia.org/zh-cn/&#x5BF9;&#x7B49;&#x52A0;&#x5BC6;">&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;</a>&#x201C;&#xFF08;Symmetric-key algorithm&#xFF09;&#x3002;<br>&#x8FD9;&#x79CD;&#x52A0;&#x5BC6;&#x6A21;&#x5F0F;&#x6709;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x5F31;&#x70B9;&#xFF1A;&#x7532;&#x65B9;&#x5FC5;&#x987B;&#x628A;&#x52A0;&#x5BC6;&#x89C4;&#x5219;&#x544A;&#x8BC9;&#x4E59;&#x65B9;&#xFF0C;&#x5426;&#x5219;&#x65E0;&#x6CD5;&#x89E3;&#x5BC6;&#x3002;&#x4FDD;&#x5B58;&#x548C;&#x4F20;&#x9012;&#x5BC6;&#x94A5;&#xFF0C;&#x5C31;&#x6210;&#x4E86;&#x6700;&#x5934;&#x75BC;&#x7684;&#x95EE;&#x9898;&#x3002;<br></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/21/RSA算法原理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/20/PHP7中php-ini、php-fpm和www-conf的配置/" itemprop="url">
-                  PHP7中php.ini、php-fpm和www.conf的配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T18:10:05+08:00" content="2016-04-20">
-              2016-04-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/20/PHP7中php-ini、php-fpm和www-conf的配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/20/PHP7中php-ini、php-fpm和www-conf的配置/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x6839;&#x636E;&#x524D;&#x6587;<a href="http://blog.kuleyang.com/2016/04/20/Centos6-5&#x7F16;&#x8BD1;&#x5B89;&#x88C5;PHP7/">&#x300A;CentOS6.5&#x7F16;&#x8BD1;&#x5B89;&#x88C5;PHP7&#x300B;</a>&#x7684;configure&#x7F16;&#x8BD1;&#x53C2;&#x6570;&#x8BBE;&#x5B9A;&#xFF0C;&#x5B89;&#x88C5;&#x540E;&#x7684;PHP7&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x8DEF;&#x5F84;&#x662F;<code>/usr/local/php7/etc</code>&#x3002;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x4F1A;&#x6709;&#x4E24;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1A;<code>php-fpm.conf</code>&#x548C;<code>php.ini</code>&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;<code>php-fpm.d</code>&#xFF08;&#x5305;&#x542B;<code>www.conf</code>&#x6587;&#x4EF6;&#xFF09;&#x3002;</p>
-<p>&#x56E0;&#x6B64;&#xFF0C;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E3B;&#x8981;&#x5BF9;&#x8FD9;&#x4E09;&#x4E2A;PHP&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x8BF4;&#x660E;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/kuleyang/LNMP-configure">https://github.com/kuleyang/LNMP-configure</a></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/20/PHP7中php-ini、php-fpm和www-conf的配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/20/Centos6-5编译安装PHP7/" itemprop="url">
-                  Centos6.5编译安装PHP7
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T17:48:29+08:00" content="2016-04-20">
-              2016-04-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/20/Centos6-5编译安装PHP7/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/20/Centos6-5编译安装PHP7/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="&#x521B;&#x5EFA;php&#x7528;&#x6237;&#x548C;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x5E76;&#x5728;github&#x4E0B;&#x8F7D;php7&#x6E90;&#x7801;"><a href="#&#x521B;&#x5EFA;php&#x7528;&#x6237;&#x548C;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x5E76;&#x5728;github&#x4E0B;&#x8F7D;php7&#x6E90;&#x7801;" class="headerlink" title="&#x521B;&#x5EFA;php&#x7528;&#x6237;&#x548C;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x5E76;&#x5728;github&#x4E0B;&#x8F7D;php7&#x6E90;&#x7801;"></a>&#x521B;&#x5EFA;php&#x7528;&#x6237;&#x548C;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x5E76;&#x5728;github&#x4E0B;&#x8F7D;php7&#x6E90;&#x7801;</h3><p>&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;php&#x4E14; &#x6CA1;&#x6709;&#x767B;&#x5F55;&#x6743;&#x9650; &#x7684;&#x7528;&#x6237;&#x548C;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;php&#x7684;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x7136;&#x540E;&#x53BB;GitHub&#x4E0B;&#x8F7D;php7&#x6E90;&#x7801;&#x5305;&#x3002;</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x65B0;&#x5EFA;php&#x7528;&#x6237;&#x548C;php&#x7EC4;</span><br><span class="line">[root@kuleyang opt]# groupadd -r php &amp;&amp; useradd -r -g php -s /bin/false -d /usr/local/php7 -M php</span><br><span class="line">&#x4ECE;GitHub&#x4E0B;&#x8F7D;php7&#x5B89;&#x88C5;&#x5305;</span><br><span class="line">[root@kuleyang opt]# wget -c --no-check-certificate -O php7-src-master.zip https://github.com/php/php-src/archive/master.zip</span><br><span class="line">&#x5F00;&#x59CB;&#x89E3;&#x538B;php7&#x5305;</span><br><span class="line">[root@kuleyang opt]# unzip -q php7-src-master.zip &amp;&amp; cd php-src-master</span><br><span class="line">&#x5B89;&#x88C5;&#x7F16;&#x8BD1;php7&#x65F6;&#x9700;&#x8981;&#x7684;&#x4F9D;&#x8D56;&#x5305;</span><br><span class="line">[root@kuleyang php-src-master]# yum -y install libxml2 libxml2-devel openssl openssl-devel curl-devel libjpeg-devel libpng-devel freetype-devel libmcrypt-devel</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/20/Centos6-5编译安装PHP7/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/20/Nginx服务启动、停止和重启等操作的SHELL脚本/" itemprop="url">
-                  Nginx服务启动、停止和重启等操作的SHELL脚本
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T06:51:05+08:00" content="2016-04-20">
-              2016-04-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/20/Nginx服务启动、停止和重启等操作的SHELL脚本/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/20/Nginx服务启动、停止和重启等操作的SHELL脚本/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x7531;&#x4E8E;&#x4F7F;&#x7528;&#x6E90;&#x7801;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;Nginx&#xFF0C;&#x4E0D;&#x4F1A;&#x50CF;yum install&#x90A3;&#x6837;&#x81EA;&#x52A8;&#x751F;&#x6210;Nginx&#x670D;&#x52A1;&#x63A7;&#x5236;&#x811A;&#x672C;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x811A;&#x672C;&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x7684;shell&#x811A;&#x672C;&#x5185;&#x5BB9;&#xFF0C;&#x9700;&#x8981;&#x6839;&#x636E;Nginx&#x5B9E;&#x9645;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x4FEE;&#x6539;<code>NGINX_CONF_FILE=&quot;/etc/nginx/nginx.conf&quot;</code>&#x548C;<code>lockfile=/var/lock/nginx.lock</code>&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570; (&#x5373;&#x524D;&#x6587;<a href="http://blog.kuleyang.com/2016/04/20/CentOS6-5&#x7F16;&#x8BD1;&#x5B89;&#x88C5;Nginx1-9/">&#x300A;CentOS6.5&#x7F16;&#x8BD1;&#x5B89;&#x88C5;Nginx1.9&#x300B;</a>&#x4E2D;&#x7684;configure&#x914D;&#x7F6E;)</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/20/Nginx服务启动、停止和重启等操作的SHELL脚本/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/20/CentOS6-5编译安装Nginx1-9/" itemprop="url">
-                  CentOS6.5编译安装Nginx1.9
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T05:04:46+08:00" content="2016-04-20">
-              2016-04-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/20/CentOS6-5编译安装Nginx1-9/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/20/CentOS6-5编译安装Nginx1-9/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="&#x4F9D;&#x8D56;&#x5E93;&#x914D;&#x7F6E;&#xFF0C;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;Nginx1-9-0"><a href="#&#x4F9D;&#x8D56;&#x5E93;&#x914D;&#x7F6E;&#xFF0C;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;Nginx1-9-0" class="headerlink" title="&#x4F9D;&#x8D56;&#x5E93;&#x914D;&#x7F6E;&#xFF0C;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;Nginx1.9.0"></a>&#x4F9D;&#x8D56;&#x5E93;&#x914D;&#x7F6E;&#xFF0C;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;Nginx1.9.0</h4><p>&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;nginx&#x4E14; &#x6CA1;&#x6709;&#x767B;&#x5F55;&#x6743;&#x9650; &#x7684;&#x7528;&#x6237;&#x548C;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;nginx&#x7684;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x7136;&#x540E;&#x5B89;&#x88C5;nginx&#x6240;&#x9700;&#x7684;&#x4F9D;&#x8D56;&#x5E93;&#x548C;&#x4F9D;&#x8D56;&#x5305;&#xFF0C;&#x6700;&#x540E;&#x901A;&#x8FC7; ./configure &#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x7684;&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x3002;</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x65B0;&#x5EFA;wwww&#x7528;&#x6237;&#x548C;www&#x7EC4;</span><br><span class="line">[root@iZ94s5vtca9Z opt]# groupadd -r www &amp;&amp; useradd -r -g www -s /bin/false -M www</span><br><span class="line">yum&#x5B89;&#x88C5;nginx&#x5FC5;&#x987B;&#x7684;&#x4F9D;&#x8D56;&#x5E93;</span><br><span class="line">[root@iZ94s5vtca9Z opt]# yum -y install openssl openssl-devel libxml2-devel libxslt-devel perl-devel perl-ExtUtils-Embed</span><br><span class="line">&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;Nginx1.9&#x7684;tar&#x5305;&#xFF0C;&#x7136;&#x540E;&#x89E3;&#x538B;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E0A;</span><br><span class="line">[root@iZ94s5vtca9Z opt]# wget http://nginx.org/download/nginx-1.9.15.tar.gz</span><br><span class="line">[root@iZ94s5vtca9Z opt]# tar zxvf nginx-1.9.15.tar.gz</span><br><span class="line">&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#x5E76;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;pcre&#x4F9D;&#x8D56;</span><br><span class="line">[root@iZ94s5vtca9Z opt]# wget http://iweb.dl.sourceforge.net/project/pcre/pcre/8.38/pcre-8.38.tar.bz2</span><br><span class="line">[root@iZ94s5vtca9Z opt]# tar jxvf pcre-8.38.tar.bz2</span><br><span class="line">[root@iZ94s5vtca9Z opt]# cd pcre-8.38/</span><br><span class="line">[root@iZ94s5vtca9Z pcre-8.38]# ./configure &amp;&amp; make &amp;&amp; make install</span><br><span class="line">[root@iZ94s5vtca9Z pcre-8.38]# cd ..</span><br><span class="line">&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#x5E76;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;pcre&#x4F9D;&#x8D56;</span><br><span class="line">[root@iZ94s5vtca9Z opt]# wget http://zlib.net/zlib-1.2.8.tar.gz</span><br><span class="line">[root@iZ94s5vtca9Z opt]# tar zxvf zlib-1.2.8.tar.gz</span><br><span class="line">[root@iZ94s5vtca9Z opt]# cd zlib-1.2.8</span><br><span class="line">[root@iZ94s5vtca9Z zlib-1.2.8]# ./configure &amp;&amp; make &amp;&amp; make install</span><br><span class="line">[root@iZ94s5vtca9Z zlib-1.2.8]# cd ..</span><br><span class="line">&#x65B0;&#x5EFA;Nginx1.9&#x5B89;&#x88C5;&#x65F6;&#x6240;&#x9700;&#x8981;&#x7684;&#x76EE;&#x5F55;</span><br><span class="line">[root@iZ94s5vtca9Z opt]# mkdir -p /var/tmp/nginx/{client,proxy,fastcgi,uwsgi,scgi}</span><br><span class="line">[root@iZ94s5vtca9Z opt]# mkdir -p /var/run/nginx</span><br></pre></td></tr></table></figure>
-<h4 id="&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x505A;&#x597D;&#x540E;&#xFF0C;&#x5C31;&#x5F00;&#x59CB;&#x6B63;&#x5F0F;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;Nginx-1-9"><a href="#&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x505A;&#x597D;&#x540E;&#xFF0C;&#x5C31;&#x5F00;&#x59CB;&#x6B63;&#x5F0F;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;Nginx-1-9" class="headerlink" title="&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x505A;&#x597D;&#x540E;&#xFF0C;&#x5C31;&#x5F00;&#x59CB;&#x6B63;&#x5F0F;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;Nginx-1.9"></a>&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x505A;&#x597D;&#x540E;&#xFF0C;&#x5C31;&#x5F00;&#x59CB;&#x6B63;&#x5F0F;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;Nginx-1.9</h4>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/20/CentOS6-5编译安装Nginx1-9/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -1446,6 +536,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/23/基于Yaf-MVC的PHP应用程序框架/"
+           data-title="基于Yaf MVC的PHP应用程序框架" data-url="http://blog.kuleyang.com/2016/04/23/基于Yaf-MVC的PHP应用程序框架/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -1465,8 +563,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -1516,6 +623,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1612,6 +730,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
