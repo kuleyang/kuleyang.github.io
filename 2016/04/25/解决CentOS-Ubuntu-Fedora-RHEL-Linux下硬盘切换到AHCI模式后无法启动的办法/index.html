@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iLo,授权,license," />
+  <meta name="keywords" content="Centos,AHCI,IDE,Linux," />
 
 
 
@@ -82,20 +82,16 @@
 
 
 
-<meta name="description" content="&amp;#x83B7;&amp;#x53D6;&amp;#x8BD5;&amp;#x7528;&amp;#x7248;&amp;#x6388;&amp;#x6743;&amp;#x9996;&amp;#x5148;&amp;#x8FDB;&amp;#x5165;&amp;#x7F51;&amp;#x5740;http://www8.hp.com/us/en/products/servers/ilo/&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x627E;&amp;#x4E0B;&amp;#x4E0B;&amp;#">
+<meta name="description" content="&amp;#x95EE;&amp;#x9898;&amp;#x5B89;&amp;#x88C5;Linux&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x786C;&amp;#x76D8;&amp;#x6CA1;&amp;#x6709;&amp;#x91C7;&amp;#x7528;AHCI&amp;#x6A21;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x7F16;&amp;#x8BD1;&amp;#x5185;&amp;#x6838;&amp;#x7684;&amp;#x65F6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iLo licenses免费60版安装">
-<meta property="og:url" content="http://blog.kuleyang.com/2016/04/25/iLo-licenses免费60版安装/index.html">
+<meta property="og:title" content="解决CentOS/Ubuntu/Fedora/RHEL Linux下硬盘切换到AHCI模式后无法启动的办法">
+<meta property="og:url" content="http://blog.kuleyang.com/2016/04/25/解决CentOS-Ubuntu-Fedora-RHEL-Linux下硬盘切换到AHCI模式后无法启动的办法/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="&amp;#x83B7;&amp;#x53D6;&amp;#x8BD5;&amp;#x7528;&amp;#x7248;&amp;#x6388;&amp;#x6743;&amp;#x9996;&amp;#x5148;&amp;#x8FDB;&amp;#x5165;&amp;#x7F51;&amp;#x5740;http://www8.hp.com/us/en/products/servers/ilo/&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x627E;&amp;#x4E0B;&amp;#x4E0B;&amp;#">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/25/iLo-licenses免费60版安装/Screen Shot 2016-04-25 at 01.37.18.jpg">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/25/iLo-licenses免费60版安装/Screen Shot 2016-04-25 at 02.02.36.jpg">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/25/iLo-licenses免费60版安装/IMG_2904.jpg">
-<meta property="og:updated_time" content="2016-04-24T19:59:06.000Z">
+<meta property="og:description" content="&amp;#x95EE;&amp;#x9898;&amp;#x5B89;&amp;#x88C5;Linux&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x786C;&amp;#x76D8;&amp;#x6CA1;&amp;#x6709;&amp;#x91C7;&amp;#x7528;AHCI&amp;#x6A21;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x7F16;&amp;#x8BD1;&amp;#x5185;&amp;#x6838;&amp;#x7684;&amp;#x65F6">
+<meta property="og:updated_time" content="2016-04-24T20:08:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iLo licenses免费60版安装">
-<meta name="twitter:description" content="&amp;#x83B7;&amp;#x53D6;&amp;#x8BD5;&amp;#x7528;&amp;#x7248;&amp;#x6388;&amp;#x6743;&amp;#x9996;&amp;#x5148;&amp;#x8FDB;&amp;#x5165;&amp;#x7F51;&amp;#x5740;http://www8.hp.com/us/en/products/servers/ilo/&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x627E;&amp;#x4E0B;&amp;#x4E0B;&amp;#">
-<meta name="twitter:image" content="http://blog.kuleyang.com/2016/04/25/iLo-licenses免费60版安装/Screen Shot 2016-04-25 at 01.37.18.jpg">
+<meta name="twitter:title" content="解决CentOS/Ubuntu/Fedora/RHEL Linux下硬盘切换到AHCI模式后无法启动的办法">
+<meta name="twitter:description" content="&amp;#x95EE;&amp;#x9898;&amp;#x5B89;&amp;#x88C5;Linux&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x786C;&amp;#x76D8;&amp;#x6CA1;&amp;#x6709;&amp;#x91C7;&amp;#x7528;AHCI&amp;#x6A21;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x7F16;&amp;#x8BD1;&amp;#x5185;&amp;#x6838;&amp;#x7684;&amp;#x65F6">
 
 
 
@@ -113,7 +109,7 @@
   };
 </script>
 
-  <title> iLo licenses免费60版安装 | 技术分享 </title>
+  <title> 解决CentOS/Ubuntu/Fedora/RHEL Linux下硬盘切换到AHCI模式后无法启动的办法 | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +249,7 @@
             
             
               
-                iLo licenses免费60版安装
+                解决CentOS/Ubuntu/Fedora/RHEL Linux下硬盘切换到AHCI模式后无法启动的办法
               
             
           </h1>
@@ -265,7 +261,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-25T01:35:27+08:00" content="2016-04-25">
+            <time itemprop="dateCreated" datetime="2016-04-25T04:01:26+08:00" content="2016-04-25">
               2016-04-25
             </time>
           </span>
@@ -276,8 +272,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/25/iLo-licenses免费60版安装/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/25/iLo-licenses免费60版安装/" itemprop="commentsCount"></span>
+                <a href="/2016/04/25/解决CentOS-Ubuntu-Fedora-RHEL-Linux下硬盘切换到AHCI模式后无法启动的办法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/25/解决CentOS-Ubuntu-Fedora-RHEL-Linux下硬盘切换到AHCI模式后无法启动的办法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -300,16 +296,20 @@
       
 
       
-        <h3 id="&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;"><a href="#&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;"></a>&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;</h3><p>&#x9996;&#x5148;&#x8FDB;&#x5165;&#x7F51;&#x5740;<a href="http://www8.hp.com/us/en/products/servers/ilo/" target="_blank" rel="external">http://www8.hp.com/us/en/products/servers/ilo/</a>&#xFF0C;&#x7136;&#x540E;&#x627E;&#x4E0B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x70B9;&#x51FB;&#x8FDB;&#x53BB;&#xFF1A;</p>
-<p><img src="/2016/04/25/iLo-licenses&#x514D;&#x8D39;60&#x7248;&#x5B89;&#x88C5;/Screen Shot 2016-04-25 at 01.37.18.jpg" alt=""></p>
-<p>&#x4E2D;&#x95F4;&#x9700;&#x8981;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x5E10;&#x53F7;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x4E0B;&#x8F7D;&#x5230;&#x542B;&#x6709;&#x6388;&#x6743;Key&#x7684;PDF&#x6587;&#x6863;&#x3002;<br><a id="more"></a></p>
-<h3 id="&#x5B89;&#x88C5;&#x6388;&#x6743;Key"><a href="#&#x5B89;&#x88C5;&#x6388;&#x6743;Key" class="headerlink" title="&#x5B89;&#x88C5;&#x6388;&#x6743;Key"></a>&#x5B89;&#x88C5;&#x6388;&#x6743;Key</h3><p>&#x7136;&#x540E;&#x6309;&#x7167;&#x7F51;&#x5740;<a href="http://h30279.www3.hpe.com/catalog_content/product/install_page/ILO_EVAL.html" target="_blank" rel="external">http://h30279.www3.hpe.com/catalog_content/product/install_page/ILO_EVAL.html</a></p>
-<p>&#x6709;&#x597D;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#xFF0C;&#x6211;&#x9009;&#x4E86;&#x4E00;&#x79CD;&#x6700;&#x65B9;&#x4FBF;&#x7684;</p>
-<p>&#x9996;&#x5148;&#x8FDB;&#x53BB;iLo Web&#x7BA1;&#x7406;&#x754C;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9; Administration&#x2009;&#x2192;&#x2009;Licensing&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E0A;&#xFF0C;&#x628A;&#x4E4B;&#x524D;&#x83B7;&#x5F97;&#x7684;Key&#x586B;&#x5199;&#x8FDB;&#x53BB;&#xFF0C;&#x70B9;&#x51FB;Install.</p>
-<p><img src="/2016/04/25/iLo-licenses&#x514D;&#x8D39;60&#x7248;&#x5B89;&#x88C5;/Screen Shot 2016-04-25 at 02.02.36.jpg" alt=""></p>
-<p>&#x8FD9;&#x5C31;OK&#x4E86;&#x3002;</p>
-<p>&#x67E5;&#x770B;App&#x8FDE;&#x63A5;&#x6548;&#x679C;&#xFF1A;<br><img src="/2016/04/25/iLo-licenses&#x514D;&#x8D39;60&#x7248;&#x5B89;&#x88C5;/IMG_2904.jpg" alt=""></p>
-
+        <h2 id="&#x95EE;&#x9898;"><a href="#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h2><p>&#x5B89;&#x88C5;Linux&#x7684;&#x65F6;&#x5019;&#x786C;&#x76D8;&#x6CA1;&#x6709;&#x91C7;&#x7528;AHCI&#x6A21;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x7F16;&#x8BD1;&#x5185;&#x6838;&#x7684;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x52A0;&#x5165;AHCI&#x652F;&#x6301;</p>
+<h2 id="&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><a href="#&#x89E3;&#x51B3;&#x529E;&#x6CD5;" class="headerlink" title="&#x89E3;&#x51B3;&#x529E;&#x6CD5;"></a>&#x89E3;&#x51B3;&#x529E;&#x6CD5;</h2><h3 id="&#x5728;BIOS-&#x4E2D;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x5148;&#x4FEE;&#x6539;&#x4E3A;IDE-&#x7136;&#x540E;&#x6B63;&#x5E38;&#x8FDB;&#x5165;Linux"><a href="#&#x5728;BIOS-&#x4E2D;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x5148;&#x4FEE;&#x6539;&#x4E3A;IDE-&#x7136;&#x540E;&#x6B63;&#x5E38;&#x8FDB;&#x5165;Linux" class="headerlink" title="&#x5728;BIOS &#x4E2D;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x5148;&#x4FEE;&#x6539;&#x4E3A;IDE, &#x7136;&#x540E;&#x6B63;&#x5E38;&#x8FDB;&#x5165;Linux"></a>&#x5728;BIOS &#x4E2D;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x5148;&#x4FEE;&#x6539;&#x4E3A;IDE, &#x7136;&#x540E;&#x6B63;&#x5E38;&#x8FDB;&#x5165;Linux</h3><h3 id="&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;"><a href="#&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;" class="headerlink" title="&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;"></a>&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">su - root</span><br><span class="line">mkdir /boot/backup</span><br><span class="line">mv /boot/initrd-2.6.18-128.el5xen.img /boot/backup/initrd-2.6.18-128.el5xen.img </span><br><span class="line">cp /etc/modprobe.conf /etc/modprobe.conf.bak</span><br></pre></td></tr></table></figure>
+<h3 id="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h3><p><code>vi /etc/modprobe.conf</code></p>
+<p>&#x5728;&#xFF1A;</p>
+<p><code>alias scsi_hostadapter ata_piix</code>  </p>
+<p>&#x540E;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;<br><code>alias scsi_hostadapter ahci</code></p>
+<h3 id="&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5185;&#x6838;"><a href="#&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5185;&#x6838;" class="headerlink" title="&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5185;&#x6838;"></a>&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5185;&#x6838;</h3><p>&#x5148;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5185;&#x6838;&#x7248;&#x672C;&#x53F7;&#xFF1A;  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname -r </span><br><span class="line">2.6.18-128.el5xen</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5185;&#x6838;&#xFF0C;&#x683C;&#x5F0F;&#xFF1A;  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkinitrd --preload ahci &lt;&#x5185;&#x6838;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#x548C;&#x540D;&#x79F0;&gt; &lt;&#x5185;&#x6838;&#x7248;&#x672C;&#x53F7;&gt;</span><br></pre></td></tr></table></figure>
+<p>&#x5185;&#x6838;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#x548C;&#x540D;&#x79F0;&#xFF1A; &#x5373;&#x4E3A;&#x4E4B;&#x524D;&#x4FDD;&#x5B58;&#x7684;&#x5185;&#x6838;&#x7684;&#x8DEF;&#x5F84;&#x548C;&#x540D;&#x79F0;<br>&#x5185;&#x6838;&#x7248;&#x672C;&#x53F7;&#xFF1A;&#x5373;&#x4E3A;&#x4E0A;&#x9762;&#x4F7F;&#x7528;uname -r &#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x5185;&#x5BB9;</p>
+<p>&#x5B9E;&#x4F8B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /boot</span><br><span class="line">mkinitrd --preload ahci /boot/initrd-2.6.18-128.el5xen.img 2.6.18-128.el5</span><br></pre></td></tr></table></figure>
+<h3 id="&#x91CD;&#x542F;&#xFF0C;&#x8FDB;&#x5165;BISO&#xFF0C;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x4E3A;AHCI&#x540E;&#x91CD;&#x65B0;&#x8FDB;&#x5165;Linux&#x5373;&#x53EF;&#x3002;"><a href="#&#x91CD;&#x542F;&#xFF0C;&#x8FDB;&#x5165;BISO&#xFF0C;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x4E3A;AHCI&#x540E;&#x91CD;&#x65B0;&#x8FDB;&#x5165;Linux&#x5373;&#x53EF;&#x3002;" class="headerlink" title="&#x91CD;&#x542F;&#xFF0C;&#x8FDB;&#x5165;BISO&#xFF0C;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x4E3A;AHCI&#x540E;&#x91CD;&#x65B0;&#x8FDB;&#x5165;Linux&#x5373;&#x53EF;&#x3002;"></a>&#x91CD;&#x542F;&#xFF0C;&#x8FDB;&#x5165;BISO&#xFF0C;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x4E3A;AHCI&#x540E;&#x91CD;&#x65B0;&#x8FDB;&#x5165;Linux&#x5373;&#x53EF;&#x3002;</h3>
       
     </div>
     
@@ -329,11 +329,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iLo/" rel="tag">#iLo</a>
+            <a href="/tags/Centos/" rel="tag">#Centos</a>
           
-            <a href="/tags/授权/" rel="tag">#授权</a>
+            <a href="/tags/AHCI/" rel="tag">#AHCI</a>
           
-            <a href="/tags/license/" rel="tag">#license</a>
+            <a href="/tags/IDE/" rel="tag">#IDE</a>
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
           
         </div>
       
@@ -342,17 +344,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/25/Hp-Microserver-Gen8安装Centos-6-5/" rel="next" title="Hp Microserver Gen8安装Centos 6.5">
-                <i class="fa fa-chevron-left"></i> Hp Microserver Gen8安装Centos 6.5
+              <a href="/2016/04/25/iLo-licenses免费60版安装/" rel="next" title="iLo licenses免费60版安装">
+                <i class="fa fa-chevron-left"></i> iLo licenses免费60版安装
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/25/解决CentOS-Ubuntu-Fedora-RHEL-Linux下硬盘切换到AHCI模式后无法启动的办法/" rel="prev" title="解决CentOS/Ubuntu/Fedora/RHEL Linux下硬盘切换到AHCI模式后无法启动的办法">
-                解决CentOS/Ubuntu/Fedora/RHEL Linux下硬盘切换到AHCI模式后无法启动的办法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -378,8 +376,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/25/iLo-licenses免费60版安装/"
-           data-title="iLo licenses免费60版安装" data-url="http://blog.kuleyang.com/2016/04/25/iLo-licenses免费60版安装/">
+      <div class="ds-thread" data-thread-key="2016/04/25/解决CentOS-Ubuntu-Fedora-RHEL-Linux下硬盘切换到AHCI模式后无法启动的办法/"
+           data-title="解决CentOS/Ubuntu/Fedora/RHEL Linux下硬盘切换到AHCI模式后无法启动的办法" data-url="http://blog.kuleyang.com/2016/04/25/解决CentOS-Ubuntu-Fedora-RHEL-Linux下硬盘切换到AHCI模式后无法启动的办法/">
       </div>
     
   </div>
@@ -470,7 +468,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取试用版授权"><span class="nav-number">1.</span> <span class="nav-text">获取试用版授权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装授权Key"><span class="nav-number">2.</span> <span class="nav-text">安装授权Key</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number">2.</span> <span class="nav-text">解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在BIOS-中将硬盘模式先修改为IDE-然后正常进入Linux"><span class="nav-number">2.1.</span> <span class="nav-text">在BIOS 中将硬盘模式先修改为IDE, 然后正常进入Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#备份已有文件"><span class="nav-number">2.2.</span> <span class="nav-text">备份已有文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">2.3.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重新编译内核"><span class="nav-number">2.4.</span> <span class="nav-text">重新编译内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启，进入BISO，将硬盘模式修改为AHCI后重新进入Linux即可。"><span class="nav-number">2.5.</span> <span class="nav-text">重启，进入BISO，将硬盘模式修改为AHCI后重新进入Linux即可。</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
