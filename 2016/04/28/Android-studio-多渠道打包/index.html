@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MacPorts," />
+  <meta name="keywords" content="Android studio,打包," />
 
 
 
@@ -82,22 +82,16 @@
 
 
 
-<meta name="description" content="$ sudo port -f clean --all all$ sudo port -f uninstall inactive
-If you can&amp;#x2019;t wait for the clean one to run in the background, there are a few commands you can run manually and faster.
-Remove le">
+<meta name="description" content="&amp;#x4E00;&amp;#x822C;&amp;#x7528;&amp;#x6E20;&amp;#x9053;&amp;#x7684;&amp;#x7EDF;&amp;#x8BA1;&amp;#x65E0;&amp;#x975E;&amp;#x662F;&amp;#x7528;&amp;#x53CB;&amp;#x76DF;&amp;#x6216;&amp;#x8005;&amp;#x5176;&amp;#x5B83;&amp;#x4E4B;&amp;#x7C7B;&amp;#x7684;&amp;#xFF0C;&amp;#x4ECA;&amp;#x5929;&amp;#x5C31;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="清理MacPorts">
-<meta property="og:url" content="http://blog.kuleyang.com/2016/04/27/清理MacPorts/index.html">
+<meta property="og:title" content="Android studio 多渠道打包">
+<meta property="og:url" content="http://blog.kuleyang.com/2016/04/28/Android-studio-多渠道打包/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="$ sudo port -f clean --all all$ sudo port -f uninstall inactive
-If you can&amp;#x2019;t wait for the clean one to run in the background, there are a few commands you can run manually and faster.
-Remove le">
-<meta property="og:updated_time" content="2016-04-27T14:08:10.000Z">
+<meta property="og:description" content="&amp;#x4E00;&amp;#x822C;&amp;#x7528;&amp;#x6E20;&amp;#x9053;&amp;#x7684;&amp;#x7EDF;&amp;#x8BA1;&amp;#x65E0;&amp;#x975E;&amp;#x662F;&amp;#x7528;&amp;#x53CB;&amp;#x76DF;&amp;#x6216;&amp;#x8005;&amp;#x5176;&amp;#x5B83;&amp;#x4E4B;&amp;#x7C7B;&amp;#x7684;&amp;#xFF0C;&amp;#x4ECA;&amp;#x5929;&amp;#x5C31;">
+<meta property="og:updated_time" content="2016-04-28T16:01:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="清理MacPorts">
-<meta name="twitter:description" content="$ sudo port -f clean --all all$ sudo port -f uninstall inactive
-If you can&amp;#x2019;t wait for the clean one to run in the background, there are a few commands you can run manually and faster.
-Remove le">
+<meta name="twitter:title" content="Android studio 多渠道打包">
+<meta name="twitter:description" content="&amp;#x4E00;&amp;#x822C;&amp;#x7528;&amp;#x6E20;&amp;#x9053;&amp;#x7684;&amp;#x7EDF;&amp;#x8BA1;&amp;#x65E0;&amp;#x975E;&amp;#x662F;&amp;#x7528;&amp;#x53CB;&amp;#x76DF;&amp;#x6216;&amp;#x8005;&amp;#x5176;&amp;#x5B83;&amp;#x4E4B;&amp;#x7C7B;&amp;#x7684;&amp;#xFF0C;&amp;#x4ECA;&amp;#x5929;&amp;#x5C31;">
 
 
 
@@ -115,7 +109,7 @@ Remove le">
   };
 </script>
 
-  <title> 清理MacPorts | 技术分享 </title>
+  <title> Android studio 多渠道打包 | 技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +249,7 @@ Remove le">
             
             
               
-                清理MacPorts
+                Android studio 多渠道打包
               
             
           </h1>
@@ -267,8 +261,8 @@ Remove le">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-27T22:04:43+08:00" content="2016-04-27">
-              2016-04-27
+            <time itemprop="dateCreated" datetime="2016-04-28T23:50:28+08:00" content="2016-04-28">
+              2016-04-28
             </time>
           </span>
 
@@ -278,8 +272,8 @@ Remove le">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/27/清理MacPorts/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/清理MacPorts/" itemprop="commentsCount"></span>
+                <a href="/2016/04/28/Android-studio-多渠道打包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/Android-studio-多渠道打包/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -302,14 +296,23 @@ Remove le">
       
 
       
-        <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo port -f clean --all all</span><br><span class="line">$ sudo port -f uninstall inactive</span><br></pre></td></tr></table></figure>
-<p>If you can&#x2019;t wait for the clean one to run in the background, there are a few commands you can run manually and faster.</p>
-<p>Remove leftover build files (this is done automatically by default):  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo rm -rf /opt/local/var/macports/build/*</span><br></pre></td></tr></table></figure>
-<p>Remove download files:  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo rm -rf /opt/local/var/macports/distfiles/*</span><br></pre></td></tr></table></figure>
-<p>Remove archives (these aren&#x2019;t created by default):  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo rm -rf /opt/local/var/macports/packages/*</span><br></pre></td></tr></table></figure>
+        <p>&#x4E00;&#x822C;&#x7528;&#x6E20;&#x9053;&#x7684;&#x7EDF;&#x8BA1;&#x65E0;&#x975E;&#x662F;&#x7528;&#x53CB;&#x76DF;&#x6216;&#x8005;&#x5176;&#x5B83;&#x4E4B;&#x7C7B;&#x7684;&#xFF0C;&#x4ECA;&#x5929;&#x5C31;&#x4EE5;&#x53CB;&#x76DF;&#x7684;&#x4E3A;&#x4F8B;&#x5427;&#x3002;<br>&#x6E20;&#x9053;&#x4FE1;&#x606F;&#x4E00;&#x822C;&#x5728; AndroidManifest.xml&#x4E2D;&#x4FEE;&#x6539;&#x4EE5;&#x4E0B;&#x503C;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta-data android:name=&quot;UMENG_CHANNEL&quot; android:value=&quot;wandoujia&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>&#x9996;&#x5148;&#x4F60;&#x5FC5;&#x987B;&#x5728;AndroidManifest.xml&#x4E2D;&#x7684;meta-data&#x4FEE;&#x6539;&#x4EE5;&#x4E0B;&#x7684;&#x6837;&#x5B50;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta-data</span><br><span class="line">    android:name=&quot;UMENG_CHANNEL&quot;</span><br><span class="line">    android:value=&quot;${UMENG_CHANNEL_VALUE}&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>&#x5176;&#x4E2D;<code>${UMENG_CHANNEL_VALUE}</code>&#x4E2D;&#x7684;&#x503C;&#x5C31;&#x662F;&#x4F60;&#x5728;gradle&#x4E2D;&#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;&#x7684;&#x503C;&#x3002;</p>
+<p>build.gradle&#x6587;&#x4EF6;&#x5C31;&#x5229;&#x7528;productFlavors&#x8FD9;&#x6837;&#x5199;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">productFlavors {</span><br><span class="line"> </span><br><span class="line">wandoujia {</span><br><span class="line">manifestPlaceholders = [UMENG_CHANNEL_VALUE: &quot;wandoujia&quot;]</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line">baidu {</span><br><span class="line">manifestPlaceholders = [UMENG_CHANNEL_VALUE: &quot;baidu&quot;]</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line">c360 {</span><br><span class="line">manifestPlaceholders = [UMENG_CHANNEL_VALUE: &quot;c360&quot;]</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line">uc {</span><br><span class="line">manifestPlaceholders = [UMENG_CHANNEL_VALUE: &quot;uc&quot;]</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5176;&#x4E2D;<code>[UMENG_CHANNEL_VALUE: &quot;wandoujia&quot;]</code><br>&#x5C31;&#x662F;&#x5BF9;&#x5E94;<code>${UMENG_CHANNEL_VALUE}</code>&#x7684;&#x503C;&#x3002;</p>
+<p>&#x53E6;&#x4E00;&#x79CD;&#x66F4;&#x7B80;&#x6D01;&#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">productFlavors {</span><br><span class="line"> </span><br><span class="line">wandoujia {}</span><br><span class="line">baidu {}</span><br><span class="line">c360 {}</span><br><span class="line">uc {}</span><br><span class="line"> </span><br><span class="line">productFlavors.all { flavor -&gt;</span><br><span class="line">flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5176;&#x4E2D;name&#x7684;&#x503C;&#x5BF9;&#x76F8;&#x5BF9;&#x5E94;&#x5404;&#x4E2A;productFlavors&#x7684;&#x9009;&#x9879;&#x503C;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x8FBE;&#x5230;&#x81EA;&#x52A8;&#x66FF;&#x6362;&#x6E20;&#x9053;&#x503C;&#x7684;&#x76EE;&#x7684;&#x4E86;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x751F;&#x6210;apk&#x65F6;&#xFF0C;&#x9009;&#x62E9;&#x76F8;&#x5E94;&#x7684;Flavors&#x6765;&#x751F;&#x6210;&#x6307;&#x5B9A;&#x6E20;&#x9053;&#x7684;&#x5305;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x800C;&#x4E14;&#x751F;&#x6210;&#x7684;apk&#x4F1A;&#x81EA;&#x52A8;&#x5E2E;&#x4F60;&#x52A0;&#x4E0A;&#x76F8;&#x5E94;&#x6E20;&#x9053;&#x7684;&#x540E;&#x7F00;&#xFF0C;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x548C;&#x76F4;&#x89C2;&#x3002;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x53CD;&#x7F16;&#x8BD1;&#x9A8C;&#x8BC1;&#x3002;</p>
+<h3 id="&#x4E00;&#x6B21;&#x751F;&#x6210;&#x6240;&#x6709;&#x6E20;&#x9053;&#x5305;"><a href="#&#x4E00;&#x6B21;&#x751F;&#x6210;&#x6240;&#x6709;&#x6E20;&#x9053;&#x5305;" class="headerlink" title="&#x4E00;&#x6B21;&#x751F;&#x6210;&#x6240;&#x6709;&#x6E20;&#x9053;&#x5305;"></a>&#x4E00;&#x6B21;&#x751F;&#x6210;&#x6240;&#x6709;&#x6E20;&#x9053;&#x5305;</h3><p>&#x5728;android studio&#x5E95;&#x680F;&#x4E2D;&#x6709;&#x4E2A;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;Terminal,&#x6253;&#x5F00;&#x540E;&#x5C31;CMD&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x5207;&#x6362;&#x5230;&#x5F53;&#x524D;&#x9879;&#x76EE;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x3002;</p>
+<p>&#x6240;&#x6709;&#x6E20;&#x9053;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gradle assembleRelease</span><br></pre></td></tr></table></figure>
+<p>&#x5355;&#x4E2A;&#x6E20;&#x9053;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gradle assembleWandoujiaRelease</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -330,7 +333,9 @@ Remove le">
       
         <div class="post-tags">
           
-            <a href="/tags/MacPorts/" rel="tag">#MacPorts</a>
+            <a href="/tags/Android-studio/" rel="tag">#Android studio</a>
+          
+            <a href="/tags/打包/" rel="tag">#打包</a>
           
         </div>
       
@@ -339,17 +344,13 @@ Remove le">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/27/HP-iLo-2-3固件升级包及汉化包/" rel="next" title="HP iLo 2.3固件升级包及汉化包">
-                <i class="fa fa-chevron-left"></i> HP iLo 2.3固件升级包及汉化包
+              <a href="/2016/04/28/Git传输协议介绍/" rel="next" title="Git传输协议介绍">
+                <i class="fa fa-chevron-left"></i> Git传输协议介绍
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/28/Git传输协议介绍/" rel="prev" title="Git传输协议介绍">
-                Git传输协议介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -375,8 +376,8 @@ Remove le">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/27/清理MacPorts/"
-           data-title="清理MacPorts" data-url="http://blog.kuleyang.com/2016/04/27/清理MacPorts/">
+      <div class="ds-thread" data-thread-key="2016/04/28/Android-studio-多渠道打包/"
+           data-title="Android studio 多渠道打包" data-url="http://blog.kuleyang.com/2016/04/28/Android-studio-多渠道打包/">
       </div>
     
   </div>
@@ -467,7 +468,7 @@ Remove le">
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一次生成所有渠道包"><span class="nav-number">1.</span> <span class="nav-text">一次生成所有渠道包</span></a></li></ol></div>
             
           </div>
         </section>
