@@ -69,29 +69,39 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="技术分享" type="application/atom+xml" />
 
 
 
 
-  <link xmlns="http://www.w3.org/1999/xhtml" rel="shortcut icon"  href="/upload/favicon.svg?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/upload/favicon.ico?v=5.0.1" />
+  <link rel="icon" type="image/svg+xml" href="/upload/favicon.svg?v=5.0.1" />
+  <link rel="alternate icon" type="image/png" href="/upload/favicon.png?v=5.0.1" />
 
 
 
 
 
 
-<meta name="description" content="&amp;#x7A0D;&amp;#x540E;&amp;#x3002;&amp;#x3002;&amp;#x3002;">
+<meta name="description" content="&amp;#x6253;&amp;#x5F00;themes/next/layout/_partials/head.swig
+&amp;#x627E;&amp;#x5230;&amp;#x4EE5;&amp;#x4E0B;&amp;#x5730;&amp;#x65B9;&amp;#xFF1A;
+{% if theme.favicon %}  &amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; type=&amp;quot;image/x-icon&amp;q">
 <meta property="og:type" content="article">
 <meta property="og:title" content="让Hexo next支持svg版favicon">
 <meta property="og:url" content="http://blog.kuleyang.com/2016/05/01/让Hexo-next支持svg版favicon/index.html">
 <meta property="og:site_name" content="技术分享">
-<meta property="og:description" content="&amp;#x7A0D;&amp;#x540E;&amp;#x3002;&amp;#x3002;&amp;#x3002;">
-<meta property="og:updated_time" content="2016-04-30T23:31:40.000Z">
+<meta property="og:description" content="&amp;#x6253;&amp;#x5F00;themes/next/layout/_partials/head.swig
+&amp;#x627E;&amp;#x5230;&amp;#x4EE5;&amp;#x4E0B;&amp;#x5730;&amp;#x65B9;&amp;#xFF1A;
+{% if theme.favicon %}  &amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; type=&amp;quot;image/x-icon&amp;q">
+<meta property="og:updated_time" content="2016-05-01T00:03:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="让Hexo next支持svg版favicon">
-<meta name="twitter:description" content="&amp;#x7A0D;&amp;#x540E;&amp;#x3002;&amp;#x3002;&amp;#x3002;">
+<meta name="twitter:description" content="&amp;#x6253;&amp;#x5F00;themes/next/layout/_partials/head.swig
+&amp;#x627E;&amp;#x5230;&amp;#x4EE5;&amp;#x4E0B;&amp;#x5730;&amp;#x65B9;&amp;#xFF1A;
+{% if theme.favicon %}  &amp;lt;link rel=&amp;quot;shortcut icon&amp;quot; type=&amp;quot;image/x-icon&amp;q">
 
 
 
@@ -296,7 +306,14 @@
       
 
       
-        <p>&#x7A0D;&#x540E;&#x3002;&#x3002;&#x3002;</p>
+        <p>&#x6253;&#x5F00;<code>themes/next/layout/_partials/head.swig</code></p>
+<p>&#x627E;&#x5230;&#x4EE5;&#x4E0B;&#x5730;&#x65B9;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">{% if theme.favicon %}</span><br><span class="line">  &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;{{ url_for(theme.favicon) }}?v={{ theme.version }}&quot; /&gt;</span><br><span class="line">{% endif %}</span><br></pre></td></tr></table></figure>
+<p>&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">{% if theme.favicon %}</span><br><span class="line">  &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;{{ url_for(theme.favicon) }}.ico?v={{ theme.version }}&quot; /&gt;</span><br><span class="line">  &lt;link rel=&quot;icon&quot; type=&quot;image/svg+xml&quot; href=&quot;{{ url_for(theme.favicon) }}.svg?v={{ theme.version }}&quot; /&gt;</span><br><span class="line">  &lt;link rel=&quot;alternate icon&quot; type=&quot;image/png&quot; href=&quot;{{ url_for(theme.favicon) }}.png?v={{ theme.version }}&quot; /&gt;</span><br><span class="line">{% endif %}</span><br></pre></td></tr></table></figure>
+<p>&#x4FEE;&#x6539;next&#x914D;&#x7F6E;&#x6587;&#x4EF6;<code>_config.yml</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">favicon: &quot;/upload/favicon&quot;</span><br></pre></td></tr></table></figure>
+<p>&#x51C6;&#x5907;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x683C;&#x5F0F;&#x7684;<code>favicon.ico</code>,<code>favicon.svg</code>,<code>favicon.png</code></p>
 
       
     </div>
