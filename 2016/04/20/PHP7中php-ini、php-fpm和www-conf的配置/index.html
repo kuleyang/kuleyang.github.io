@@ -270,16 +270,12 @@
 
           
 		
-		  <span>
-          &nbsp; | &nbsp;
 		  <span id="qrcode">
-          </span>
 		  </span>
         
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
                 <a href="/2016/04/20/PHP7中php-ini、php-fpm和www-conf的配置/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/20/PHP7中php-ini、php-fpm和www-conf的配置/" itemprop="commentsCount"></span>
                 </a>
@@ -365,6 +361,19 @@
       
     </footer>
   </article>
+
+
+<script>
+    window.onload =function(){
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width : 96,//设置宽高
+            height : 96
+        });
+        qrcode.makeCode("http://blog.kuleyang.com/2016/04/20/PHP7中php-ini、php-fpm和www-conf的配置/");
+    }
+
+</script>
+
 
 
 
@@ -559,17 +568,6 @@
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-
-  <script>
-    window.onload =function(){
-        var qrcode = new QRCode(document.getElementById("qrcode"), {
-            width : 96,//设置宽高
-            height : 96
-        });
-        qrcode.makeCode("http://www.baidu.com");
-    }
-
-</script>
 
   
 

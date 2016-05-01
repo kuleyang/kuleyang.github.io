@@ -288,16 +288,12 @@ Yaf-2.2.9">
 
           
 		
-		  <span>
-          &nbsp; | &nbsp;
 		  <span id="qrcode">
-          </span>
 		  </span>
         
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
                 <a href="/2016/04/23/基于Yaf-MVC的PHP应用程序框架/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/23/基于Yaf-MVC的PHP应用程序框架/" itemprop="commentsCount"></span>
                 </a>
@@ -506,6 +502,19 @@ Yaf-2.2.9">
   </article>
 
 
+<script>
+    window.onload =function(){
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width : 96,//设置宽高
+            height : 96
+        });
+        qrcode.makeCode("http://blog.kuleyang.com/2016/04/23/基于Yaf-MVC的PHP应用程序框架/");
+    }
+
+</script>
+
+
+
 
     <div class="post-spread">
       
@@ -698,17 +707,6 @@ Yaf-2.2.9">
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-
-  <script>
-    window.onload =function(){
-        var qrcode = new QRCode(document.getElementById("qrcode"), {
-            width : 96,//设置宽高
-            height : 96
-        });
-        qrcode.makeCode("http://www.baidu.com");
-    }
-
-</script>
 
   
 
