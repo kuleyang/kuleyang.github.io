@@ -1,0 +1,659 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Centos,Linux,Shadowsocks,Privoxy,代理," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="技术分享" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/upload/favicon.ico?v=5.0.1" />
+  <link rel="icon" type="image/svg+xml" href="/upload/favicon.svg?v=5.0.1" />
+  <link rel="alternate icon" type="image/png" href="/upload/favicon.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Shadowsocks &amp;#x53EA;&amp;#x652F;&amp;#x6301;SOCKS&amp;#x4EE3;&amp;#x7406;&amp;#xFF0C;&amp;#x4E0D;&amp;#x592A;&amp;#x65B9;&amp;#x4FBF;&amp;#xFF0C;&amp;#x800C;Privoxy&amp;#x53EF;&amp;#x4EE5;&amp;#x628A;Socks&amp;#x4EE3;&amp;#x7406;&amp;#x8F6C;&amp;#x6362;&amp;#x6210;Http&amp;#x4EE3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos 6.5 安装Shadowsocks及Privoxy">
+<meta property="og:url" content="http://blog.kuleyang.com/2016/05/03/Centos-6-5-安装Shadowsocks及Privoxy/index.html">
+<meta property="og:site_name" content="技术分享">
+<meta property="og:description" content="Shadowsocks &amp;#x53EA;&amp;#x652F;&amp;#x6301;SOCKS&amp;#x4EE3;&amp;#x7406;&amp;#xFF0C;&amp;#x4E0D;&amp;#x592A;&amp;#x65B9;&amp;#x4FBF;&amp;#xFF0C;&amp;#x800C;Privoxy&amp;#x53EF;&amp;#x4EE5;&amp;#x628A;Socks&amp;#x4EE3;&amp;#x7406;&amp;#x8F6C;&amp;#x6362;&amp;#x6210;Http&amp;#x4EE3">
+<meta property="og:image" content="http://blog.kuleyang.com/2016/05/03/Centos-6-5-安装Shadowsocks及Privoxy/IMG_2942.jpg">
+<meta property="og:image" content="http://blog.kuleyang.com/2016/05/03/Centos-6-5-安装Shadowsocks及Privoxy/IMG_2941.jpg">
+<meta property="og:updated_time" content="2016-05-02T18:43:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Centos 6.5 安装Shadowsocks及Privoxy">
+<meta name="twitter:description" content="Shadowsocks &amp;#x53EA;&amp;#x652F;&amp;#x6301;SOCKS&amp;#x4EE3;&amp;#x7406;&amp;#xFF0C;&amp;#x4E0D;&amp;#x592A;&amp;#x65B9;&amp;#x4FBF;&amp;#xFF0C;&amp;#x800C;Privoxy&amp;#x53EF;&amp;#x4EE5;&amp;#x628A;Socks&amp;#x4EE3;&amp;#x7406;&amp;#x8F6C;&amp;#x6362;&amp;#x6210;Http&amp;#x4EE3">
+<meta name="twitter:image" content="http://blog.kuleyang.com/2016/05/03/Centos-6-5-安装Shadowsocks及Privoxy/IMG_2942.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Centos 6.5 安装Shadowsocks及Privoxy | 技术分享 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?94f2a8bbfb8374b1e513b6e1759bb48f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">技术分享</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一点一滴</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-mygithub">
+          <a href="https://github.com/kuleyang" rel="section">
+            
+              <i class="menu-item-icon fa fa-github fa-fw"></i> <br />
+            
+            我的github
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Centos 6.5 安装Shadowsocks及Privoxy
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-03T00:35:24+08:00" content="2016-05-03">
+              2016-05-03
+            </time>
+          </span>
+
+          
+		
+		  <span id="qrcode">
+		  </span>
+        
+          
+            
+              <span class="post-comments-count">
+                <a href="/2016/05/03/Centos-6-5-安装Shadowsocks及Privoxy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/03/Centos-6-5-安装Shadowsocks及Privoxy/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Shadowsocks &#x53EA;&#x652F;&#x6301;SOCKS&#x4EE3;&#x7406;&#xFF0C;&#x4E0D;&#x592A;&#x65B9;&#x4FBF;&#xFF0C;&#x800C;Privoxy&#x53EF;&#x4EE5;&#x628A;Socks&#x4EE3;&#x7406;&#x8F6C;&#x6362;&#x6210;Http&#x4EE3;&#x7406;&#xFF0C;&#x4E24;&#x8005;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x5F97;&#x7ED3;&#x5408;&#x3002;</p>
+<h2 id="&#x5B89;&#x88C5;-Shadowsocks-&#x670D;&#x52A1;&#x7AEF;"><a href="#&#x5B89;&#x88C5;-Shadowsocks-&#x670D;&#x52A1;&#x7AEF;" class="headerlink" title="&#x5B89;&#x88C5; Shadowsocks &#x670D;&#x52A1;&#x7AEF;"></a>&#x5B89;&#x88C5; Shadowsocks &#x670D;&#x52A1;&#x7AEF;</h2><h3 id="&#x88C5;&#x5907;&#x7F16;&#x8BD1;&#x73AF;&#x5883;"><a href="#&#x88C5;&#x5907;&#x7F16;&#x8BD1;&#x73AF;&#x5883;" class="headerlink" title="&#x88C5;&#x5907;&#x7F16;&#x8BD1;&#x73AF;&#x5883;"></a>&#x88C5;&#x5907;&#x7F16;&#x8BD1;&#x73AF;&#x5883;</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ yum install -y gcc automake autoconf libtool make build-essential autoconf libtool</span><br><span class="line">$ yum install -y curl curl-devel unzip zlib-devel openssl-devel perl perl-devel cpio expat-devel gettext-devel</span><br><span class="line">$ yum install -y wget</span><br></pre></td></tr></table></figure>
+<h3 id="&#x4E0B;&#x8F7D;&#x6E90;&#x7801;&#x5E76;&#x7F16;&#x8BD1;"><a href="#&#x4E0B;&#x8F7D;&#x6E90;&#x7801;&#x5E76;&#x7F16;&#x8BD1;" class="headerlink" title="&#x4E0B;&#x8F7D;&#x6E90;&#x7801;&#x5E76;&#x7F16;&#x8BD1;"></a>&#x4E0B;&#x8F7D;&#x6E90;&#x7801;&#x5E76;&#x7F16;&#x8BD1;</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ wget --no-check-certificate https://github.com/shadowsocks/shadowsocks-libev/archive/master.zip</span><br><span class="line">$ unzip master.zip</span><br><span class="line">$ <span class="built_in">cd</span> shadowsocks-libev-master</span><br><span class="line">$ ./configure</span><br><span class="line">$ make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>&#x4E2D;&#x95F4;&#x51FA;&#x4E86;&#x70B9;&#x5C0F;&#x95EE;&#x9898;&#xFF0C;&#x662F;&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x4E0D;&#x540C;&#x6B65;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x7F16;&#x8BD1;&#x4E4B;&#x524D;&#x540C;&#x6B65;&#x4E00;&#x4E0B;&#x65F6;&#x95F4;</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ yum install -y ntp</span><br><span class="line">$ ntpdate time.nist.gov</span><br></pre></td></tr></table></figure>
+<h3 id="&#x914D;&#x7F6E;"><a href="#&#x914D;&#x7F6E;" class="headerlink" title="&#x914D;&#x7F6E;"></a>&#x914D;&#x7F6E;</h3><h4 id="&#x51C6;&#x5907;&#x76F8;&#x5173;&#x76EE;&#x5F55;&#x53CA;&#x6587;&#x4EF6;"><a href="#&#x51C6;&#x5907;&#x76F8;&#x5173;&#x76EE;&#x5F55;&#x53CA;&#x6587;&#x4EF6;" class="headerlink" title="&#x51C6;&#x5907;&#x76F8;&#x5173;&#x76EE;&#x5F55;&#x53CA;&#x6587;&#x4EF6;"></a>&#x51C6;&#x5907;&#x76F8;&#x5173;&#x76EE;&#x5F55;&#x53CA;&#x6587;&#x4EF6;</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ mkdir -p /etc/shadowsocks-libev</span><br><span class="line">$ cp ./rpm/SOURCES/etc/init.d/shadowsocks-libev /etc/init.d/shadowsocks-libev</span><br><span class="line">$ cp ./debian/config.json /etc/shadowsocks-libev/config.json</span><br><span class="line">$ chmod +x /etc/init.d/shadowsocks-libev</span><br></pre></td></tr></table></figure>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x4E3A;<code>/usr</code>,&#x5219;&#x9700;&#x4FEE;&#x6539;<code>/etc/init.d/shadowsocks-libev</code>&#x4E2D;&#x7684;<code>/usr/bin/ss-server</code>&#x8DEF;&#x5F84;</p>
+<h4 id="&#x7F16;&#x8F91;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#&#x7F16;&#x8F91;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x7F16;&#x8F91;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x7F16;&#x8F91;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ vi /etc/shadowsocks-libev/config.json</span><br><span class="line">{ </span><br><span class="line">  &quot;server&quot;:&quot;127.0.0.1&quot;,						</span><br><span class="line">  &quot;server_port&quot;:8388,</span><br><span class="line">  &quot;local_port&quot;:1080,</span><br><span class="line">  &quot;password&quot;:&quot;barfoo!&quot;,</span><br><span class="line">  &quot;timeout&quot;:60,</span><br><span class="line">  &quot;method&quot;:null</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x9664;&#x4E86;method&#x6539;&#x6210;&#x201D;aes-256-cfb&#x201D; &#x3001;ip&#x6539;&#x6210;&#x670D;&#x52A1;&#x5668;&#x7684;ip&#x5916;&#xFF0C;&#x5176;&#x4ED6;&#x6839;&#x636E;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x4FEE;&#x6539;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;</p>
+<h3 id="&#x542F;&#x52A8;&#x670D;&#x52A1;"><a href="#&#x542F;&#x52A8;&#x670D;&#x52A1;" class="headerlink" title="&#x542F;&#x52A8;&#x670D;&#x52A1;"></a>&#x542F;&#x52A8;&#x670D;&#x52A1;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service shadowsocks-libev start</span><br></pre></td></tr></table></figure>
+<h2 id="&#x5B89;&#x88C5;-Shadowsocks-&#x5BA2;&#x6237;&#x7AEF;"><a href="#&#x5B89;&#x88C5;-Shadowsocks-&#x5BA2;&#x6237;&#x7AEF;" class="headerlink" title="&#x5B89;&#x88C5; Shadowsocks &#x5BA2;&#x6237;&#x7AEF;"></a>&#x5B89;&#x88C5; Shadowsocks &#x5BA2;&#x6237;&#x7AEF;</h2><h3 id="&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x4E8C;&#x8FDB;&#x7A0B;&#x5305;"><a href="#&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x4E8C;&#x8FDB;&#x7A0B;&#x5305;" class="headerlink" title="&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x4E8C;&#x8FDB;&#x7A0B;&#x5305;"></a>&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x4E8C;&#x8FDB;&#x7A0B;&#x5305;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /usr/local/bin/</span><br><span class="line">$ wget https://dl.chenyufei.info/shadowsocks/latest/shadowsocks-local-linux64-1.1.4.gz</span><br><span class="line">$ gunzip shadowsocks-local-linux64-1.1.4.gz</span><br><span class="line">$ chmod +x shadowsocks-local-linux64-1.1.4</span><br><span class="line">$ ln -s shadowsocks-local-linux64-1.1.4 shadowsocks-local</span><br></pre></td></tr></table></figure>
+<h3 id="&#x914D;&#x7F6E;-1"><a href="#&#x914D;&#x7F6E;-1" class="headerlink" title="&#x914D;&#x7F6E;"></a>&#x914D;&#x7F6E;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mkdir -p /etc/shadowsocks-local</span><br><span class="line">$ vi /etc/shadowsocks-local/config.json</span><br><span class="line">{</span><br><span class="line">&quot;server&quot;:&quot;104.238.223.107&quot;, </span><br><span class="line">&quot;server_port&quot;:19586, </span><br><span class="line">&quot;local_port&quot;:1080, </span><br><span class="line">&quot;password&quot;:&quot;&quot;, </span><br><span class="line">&quot;timeout&quot;:600, </span><br><span class="line">&quot;method&quot;:&quot;chacha20&quot;,</span><br><span class="line">&quot;remarks&quot;:&quot;&#x7F8E;&#x56FD;Las Vegas Node&quot;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="&#x542F;&#x52A8;"><a href="#&#x542F;&#x52A8;" class="headerlink" title="&#x542F;&#x52A8;"></a>&#x542F;&#x52A8;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">shadowsocks-local -c=&quot;/etc/shadowsocks-local/config.json&quot;</span><br></pre></td></tr></table></figure>
+<p>&#x8C03;&#x8BD5;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;<code>-d=true</code>&#x53C2;&#x6570;</p>
+<p>&#x540E;&#x53F0;&#x542F;&#x52A8;&#xFF1A;</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ nohup shadowsocks-local <span class="_">-d</span>=<span class="literal">true</span> -c=<span class="string">&quot;/etc/shadowsocks-local/config.json&quot;</span> &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="&#x5B89;&#x88C5;Privoxy"><a href="#&#x5B89;&#x88C5;Privoxy" class="headerlink" title="&#x5B89;&#x88C5;Privoxy"></a>&#x5B89;&#x88C5;Privoxy</h2><h3 id="&#x7F16;&#x8BD1;&#x5B89;&#x88C5;"><a href="#&#x7F16;&#x8BD1;&#x5B89;&#x88C5;" class="headerlink" title="&#x7F16;&#x8BD1;&#x5B89;&#x88C5;"></a>&#x7F16;&#x8BD1;&#x5B89;&#x88C5;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ groupadd privoxy</span><br><span class="line">$ useradd -s /sbin/nologin privoxy -g privoxy</span><br><span class="line">$ wget https://sourceforge.net/projects/ijbswa/files/Sources/3.0.24%20%28stable%29/privoxy-3.0.24-stable-src.tar.gz/download -O privoxy-3.0.24-stable-src.tar.gz</span><br><span class="line">$ tar zxvf privoxy-3.0.24-stable-src.tar.gz</span><br><span class="line">$ cd privoxy-3.0.24-stable</span><br><span class="line">$ autoheader &amp;&amp; autoconf &amp;&amp; ./configure</span><br><span class="line">$ make </span><br><span class="line">$ make -s install  USER=privoxy GROUP=privoxy</span><br></pre></td></tr></table></figure>
+<h3 id="&#x914D;&#x7F6E;-2"><a href="#&#x914D;&#x7F6E;-2" class="headerlink" title="&#x914D;&#x7F6E;"></a>&#x914D;&#x7F6E;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ vi  /usr/local/etc/privoxy/config</span><br></pre></td></tr></table></figure>
+<p>&#x4FEE;&#x6539;&#x589E;&#x52A0;&#x4E0B;&#x9762;&#x4E24;&#x884C;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">listen-address  0.0.0.0:8118</span><br><span class="line">forward-socks5   /               127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<h3 id="&#x542F;&#x52A8;-1"><a href="#&#x542F;&#x52A8;-1" class="headerlink" title="&#x542F;&#x52A8;"></a>&#x542F;&#x52A8;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service privoxy start</span><br></pre></td></tr></table></figure>
+<p>&#x9700;&#x4FEE;&#x6539;&#x597D;iptables&#x914D;&#x7F6E;&#xFF0C;&#x6253;&#x5F00;8118&#x7AEF;&#x53E3;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ vi /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
+<p>&#x589E;&#x52A0;&#x4E00;&#x6761;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 8118 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p>&#x91CD;&#x542F;iptables &#x53CA; privoxy&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ service iptables restart</span><br><span class="line">$ service privoxy restart</span><br></pre></td></tr></table></figure>
+<p>&#x89C1;iphone&#x6548;&#x679C;&#x56FE;&#xFF1A;<br><img src="/2016/05/03/Centos-6-5-&#x5B89;&#x88C5;Shadowsocks&#x53CA;Privoxy/IMG_2942.jpg" alt=""><br><img src="/2016/05/03/Centos-6-5-&#x5B89;&#x88C5;Shadowsocks&#x53CA;Privoxy/IMG_2941.jpg" alt=""></p>
+<p>&#x6253;&#x5B8C;&#x6536;&#x5DE5;&#x3002;&#x3002;&#x3002;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Centos/" rel="tag">#Centos</a>
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/Shadowsocks/" rel="tag">#Shadowsocks</a>
+          
+            <a href="/tags/Privoxy/" rel="tag">#Privoxy</a>
+          
+            <a href="/tags/代理/" rel="tag">#代理</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/03/SELinux引起的ssh公钥认证失败问题/" rel="next" title="SELinux引起的ssh公钥认证失败问题">
+                <i class="fa fa-chevron-left"></i> SELinux引起的ssh公钥认证失败问题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+<script>
+    window.onload =function(){
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width : 96,//设置宽高
+            height : 96
+        });
+        qrcode.makeCode("http://blog.kuleyang.com/2016/05/03/Centos-6-5-安装Shadowsocks及Privoxy/");
+    }
+
+</script>
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/03/Centos-6-5-安装Shadowsocks及Privoxy/"
+           data-title="Centos 6.5 安装Shadowsocks及Privoxy" data-url="http://blog.kuleyang.com/2016/05/03/Centos-6-5-安装Shadowsocks及Privoxy/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Kule Yang" />
+          <p class="site-author-name" itemprop="name">Kule Yang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Shadowsocks-服务端"><span class="nav-number">1.</span> <span class="nav-text">安装 Shadowsocks 服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#装备编译环境"><span class="nav-number">1.1.</span> <span class="nav-text">装备编译环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载源码并编译"><span class="nav-number">1.2.</span> <span class="nav-text">下载源码并编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备相关目录及文件"><span class="nav-number">1.3.1.</span> <span class="nav-text">准备相关目录及文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑配置文件"><span class="nav-number">1.3.2.</span> <span class="nav-text">编辑配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动服务"><span class="nav-number">1.4.</span> <span class="nav-text">启动服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Shadowsocks-客户端"><span class="nav-number">2.</span> <span class="nav-text">安装 Shadowsocks 客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装二进程包"><span class="nav-number">2.1.</span> <span class="nav-text">下载安装二进程包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-1"><span class="nav-number">2.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">2.3.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Privoxy"><span class="nav-number">3.</span> <span class="nav-text">安装Privoxy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译安装"><span class="nav-number">3.1.</span> <span class="nav-text">编译安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-2"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-1"><span class="nav-number">3.3.</span> <span class="nav-text">启动</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kule Yang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/qrcode.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"kuleyang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
