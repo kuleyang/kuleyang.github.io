@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/05/03/SELinux%E5%BC%95%E8%B5%B7%E7%9A%84ssh%E5%85%AC%E9%92%A5%E8%AE%A4%E8%AF%81%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2016-05-02T18:46:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>SELinux引起的ssh公钥认证失败问题</title>
+        <pubTime>2016-05-02T16:15:03.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>SELinux</tag>
+         
+        <tag>ssh</tag>
+         
+        <tag>公钥</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/05/03/Centos-6-5-%E5%AE%89%E8%A3%85Shadowsocks%E5%8F%8APrivoxy/</loc>
+    <lastmod>2016-05-02T18:46:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>Centos 6.5 安装Shadowsocks及Privoxy</title>
+        <pubTime>2016-05-02T16:35:24.000Z</pubTime>
+        
+        <tag>Centos</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>Shadowsocks</tag>
+         
+        <tag>Privoxy</tag>
+         
+        <tag>代理</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/29/Android-Service-%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2016-05-01T17:59:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Service 详解</title>
+        <pubTime>2016-04-29T14:09:48.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Service</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/05/01/%E8%AE%A9Hexo-next%E6%94%AF%E6%8C%81svg%E7%89%88favicon/</loc>
+    <lastmod>2016-05-01T00:03:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>让Hexo next支持svg版favicon</title>
+        <pubTime>2016-04-30T23:31:01.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>Next</tag>
+         
+        <tag>svg</tag>
+         
+        <tag>favicon</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/29/Android-bound-service-%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2016-04-29T15:07:40.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android bound service 详解</title>
+        <pubTime>2016-04-29T14:39:11.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>bound</tag>
+         
+        <tag>service</tag>
+         
+        <tag>详解</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/28/Android-studio-%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85/</loc>
+    <lastmod>2016-04-28T16:02:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android studio 多渠道打包</title>
+        <pubTime>2016-04-28T15:50:28.000Z</pubTime>
+        
+        <tag>Android studio</tag>
+         
+        <tag>打包</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/28/Git%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2016-04-27T19:20:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git传输协议介绍</title>
+        <pubTime>2016-04-27T19:09:27.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+        <tag>协议</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/26/Git%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/</loc>
+    <lastmod>2016-04-27T18:58:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git使用帮助</title>
+        <pubTime>2016-04-26T10:27:49.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+        <tag>命令</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/27/%E6%B8%85%E7%90%86MacPorts/</loc>
+    <lastmod>2016-04-27T14:08:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>清理MacPorts</title>
+        <pubTime>2016-04-27T14:04:43.000Z</pubTime>
+        
+        <tag>MacPorts</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/27/HP-iLo-2-3%E5%9B%BA%E4%BB%B6%E5%8D%87%E7%BA%A7%E5%8C%85%E5%8F%8A%E6%B1%89%E5%8C%96%E5%8C%85/</loc>
+    <lastmod>2016-04-27T12:13:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>HP iLo 2.3固件升级包及汉化包</title>
+        <pubTime>2016-04-26T21:39:08.000Z</pubTime>
+        
+        <tag>HP</tag>
+         
+        <tag>iLo</tag>
+         
+        <tag>汉化</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/25/%E8%A7%A3%E5%86%B3CentOS-Ubuntu-Fedora-RHEL-Linux%E4%B8%8B%E7%A1%AC%E7%9B%98%E5%88%87%E6%8D%A2%E5%88%B0AHCI%E6%A8%A1%E5%BC%8F%E5%90%8E%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E7%9A%84%E5%8A%9E%E6%B3%95/</loc>
+    <lastmod>2016-04-24T20:40:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>解决CentOS/Ubuntu/Fedora/RHEL Linux下硬盘切换到AHCI模式后无法启动的办法</title>
+        <pubTime>2016-04-24T20:01:26.000Z</pubTime>
+        
+        <tag>Centos</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>AHCI</tag>
+         
+        <tag>IDE</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/25/%E9%87%8D%E7%BD%AEHP-iLo%E6%8E%A5%E5%8F%A3/</loc>
+    <lastmod>2016-04-24T20:30:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>重置HP iLo接口</title>
+        <pubTime>2016-04-24T20:20:04.000Z</pubTime>
+        
+        <tag>iLo</tag>
+         
+        <tag>Hp</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/25/iLo-licenses%E5%85%8D%E8%B4%B960%E7%89%88%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2016-04-24T19:59:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>iLo licenses免费60版安装</title>
+        <pubTime>2016-04-24T17:35:27.000Z</pubTime>
+        
+        <tag>iLo</tag>
+         
+        <tag>授权</tag>
+         
+        <tag>license</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/25/Hp-Microserver-Gen8%E5%AE%89%E8%A3%85Centos-6-5/</loc>
+    <lastmod>2016-04-24T19:58:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hp Microserver Gen8安装Centos 6.5</title>
+        <pubTime>2016-04-24T16:18:53.000Z</pubTime>
+        
+        <tag>Centos</tag>
+         
+        <tag>Gen8</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/23/%E5%9F%BA%E4%BA%8EYaf-MVC%E7%9A%84PHP%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2016-04-23T16:47:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>基于Yaf MVC的PHP应用程序框架</title>
+        <pubTime>2016-04-23T11:01:57.000Z</pubTime>
+        
+        <tag>PHP</tag>
+         
+        <tag>Yaf</tag>
+         
+        <tag>MVC</tag>
+         
+        <tag>PHP7</tag>
+         
+        <tag>框架</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/22/IP110%E6%89%93%E5%8D%B0%E6%9C%BA%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2016-04-23T16:41:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>IP110打印机相关配置</title>
+        <pubTime>2016-04-22T14:11:27.000Z</pubTime>
+        
+        <tag>IP110</tag>
+         
+        <tag>打印机</tag>
+         
+        <tag>配置</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/23/PHP%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7xhprof%E4%BB%8B%E7%BB%8D%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</loc>
+    <lastmod>2016-04-22T20:45:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>PHP性能分析工具xhprof介绍、安装、使用说明</title>
+        <pubTime>2016-04-22T19:53:37.000Z</pubTime>
+        
+        <tag>安装</tag>
+         
+        <tag>PHP</tag>
+         
+        <tag>xhprof</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/22/Github%E4%BD%BF%E7%94%A8GPG%E5%AF%B9%E8%AF%84%E8%AE%BA%E5%8F%8ATags%E7%AD%BE%E5%90%8D/</loc>
+    <lastmod>2016-04-21T21:33:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>Github使用GPG对评论及Tags签名</title>
+        <pubTime>2016-04-21T18:56:48.000Z</pubTime>
+        
+        <tag>Github</tag>
+         
+        <tag>GPG</tag>
+         
+        <tag>签名</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/21/GPG%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2016-04-21T18:55:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>GPG入门教程</title>
+        <pubTime>2016-04-21T14:52:22.000Z</pubTime>
+        
+        <tag>GPG</tag>
+         
+        <tag>osx</tag>
+         
+        <tag>教程</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/21/RSA%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2016-04-21T14:46:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>RSA算法原理</title>
+        <pubTime>2016-04-21T13:09:31.000Z</pubTime>
+        
+        <tag>RSA</tag>
+         
+        <tag>算法</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/20/CentOS6-5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Nginx1-9/</loc>
+    <lastmod>2016-04-20T17:49:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS6.5编译安装Nginx1.9</title>
+        <pubTime>2016-04-19T21:04:46.000Z</pubTime>
+        
+        <tag>centos</tag>
+         
+        <tag>6.5</tag>
+         
+        <tag>Nginx</tag>
+         
+        <tag>编译安装</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/20/Centos6-5%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85PHP7/</loc>
+    <lastmod>2016-04-20T17:40:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Centos6.5编译安装PHP7</title>
+        <pubTime>2016-04-20T09:48:29.000Z</pubTime>
+        
+        <tag>centos</tag>
+         
+        <tag>php7</tag>
+         
+        <tag>编译</tag>
+         
+        <tag>安装</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/20/PHP7%E4%B8%ADphp-ini%E3%80%81php-fpm%E5%92%8Cwww-conf%E7%9A%84%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2016-04-20T17:40:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>PHP7中php.ini、php-fpm和www.conf的配置</title>
+        <pubTime>2016-04-20T10:10:05.000Z</pubTime>
+        
+        <tag>php7</tag>
+         
+        <tag>php配置</tag>
+         
+        <tag>fpm</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/04/20/Nginx%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E3%80%81%E5%81%9C%E6%AD%A2%E5%92%8C%E9%87%8D%E5%90%AF%E7%AD%89%E6%93%8D%E4%BD%9C%E7%9A%84SHELL%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2016-04-20T17:24:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx服务启动、停止和重启等操作的SHELL脚本</title>
+        <pubTime>2016-04-19T22:51:05.000Z</pubTime>
+        
+        <tag>nginx</tag>
+         
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+</urlset>
