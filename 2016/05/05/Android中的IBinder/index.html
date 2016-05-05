@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://blog.kuleyang.com/2016/05/05/Android中的IBinder/index.html">
 <meta property="og:site_name" content="技术分享">
 <meta property="og:description" content="&amp;#x4E0A;&amp;#x56DE;&amp;#x4E66;&amp;#x7B80;&amp;#x5355;&amp;#x63CF;&amp;#x8FF0;&amp;#x4E86;&amp;#x8FDB;&amp;#x7A0B;&amp;#x95F4;&amp;#x4F20;&amp;#x9012;&amp;#x7C7B;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x539F;&amp;#x7406;&amp;#xFF0C;&amp;#x8FD9;&amp;#x56DE;&amp;#x5728;&amp;#x8BB2;Parcel&amp;#">
-<meta property="og:updated_time" content="2016-05-05T05:29:34.000Z">
+<meta property="og:updated_time" content="2016-05-05T05:47:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android中的IBinder">
 <meta name="twitter:description" content="&amp;#x4E0A;&amp;#x56DE;&amp;#x4E66;&amp;#x7B80;&amp;#x5355;&amp;#x63CF;&amp;#x8FF0;&amp;#x4E86;&amp;#x8FDB;&amp;#x7A0B;&amp;#x95F4;&amp;#x4F20;&amp;#x9012;&amp;#x7C7B;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x539F;&amp;#x7406;&amp;#xFF0C;&amp;#x8FD9;&amp;#x56DE;&amp;#x5728;&amp;#x8BB2;Parcel&amp;#">
@@ -303,6 +303,7 @@
         <p>&#x4E0A;&#x56DE;&#x4E66;&#x7B80;&#x5355;&#x63CF;&#x8FF0;&#x4E86;&#x8FDB;&#x7A0B;&#x95F4;&#x4F20;&#x9012;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x8FD9;&#x56DE;&#x5728;&#x8BB2;<code>Parcel</code>&#x4E4B;&#x524D;&#xFF0C;&#x5148;&#x8981;&#x8BB2;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF1A;<code>IBinder</code>&#x3002;  </p>
 <p>IBinder&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;  </p>
 <p>&#x9996;&#x5148;&#x8981;&#x660E;&#x767D;&#xFF0C;Android&#x7684;&#x8FDC;&#x7A0B;&#x8C03;&#x7528;&#xFF08;&#x5C31;&#x662F;&#x8DE8;&#x8FDB;&#x7A0B;&#x8C03;&#x7528;&#xFF09;&#x5C31;&#x662F;&#x901A;&#x8FC7;IBinder&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x5BF9;android&#x5F00;&#x53D1;&#x6587;&#x6863;&#x7684;&#x7FFB;&#x8BD1;&#x3002; </p>
+<a id="more"></a>
 <p>IBinder&#x662F;&#x8FDC;&#x7A0B;&#x5BF9;&#x8C61;&#x7684;&#x57FA;&#x672C;&#x63A5;&#x53E3;&#xFF0C;&#x662F;&#x4E3A;&#x9AD8;&#x6027;&#x80FD;&#x800C;&#x8BBE;&#x8BA1;&#x7684;&#x8F7B;&#x91CF;&#x7EA7;&#x8FDC;&#x7A0B;&#x8C03;&#x7528;&#x673A;&#x5236;&#x7684;&#x6838;&#x5FC3;&#x90E8;&#x5206;&#x3002;&#x4F46;&#x5B83;&#x4E0D;&#x4EC5;&#x7528;&#x4E8E;&#x8FDC;&#x7A0B;&#x8C03;&#x7528;&#xFF0C;&#x4E5F;&#x7528;&#x4E8E;&#x8FDB;&#x7A0B;&#x5185;&#x8C03;&#x7528;&#x3002;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E0E;&#x8FDC;&#x7A0B;&#x5BF9;&#x8C61;&#x4EA4;&#x4E92;&#x7684;&#x534F;&#x8BAE;&#x3002;&#x4E0D;&#x8981;&#x76F4;&#x63A5;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x800C;&#x5E94;&#x8BE5;&#x4ECE;Binder&#x6D3E;&#x751F;&#x3002;</p>
 <p>IBinder&#x7684;&#x4E3B;&#x8981;API&#x662F;<code>transact()</code>&#xFF0C;&#x4E0E;&#x5B83;&#x5BF9;&#x5E94;&#x53E6;&#x4E00;&#x65B9;&#x6CD5;&#x662F;<code>Binder.onTransact()</code>&#x3002;</p>
 <p>&#x7B2C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x4F7F;&#x4F60;&#x53EF;&#x4EE5;&#x5411;&#x8FDC;&#x7AEF;&#x7684;IBinder&#x5BF9;&#x8C61;&#x53D1;&#x9001;&#x53D1;&#x51FA;&#x8C03;&#x7528;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x65B9;&#x6CD5;&#x4F7F;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x8FDC;&#x7A0B;&#x5BF9;&#x8C61;&#x80FD;&#x591F;&#x54CD;&#x5E94;&#x63A5;&#x6536;&#x5230;&#x7684;&#x8C03;&#x7528;&#x3002;</p>

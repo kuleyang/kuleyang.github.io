@@ -1,5 +1,5 @@
-http://blog.kuleyang.com/2016/05/05/android%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/
 http://blog.kuleyang.com/2016/05/05/Android%E4%B8%AD%E7%9A%84IBinder/
+http://blog.kuleyang.com/2016/05/05/android%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/
 http://blog.kuleyang.com/2016/05/03/SELinux%E5%BC%95%E8%B5%B7%E7%9A%84ssh%E5%85%AC%E9%92%A5%E8%AE%A4%E8%AF%81%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/
 http://blog.kuleyang.com/2016/05/03/Centos-6-5-%E5%AE%89%E8%A3%85Shadowsocks%E5%8F%8APrivoxy/
 http://blog.kuleyang.com/2016/04/29/Android-Service-%E8%AF%A6%E8%A7%A3/
