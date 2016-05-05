@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://blog.kuleyang.com/2016/05/05/android%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2016-05-05T05:33:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>android进程与线程详解</title>
+        <pubTime>2016-05-05T05:00:28.000Z</pubTime>
+        
+        <tag>详解</tag>
+         
+        <tag>Andorid</tag>
+         
+        <tag>进程</tag>
+         
+        <tag>线程</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/05/05/Android%E4%B8%AD%E7%9A%84IBinder/</loc>
+    <lastmod>2016-05-05T05:29:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android中的IBinder</title>
+        <pubTime>2016-05-05T05:23:31.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>IBinder</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.kuleyang.com/2016/05/03/SELinux%E5%BC%95%E8%B5%B7%E7%9A%84ssh%E5%85%AC%E9%92%A5%E8%AE%A4%E8%AF%81%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2016-05-05T04:51:09.000Z</lastmod>
     <data>
