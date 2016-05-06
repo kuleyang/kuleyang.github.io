@@ -1,0 +1,646 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="代理,Git," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="技术分享" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/upload/favicon.ico?v=5.0.1" />
+  <link rel="icon" type="image/svg+xml" href="/upload/favicon.svg?v=5.0.1" />
+  <link rel="alternate icon" type="image/png" href="/upload/favicon.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Git &amp;#x76EE;&amp;#x524D;&amp;#x652F;&amp;#x6301;&amp;#x7684;&amp;#x4E09;&amp;#x79CD;&amp;#x534F;&amp;#x8BAE; git://&amp;#x3001;ssh:// &amp;#x548C; http://&amp;#xFF0C;&amp;#x5176;&amp;#x4EE3;&amp;#x7406;&amp;#x914D;&amp;#x7F6E;&amp;#x5404;&amp;#x4E0D;&amp;#x76F8;&amp;#x540C;&amp;#xFF1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 设置代理">
+<meta property="og:url" content="http://blog.kuleyang.com/2016/05/07/Git-设置代理/index.html">
+<meta property="og:site_name" content="技术分享">
+<meta property="og:description" content="Git &amp;#x76EE;&amp;#x524D;&amp;#x652F;&amp;#x6301;&amp;#x7684;&amp;#x4E09;&amp;#x79CD;&amp;#x534F;&amp;#x8BAE; git://&amp;#x3001;ssh:// &amp;#x548C; http://&amp;#xFF0C;&amp;#x5176;&amp;#x4EE3;&amp;#x7406;&amp;#x914D;&amp;#x7F6E;&amp;#x5404;&amp;#x4E0D;&amp;#x76F8;&amp;#x540C;&amp;#xFF1">
+<meta property="og:updated_time" content="2016-05-06T18:33:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 设置代理">
+<meta name="twitter:description" content="Git &amp;#x76EE;&amp;#x524D;&amp;#x652F;&amp;#x6301;&amp;#x7684;&amp;#x4E09;&amp;#x79CD;&amp;#x534F;&amp;#x8BAE; git://&amp;#x3001;ssh:// &amp;#x548C; http://&amp;#xFF0C;&amp;#x5176;&amp;#x4EE3;&amp;#x7406;&amp;#x914D;&amp;#x7F6E;&amp;#x5404;&amp;#x4E0D;&amp;#x76F8;&amp;#x540C;&amp;#xFF1">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Git 设置代理 | 技术分享 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?94f2a8bbfb8374b1e513b6e1759bb48f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">技术分享</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一点一滴</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-mygithub">
+          <a href="https://github.com/kuleyang" rel="section">
+            
+              <i class="menu-item-icon fa fa-github fa-fw"></i> <br />
+            
+            我的github
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git 设置代理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T01:34:53+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+		
+		  <span id="qrcode">
+		  </span>
+        
+          
+            
+              <span class="post-comments-count">
+                <a href="/2016/05/07/Git-设置代理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/Git-设置代理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Git &#x76EE;&#x524D;&#x652F;&#x6301;&#x7684;&#x4E09;&#x79CD;&#x534F;&#x8BAE; <code>git://</code>&#x3001;<code>ssh://</code> &#x548C; <code>http://</code>&#xFF0C;&#x5176;&#x4EE3;&#x7406;&#x914D;&#x7F6E;&#x5404;&#x4E0D;&#x76F8;&#x540C;&#xFF1A;<code>core.gitproxy</code> &#x7528;&#x4E8E; <code>git://</code> &#x534F;&#x8BAE;&#xFF0C;<code>http.proxy</code> &#x7528;&#x4E8E; <code>http://</code> &#x534F;&#x8BAE;&#xFF0C;<code>ssh://</code> &#x534F;&#x8BAE;&#x7684;&#x4EE3;&#x7406;&#x9700;&#x8981;&#x914D;&#x7F6E; <code>ssh</code> &#x7684; <code>ProxyCommand</code> &#x53C2;&#x6570;&#x3002;</p>
+<h1 id="&#x4F7F;&#x7528;connect&#x5DE5;&#x5177;"><a href="#&#x4F7F;&#x7528;connect&#x5DE5;&#x5177;" class="headerlink" title="&#x4F7F;&#x7528;connect&#x5DE5;&#x5177;"></a>&#x4F7F;&#x7528;connect&#x5DE5;&#x5177;</h1><p>&#x4F7F;&#x7528; <a href="https://github.com/kuleyang/connect" target="_blank" rel="external">https://github.com/kuleyang/connect</a> &#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x4EE3;&#x7406;&#x7684;&#x8F6C;&#x6362;</p>
+<h2 id="&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528;-SSH-&#x96A7;&#x9053;&#x8FDB;&#x884C;&#x4EE3;&#x7406;"><a href="#&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528;-SSH-&#x96A7;&#x9053;&#x8FDB;&#x884C;&#x4EE3;&#x7406;" class="headerlink" title="&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528; SSH &#x96A7;&#x9053;&#x8FDB;&#x884C;&#x4EE3;&#x7406;"></a>&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528; SSH &#x96A7;&#x9053;&#x8FDB;&#x884C;&#x4EE3;&#x7406;</h2><h3 id="GIT-&#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;"><a href="#GIT-&#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="GIT &#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;"></a>GIT &#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;</h3><p>&#x5EFA;&#x7ACB; <code>/path/to/socks5proxywrapper</code> &#x6587;&#x4EF6;:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">connect -S 127.0.0.1:7070 <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>&#x914D;&#x7F6E; git</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[core]</span><br><span class="line">        gitproxy = /path/to/socks5proxywrapper</span><br></pre></td></tr></table></figure>
+<p>&#x6216;&#x8005;</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> GIT_PROXY_COMMAND=<span class="string">&quot;/path/to/socks5proxywrapper&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="SSH-&#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;"><a href="#SSH-&#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="SSH &#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;"></a>SSH &#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;</h3><p>&#x5EFA;&#x7ACB; /path/to/soks5proxyssh &#x6587;&#x4EF6;</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">ssh -o ProxyCommand=<span class="string">&quot;/path/to/socks5proxywrapper %h %p&quot;</span> <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>&#x914D;&#x7F6E; git &#x4F7F;&#x7528;&#x8BE5; wrapper</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> GIT_SSH=<span class="string">&quot;/path/to/socks5proxyssh&#x201C;</span></span><br></pre></td></tr></table></figure>
+<p>&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x914D;&#x7F6E; <code>&#xFF5E;/.ssh/config</code> &#x7684; <code>ProxyCommand</code></p>
+<h3 id="HTTP-&#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;"><a href="#HTTP-&#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="HTTP &#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;"></a>HTTP &#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">        #&#x8FD9;&#x91CC;&#x662F;&#x56E0;&#x4E3A; Git &#x4F7F;&#x7528; libcurl &#x63D0;&#x4F9B; http &#x652F;&#x6301;</span><br><span class="line">        proxy = socks5://127.0.0.1:7070</span><br></pre></td></tr></table></figure>
+<h2 id="&#x6240;&#x6709;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528;-http-&#x4EE3;&#x7406;"><a href="#&#x6240;&#x6709;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528;-http-&#x4EE3;&#x7406;" class="headerlink" title="&#x6240;&#x6709;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528; http &#x4EE3;&#x7406;"></a>&#x6240;&#x6709;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528; http &#x4EE3;&#x7406;</h2><p>&#x5728;&#x524D;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C; <code>/path/to/socks5proxywrapper</code> &#x6587;&#x4EF6;&#x6539;&#x4E3A;</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">connect -H 192.168.1.100:8080 <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="HTTP-&#x534F;&#x8BAE;&#x914D;&#x7F6E;"><a href="#HTTP-&#x534F;&#x8BAE;&#x914D;&#x7F6E;" class="headerlink" title="HTTP &#x534F;&#x8BAE;&#x914D;&#x7F6E;"></a>HTTP &#x534F;&#x8BAE;&#x914D;&#x7F6E;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = http://192.168.1.100:8080</span><br></pre></td></tr></table></figure>
+<h3 id="&#x9488;&#x5BF9;&#x57DF;&#x540D;&#x542F;&#x7528;&#x4EE3;&#x7406;"><a href="#&#x9488;&#x5BF9;&#x57DF;&#x540D;&#x542F;&#x7528;&#x4EE3;&#x7406;" class="headerlink" title="&#x9488;&#x5BF9;&#x57DF;&#x540D;&#x542F;&#x7528;&#x4EE3;&#x7406;"></a>&#x9488;&#x5BF9;&#x57DF;&#x540D;&#x542F;&#x7528;&#x4EE3;&#x7406;</h3><p><code>gitproxy</code> &#x53C2;&#x6570;&#x63D0;&#x4F9B; <code>* for *</code> &#x7ED3;&#x6784;&#xFF0C;&#x5177;&#x4F53;&#x770B; <code>man git-config</code> &#x7684; <code>core.gitproxy</code> &#x90E8;&#x5206;&#x3002;</p>
+<h2 id="&#x9644;1&#xFF1A;"><a href="#&#x9644;1&#xFF1A;" class="headerlink" title="&#x9644;1&#xFF1A;"></a>&#x9644;1&#xFF1A;</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* How To Use</span><br><span class="line">* ==========</span><br><span class="line">*</span><br><span class="line">*   You can specify proxy method in an environment variable or in a</span><br><span class="line">*   command line option.</span><br><span class="line">*</span><br><span class="line">*   usage:  connect [-dnhst45] [-R resolve] [-p local-port] [-w sec]</span><br><span class="line">*                   [-H [user@]proxy-server[:port]]</span><br><span class="line">*                   [-S [user@]socks-server[:port]]</span><br><span class="line">*                   [-T proxy-server[:port]]</span><br><span class="line">*                   [-c telnet proxy command]</span><br><span class="line">*                   host port</span><br><span class="line">*</span><br><span class="line">*   &quot;host&quot; and &quot;port&quot; is for the target hostname and port-number to</span><br><span class="line">*   connect to.</span><br><span class="line">*</span><br><span class="line">*   The -H option specifys a hostname and port number of the http proxy</span><br><span class="line">*   server to relay. If port is omitted, 80 is used. You can specify this</span><br><span class="line">*   value in the environment variable HTTP_PROXY and pass the -h option</span><br><span class="line">*   to use it.</span><br><span class="line">*</span><br><span class="line">*   The -S option specifys the hostname and port number of the SOCKS</span><br><span class="line">*   server to relay.  Like -H, port number can be omitted and the default</span><br><span class="line">*   is 1080. You can also specify this value pair in the environment</span><br><span class="line">*   variable SOCKS5_SERVER and give the -s option to use it.</span><br><span class="line">*</span><br><span class="line">*   The &apos;-4&apos; and the &apos;-5&apos; options are for specifying SOCKS relaying and</span><br><span class="line">*   indicates protocol version to use. It is valid only when used with</span><br><span class="line">*   &apos;-s&apos; or &apos;-S&apos;. Default is &apos;-5&apos; (protocol version 5)</span><br><span class="line">*</span><br><span class="line">*   The &apos;-R&apos; option is for specifying method to resolve the</span><br><span class="line">*   hostname. Three keywords (&quot;local&quot;, &quot;remote&quot;, &quot;both&quot;) or dot-notation</span><br><span class="line">*   IP address are acceptable.  The keyword &quot;both&quot; means, &quot;Try local</span><br><span class="line">*   first, then remote&quot;. If a dot-notation IP address is specified, use</span><br><span class="line">*   this host as nameserver. The default is &quot;remote&quot; for SOCKS5 or</span><br><span class="line">*   &quot;local&quot; for others. On SOCKS4 protocol, remote resolving method</span><br><span class="line">*   (&quot;remote&quot; and &quot;both&quot;) requires protocol 4a supported server.</span><br><span class="line">*</span><br><span class="line">*   The &apos;-p&apos; option will forward a local TCP port instead of using the</span><br><span class="line">*   standard input and output.</span><br><span class="line">*</span><br><span class="line">*   The &apos;-P&apos; option is same to &apos;-p&apos; except keep remote session. The</span><br><span class="line">*   program repeats waiting the port with holding remote session without</span><br><span class="line">*   disconnecting. To disconnect the remote session, send EOF to stdin or</span><br><span class="line">*   kill the program.</span><br><span class="line">*</span><br><span class="line">*   The &apos;-w&apos; option specifys timeout seconds for making connection with</span><br><span class="line">*   TARGET host.</span><br><span class="line">*</span><br><span class="line">*   The &apos;-d&apos; option is used for debug. If you fail to connect, use this</span><br><span class="line">*   and check request to and response from server.</span><br><span class="line">*</span><br><span class="line">*   You can omit the &quot;port&quot; argument when program name is special format</span><br><span class="line">*   containing port number itself. For example,</span><br><span class="line">*     $ ln -s connect connect-25</span><br><span class="line">*   means this connect-25 command is spcifying port number 25 already</span><br><span class="line">*   so you need not 2nd argument (and ignored if specified).</span><br><span class="line">*</span><br><span class="line">*   To use proxy, this example is for SOCKS5 connection to connect to</span><br><span class="line">*   &apos;host&apos; at port 25 via SOCKS5 server on &apos;firewall&apos; host.</span><br><span class="line">*     $ connect -S firewall  host 25</span><br><span class="line">*   or</span><br><span class="line">*     $ SOCKS5_SERVER=firewall; export SOCKS5_SERVER</span><br><span class="line">*     $ connect -s host 25</span><br><span class="line">*</span><br><span class="line">*   For a HTTP-PROXY connection:</span><br><span class="line">*     $ connect -H proxy-server:8080  host 25</span><br><span class="line">*   or</span><br><span class="line">*     $ HTTP_PROXY=proxy-server:8080; export HTTP_PROXY</span><br><span class="line">*     $ connect -h host 25</span><br><span class="line">*   To forward a local port, for example to use ssh:</span><br><span class="line">*     $ connect -p 5550 -H proxy-server:8080  host 22</span><br><span class="line">*    ($ ssh -l user -p 5550 localhost )</span><br><span class="line">*</span><br><span class="line">* TIPS</span><br><span class="line">* ====</span><br><span class="line">*</span><br><span class="line">*   Connect.c doesn&apos;t have any configuration to specify the SOCKS server.</span><br><span class="line">*   If you are a mobile user, this limitation might bother you.  However,</span><br><span class="line">*   You can compile connect.c and link with other standard SOCKS library</span><br><span class="line">*   like the NEC SOCKS5 library or Dante. This means connect.c is</span><br><span class="line">*   socksified and uses a configration file like to other SOCKSified</span><br><span class="line">*   network commands and you can switch configuration file any time</span><br><span class="line">*   (ex. when ppp startup) that brings you switching of SOCKS server for</span><br><span class="line">*   connect.c in same way with other commands. For this case, you can</span><br><span class="line">*   write ~/.ssh/config like this:</span><br><span class="line">*</span><br><span class="line">*     ProxyCommand connect -n %h %p</span><br><span class="line">*</span><br><span class="line">* SOCKS5 authentication</span><br><span class="line">* =====================</span><br><span class="line">*</span><br><span class="line">*   Only USER/PASS authentication is supported.</span><br><span class="line">*</span><br><span class="line">* Proxy authentication</span><br><span class="line">* ====================</span><br><span class="line">*</span><br><span class="line">*   Only BASIC scheme is supported.</span><br><span class="line">*</span><br><span class="line">* Authentication informations</span><br><span class="line">* ===========================</span><br><span class="line">*</span><br><span class="line">*   User name for authentication is specifed by an environment variable</span><br><span class="line">*   or system login name.  And password is specified from environment</span><br><span class="line">*   variable or external program (specified in $SSH_ASKPASS) or tty.</span><br><span class="line">*</span><br><span class="line">*   Following environment variable is used for specifying user name.</span><br><span class="line">*     SOCKS: $SOCKS5_USER, $LOGNAME, $USER</span><br><span class="line">*     HTTP Proxy: $HTTP_PROXY_USER, $LOGNAME, $USER</span><br><span class="line">*</span><br><span class="line">* ssh-askpass support</span><br><span class="line">* ===================</span><br><span class="line"> *</span><br><span class="line">*   You can use ssh-askpass (came from OpenSSH or else) to specify</span><br><span class="line">*   password on graphical environment (X-Window or MS Windows). To use</span><br><span class="line">*   this, set program name to environment variable SSH_ASKPASS. On UNIX,</span><br><span class="line">*   X-Window must be required, so $DISPLAY environment variable is also</span><br><span class="line">*   needed.  On Win32 environment, $DISPLAY is not mentioned.</span><br><span class="line">*</span><br><span class="line">* Related Informations</span><br><span class="line">* ====================</span><br><span class="line">*</span><br><span class="line">*   SOCKS5 -- RFC 1928, RFC 1929, RFC 1961</span><br><span class="line">*             NEC SOCKS Reference Implementation is available from:</span><br><span class="line">*               http://www.socks.nec.com</span><br><span class="line">*             DeleGate version 5 or earlier can be SOCKS4 server,</span><br><span class="line">*             and version 6 can be SOCKS5 and SOCKS4 server.</span><br><span class="line">*             and version 7.7.0 or later can be SOCKS5 and SOCKS4a server.</span><br><span class="line">*               http://www.delegate.org/delegate/</span><br><span class="line">*</span><br><span class="line">*   HTTP-Proxy --</span><br><span class="line">*             Many http proxy servers supports this, but https should</span><br><span class="line">*             be allowed as configuration on your host.</span><br><span class="line">*             For example on DeleGate, you should add &quot;https&quot; to the</span><br><span class="line">*             &quot;REMITTABLE&quot; parameter to allow HTTP-Proxy like this:</span><br><span class="line">*               delegated -Pxxxx ...... REMITTABLE=&quot;+,https&quot; ...</span><br><span class="line">*</span><br><span class="line">*  Hypertext Transfer Protocol -- HTTP/1.1  -- RFC 2616</span><br><span class="line">*  HTTP Authentication: Basic and Digest Access Authentication -- RFC 2617</span><br><span class="line">*             For proxy authentication, refer these documents.</span><br></pre></td></tr></table></figure>
+<h2 id="&#x9644;2&#xFF1A;"><a href="#&#x9644;2&#xFF1A;" class="headerlink" title="&#x9644;2&#xFF1A;"></a>&#x9644;2&#xFF1A;</h2><p><code>$*</code>&#xFF0C;<code>$@</code>&#x548C;<code>$#</code> &#x89E3;&#x91CA;</p>
+<ul>
+<li><code>$*</code>&#x8868;&#x793A;&#x5168;&#x90E8;&#x53C2;&#x6570;&#xFF08;&#x4E00;&#x8D77;&#x88AB;&#x5F15;&#x53F7;&#x5305;&#x4F4F;&#xFF09;</li>
+<li><code>$@</code>&#x8868;&#x793A;&#x5168;&#x90E8;&#x53C2;&#x6570;&#xFF08;&#x5206;&#x522B;&#x88AB;&#x5F15;&#x53F7;&#x5305;&#x4F4F;&#xFF09;</li>
+<li><code>$#</code>&#x8868;&#x793A;&#x53C2;&#x6570;&#x4E2A;&#x6570;</li>
+</ul>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/代理/" rel="tag">#代理</a>
+          
+            <a href="/tags/Git/" rel="tag">#Git</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/05/Android中的Parcel/" rel="next" title="Android中的Parcel">
+                <i class="fa fa-chevron-left"></i> Android中的Parcel
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+<script>
+    window.onload =function(){
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width : 96,//设置宽高
+            height : 96
+        });
+        qrcode.makeCode("http://blog.kuleyang.com/2016/05/07/Git-设置代理/");
+    }
+
+</script>
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/Git-设置代理/"
+           data-title="Git 设置代理" data-url="http://blog.kuleyang.com/2016/05/07/Git-设置代理/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Kule Yang" />
+          <p class="site-author-name" itemprop="name">Kule Yang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用connect工具"><span class="nav-number">1.</span> <span class="nav-text">使用connect工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对于所有的协议全部使用-SSH-隧道进行代理"><span class="nav-number">1.1.</span> <span class="nav-text">对于所有的协议全部使用 SSH 隧道进行代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GIT-协议的配置"><span class="nav-number">1.1.1.</span> <span class="nav-text">GIT 协议的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH-协议的配置"><span class="nav-number">1.1.2.</span> <span class="nav-text">SSH 协议的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-协议的配置"><span class="nav-number">1.1.3.</span> <span class="nav-text">HTTP 协议的配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#所有协议全部使用-http-代理"><span class="nav-number">1.2.</span> <span class="nav-text">所有协议全部使用 http 代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-协议配置"><span class="nav-number">1.2.1.</span> <span class="nav-text">HTTP 协议配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对域名启用代理"><span class="nav-number">1.2.2.</span> <span class="nav-text">针对域名启用代理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附1："><span class="nav-number">1.3.</span> <span class="nav-text">附1：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附2："><span class="nav-number">1.4.</span> <span class="nav-text">附2：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kule Yang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/qrcode.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"kuleyang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
