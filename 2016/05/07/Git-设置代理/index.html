@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://blog.kuleyang.com/2016/05/07/Git-设置代理/index.html">
 <meta property="og:site_name" content="技术分享">
 <meta property="og:description" content="Git &amp;#x76EE;&amp;#x524D;&amp;#x652F;&amp;#x6301;&amp;#x7684;&amp;#x4E09;&amp;#x79CD;&amp;#x534F;&amp;#x8BAE; git://&amp;#x3001;ssh:// &amp;#x548C; http://&amp;#xFF0C;&amp;#x5176;&amp;#x4EE3;&amp;#x7406;&amp;#x914D;&amp;#x7F6E;&amp;#x5404;&amp;#x4E0D;&amp;#x76F8;&amp;#x540C;&amp;#xFF1">
-<meta property="og:updated_time" content="2016-05-06T18:33:21.000Z">
+<meta property="og:updated_time" content="2016-05-07T07:27:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 设置代理">
 <meta name="twitter:description" content="Git &amp;#x76EE;&amp;#x524D;&amp;#x652F;&amp;#x6301;&amp;#x7684;&amp;#x4E09;&amp;#x79CD;&amp;#x534F;&amp;#x8BAE; git://&amp;#x3001;ssh:// &amp;#x548C; http://&amp;#xFF0C;&amp;#x5176;&amp;#x4EE3;&amp;#x7406;&amp;#x914D;&amp;#x7F6E;&amp;#x5404;&amp;#x4E0D;&amp;#x76F8;&amp;#x540C;&amp;#xFF1">
@@ -301,6 +301,7 @@
 
       
         <p>Git &#x76EE;&#x524D;&#x652F;&#x6301;&#x7684;&#x4E09;&#x79CD;&#x534F;&#x8BAE; <code>git://</code>&#x3001;<code>ssh://</code> &#x548C; <code>http://</code>&#xFF0C;&#x5176;&#x4EE3;&#x7406;&#x914D;&#x7F6E;&#x5404;&#x4E0D;&#x76F8;&#x540C;&#xFF1A;<code>core.gitproxy</code> &#x7528;&#x4E8E; <code>git://</code> &#x534F;&#x8BAE;&#xFF0C;<code>http.proxy</code> &#x7528;&#x4E8E; <code>http://</code> &#x534F;&#x8BAE;&#xFF0C;<code>ssh://</code> &#x534F;&#x8BAE;&#x7684;&#x4EE3;&#x7406;&#x9700;&#x8981;&#x914D;&#x7F6E; <code>ssh</code> &#x7684; <code>ProxyCommand</code> &#x53C2;&#x6570;&#x3002;</p>
+<a id="more"></a>
 <h1 id="&#x4F7F;&#x7528;connect&#x5DE5;&#x5177;"><a href="#&#x4F7F;&#x7528;connect&#x5DE5;&#x5177;" class="headerlink" title="&#x4F7F;&#x7528;connect&#x5DE5;&#x5177;"></a>&#x4F7F;&#x7528;connect&#x5DE5;&#x5177;</h1><p>&#x4F7F;&#x7528; <a href="https://github.com/kuleyang/connect" target="_blank" rel="external">https://github.com/kuleyang/connect</a> &#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x4EE3;&#x7406;&#x7684;&#x8F6C;&#x6362;</p>
 <h2 id="&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528;-SSH-&#x96A7;&#x9053;&#x8FDB;&#x884C;&#x4EE3;&#x7406;"><a href="#&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528;-SSH-&#x96A7;&#x9053;&#x8FDB;&#x884C;&#x4EE3;&#x7406;" class="headerlink" title="&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528; SSH &#x96A7;&#x9053;&#x8FDB;&#x884C;&#x4EE3;&#x7406;"></a>&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684;&#x534F;&#x8BAE;&#x5168;&#x90E8;&#x4F7F;&#x7528; SSH &#x96A7;&#x9053;&#x8FDB;&#x884C;&#x4EE3;&#x7406;</h2><h3 id="GIT-&#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;"><a href="#GIT-&#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="GIT &#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;"></a>GIT &#x534F;&#x8BAE;&#x7684;&#x914D;&#x7F6E;</h3><p>&#x5EFA;&#x7ACB; <code>/path/to/socks5proxywrapper</code> &#x6587;&#x4EF6;:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">connect -S 127.0.0.1:7070 <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
