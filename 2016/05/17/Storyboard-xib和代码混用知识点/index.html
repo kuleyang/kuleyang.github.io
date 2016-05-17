@@ -1,0 +1,639 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next mist">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Stroyboard,xib,Swift,混用," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="技术分享" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/upload/favicon.ico?v=5.0.1" />
+  <link rel="icon" type="image/svg+xml" href="/upload/favicon.svg?v=5.0.1" />
+  <link rel="alternate icon" type="image/png" href="/upload/favicon.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x4EE5;Storyboard&amp;#x4E3A;&amp;#x57FA;&amp;#x7840;&amp;#x4E00;&amp;#x822C;&amp;#x6BD4;&amp;#x8F83;&amp;#x590D;&amp;#x6742;&amp;#x7684;app&amp;#xFF0C;&amp;#x6574;&amp;#x4E2A;window&amp;#x7684;rootViewController&amp;#xFF0C;&amp;#x4E0D;&amp;#x662F;UITabBarController&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Storyboard, xib和代码混用知识点">
+<meta property="og:url" content="http://blog.kuleyang.com/2016/05/17/Storyboard-xib和代码混用知识点/index.html">
+<meta property="og:site_name" content="技术分享">
+<meta property="og:description" content="&amp;#x4EE5;Storyboard&amp;#x4E3A;&amp;#x57FA;&amp;#x7840;&amp;#x4E00;&amp;#x822C;&amp;#x6BD4;&amp;#x8F83;&amp;#x590D;&amp;#x6742;&amp;#x7684;app&amp;#xFF0C;&amp;#x6574;&amp;#x4E2A;window&amp;#x7684;rootViewController&amp;#xFF0C;&amp;#x4E0D;&amp;#x662F;UITabBarController&amp;">
+<meta property="og:updated_time" content="2016-05-17T03:21:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Storyboard, xib和代码混用知识点">
+<meta name="twitter:description" content="&amp;#x4EE5;Storyboard&amp;#x4E3A;&amp;#x57FA;&amp;#x7840;&amp;#x4E00;&amp;#x822C;&amp;#x6BD4;&amp;#x8F83;&amp;#x590D;&amp;#x6742;&amp;#x7684;app&amp;#xFF0C;&amp;#x6574;&amp;#x4E2A;window&amp;#x7684;rootViewController&amp;#xFF0C;&amp;#x4E0D;&amp;#x662F;UITabBarController&amp;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Storyboard, xib和代码混用知识点 | 技术分享 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?94f2a8bbfb8374b1e513b6e1759bb48f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">技术分享</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一点一滴</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-mygithub">
+          <a href="https://github.com/kuleyang" rel="section">
+            
+              <i class="menu-item-icon fa fa-github fa-fw"></i> <br />
+            
+            我的github
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Storyboard, xib和代码混用知识点
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-17T11:14:21+08:00" content="2016-05-17">
+              2016-05-17
+            </time>
+          </span>
+
+          
+		
+		  <span id="qrcode">
+		  </span>
+        
+          
+            
+              <span class="post-comments-count">
+                <a href="/2016/05/17/Storyboard-xib和代码混用知识点/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/17/Storyboard-xib和代码混用知识点/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="&#x4EE5;Storyboard&#x4E3A;&#x57FA;&#x7840;"><a href="#&#x4EE5;Storyboard&#x4E3A;&#x57FA;&#x7840;" class="headerlink" title="&#x4EE5;Storyboard&#x4E3A;&#x57FA;&#x7840;"></a>&#x4EE5;Storyboard&#x4E3A;&#x57FA;&#x7840;</h2><p>&#x4E00;&#x822C;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;app&#xFF0C;&#x6574;&#x4E2A;window&#x7684;rootViewController&#xFF0C;&#x4E0D;&#x662F;UITabBarController&#x5C31;&#x662F;UINavigationController&#x3002;&#x6211;&#x63A8;&#x8350;&#x4F60;&#x5C06;app&#x7684;&#x4E3B;&#x8981;&#x754C;&#x9762;&#x7684;&#x67B6;&#x6784;&#x901A;&#x8FC7;Storyboard&#x6765;&#x6784;&#x5EFA;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x7684;&#x597D;&#x5904;&#x5728;&#x4E8E;&#xFF0C;&#x6240;&#x6709;&#x4EBA;&#x5728;&#x770B;&#x5230;&#x4F60;&#x7684;&#x5DE5;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x80FD;&#x591F;&#x5F88;&#x5BB9;&#x6613;&#x641E;&#x6E05;&#x695A;&#x4F60;&#x7684;&#x6574;&#x4E2A;&#x754C;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x7EC4;&#x7EC7;&#x7ED3;&#x6784;&#xFF0C;&#x4EE5;&#x53CA;&#x5177;&#x4F53;&#x7684;&#x5916;&#x89C2;&#xFF0C;&#x964D;&#x4F4E;&#x5B66;&#x4E60;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x7684;&#x6210;&#x672C;&#x3002;&#x5BF9;&#x81EA;&#x5DF1;&#x800C;&#x8A00;&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x6240;&#x89C1;&#x5373;&#x6240;&#x5F97;&#x7684;&#x7ED3;&#x6784;&#x5F80;&#x5F80;&#x4E5F;&#x80FD;&#x52A0;&#x6DF1;&#x7684;&#x81EA;&#x5DF1;&#x7684;&#x5370;&#x8C61;&#x3002;</p>
+<a id="more"></a>
+<h2 id="&#x67D0;&#x4E00;&#x4E2A;&#x8FDE;&#x901A;&#x7684;&#x4E14;&#x4E0E;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;&#x4E0D;&#x5927;&#x7684;UIViewController&#x7EC4;&#x5408;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;Storyboard"><a href="#&#x67D0;&#x4E00;&#x4E2A;&#x8FDE;&#x901A;&#x7684;&#x4E14;&#x4E0E;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;&#x4E0D;&#x5927;&#x7684;UIViewController&#x7EC4;&#x5408;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;Storyboard" class="headerlink" title="&#x67D0;&#x4E00;&#x4E2A;&#x8FDE;&#x901A;&#x7684;&#x4E14;&#x4E0E;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;&#x4E0D;&#x5927;&#x7684;UIViewController&#x7EC4;&#x5408;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;Storyboard"></a>&#x67D0;&#x4E00;&#x4E2A;&#x8FDE;&#x901A;&#x7684;&#x4E14;&#x4E0E;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;&#x4E0D;&#x5927;&#x7684;UIViewController&#x7EC4;&#x5408;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;Storyboard</h2><p>&#x4F8B;&#x5982;&#x767B;&#x5F55;&#x6CE8;&#x518C;&#x6A21;&#x5757;&#x3002;&#x5047;&#x5982;&#x6211;&#x4EEC;&#x6709;LoginViewController, SignupViewController,ForgetPasswordViewController&#x3002;&#x8FD9;&#x4E09;&#x4E2A;ViewController&#x53EF;&#x4EE5;&#x5355;&#x72EC;&#x63D0;&#x51FA;&#x6765;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Account.storyboard&#x4E2D;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x6709;&#x4E00;&#x4E0B;&#x51E0;&#x70B9;&#x597D;&#x5904;&#xFF1A;</p>
+<ul>
+<li>&#x4E3A;Main.storyboard&#x7626;&#x8EAB;&#xFF0C;&#x4F7F;&#x5176;&#x80FD;&#x591F;&#x66F4;&#x597D;&#x7684;&#x8868;&#x73B0;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x4E3B;&#x4F53;&#x90E8;&#x5206;&#x7684;&#x8DF3;&#x8F6C;&#x903B;&#x8F91;</li>
+<li>Account.storyboard &#x5728;&#x5206;&#x914D;&#x7ED9;&#x5176;&#x4ED6;&#x4EBA;&#x505A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x7528;&#x7BA1;&#x540C;&#x4E00;&#x4E2A;storyboard&#x7684;&#x90A3;&#x5806;&#x7248;&#x672C;&#x51B2;&#x7A81;&#x4E86;</li>
+<li>&#x66F4;&#x52A0;&#x6A21;&#x5757;&#x5316;</li>
+</ul>
+<h2 id="&#x91CD;&#x7528;&#x6027;&#x9AD8;&#x7684;ViewController&#x7528;xib&#x6216;&#x8005;&#x4EE3;&#x7801;&#x6784;&#x5EFA;"><a href="#&#x91CD;&#x7528;&#x6027;&#x9AD8;&#x7684;ViewController&#x7528;xib&#x6216;&#x8005;&#x4EE3;&#x7801;&#x6784;&#x5EFA;" class="headerlink" title="&#x91CD;&#x7528;&#x6027;&#x9AD8;&#x7684;ViewController&#x7528;xib&#x6216;&#x8005;&#x4EE3;&#x7801;&#x6784;&#x5EFA;"></a>&#x91CD;&#x7528;&#x6027;&#x9AD8;&#x7684;ViewController&#x7528;xib&#x6216;&#x8005;&#x4EE3;&#x7801;&#x6784;&#x5EFA;</h2><p>&#x5728;&#x6211;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;UserProfileViewController&#x3002;&#x5F88;&#x591A;ViewController&#x90FD;&#x4F1A;&#x8DF3;&#x8F6C;&#x5230;UserProfileViewController&#x53BB;&#x67E5;&#x770B;&#x67D0;&#x7528;&#x6237;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;UserProfileViewController &#x662F;&#x5EFA;&#x7ACB;&#x5728;Storyboard&#x91CC;&#xFF0C;&#x90A3;&#x4E48;&#x57FA;&#x672C;&#x5C31;&#x662F;&#x4E2A;&#x8718;&#x86DB;&#x7F51;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5C06;&#x5176;&#x62BD;&#x79BB;&#x51FA;&#x6765;&#xFF0C;&#x5355;&#x72EC;&#x7531;xib&#x6216;&#x8005;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x90FD;&#x884C;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x80FD;&#x591F;&#x5F88;&#x597D;&#x7684;&#x964D;&#x4F4E;Storyboard&#x7684;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x4E0D;&#x7136;&#x591A;&#x4E00;&#x4E24;&#x4E2A;&#x8FD9;&#x6837;&#x7684;ViewController&#xFF0C;Storyboard&#x57FA;&#x672C;&#x5C31;&#x4E0D;&#x80FD;&#x770B;&#x4E86;&#x3002;</p>
+<h2 id="&#x590D;&#x6742;&#x7684;UIView&#x5355;&#x72EC;&#x7528;xib&#x6216;&#x4EE3;&#x7801;&#x6784;&#x5EFA;"><a href="#&#x590D;&#x6742;&#x7684;UIView&#x5355;&#x72EC;&#x7528;xib&#x6216;&#x4EE3;&#x7801;&#x6784;&#x5EFA;" class="headerlink" title="&#x590D;&#x6742;&#x7684;UIView&#x5355;&#x72EC;&#x7528;xib&#x6216;&#x4EE3;&#x7801;&#x6784;&#x5EFA;"></a>&#x590D;&#x6742;&#x7684;UIView&#x5355;&#x72EC;&#x7528;xib&#x6216;&#x4EE3;&#x7801;&#x6784;&#x5EFA;</h2><p>&#x8FD9;&#x4E2A;&#x5C31;&#x662F;&#x5178;&#x578B;&#x7684;&#x8BBE;&#x8BA1;&#x65B9;&#x5F0F;&#x4E86;&#x3002;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x5EA6;&#x9AD8;&#x7684;UIView&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#xFF0C;&#x4F8B;&#x5982;&#x4E00;&#x4E2A;&#x5C55;&#x793A;&#x6D3B;&#x52A8;&#x4FE1;&#x606F;view&#xFF0C;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x3002;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x5177;&#x4F53;&#x7684;activity&#xFF0C;&#x800C;LLDActivityHeaderView&#x5C06;activity&#x7684;&#x4FE1;&#x606F;&#x5C55;&#x793A;&#x51FA;&#x6765;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@interface LLDActivityHeaderView : UIView</span><br><span class="line"></span><br><span class="line">@property (strong ,nonatomic) UIImageView *imageView;</span><br><span class="line">@property (strong, nonatomic) UILabel *titleLabel;</span><br><span class="line">@property (strong, nonatomic) UILabel *detailsLabel1;</span><br><span class="line">@property (strong, nonatomic) UILabel *detailsLabel2;</span><br><span class="line">@property (strong, nonatomic) UILabel *detailsLabel3;</span><br><span class="line"></span><br><span class="line">-(void)configureWithActivity:(Activity *)activity;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line">UITableViewController, UICollectionViewController</span><br></pre></td></tr></table></figure>
+<p>&#x5982;&#x679C;&#x5728;xib&#x548C;&#x4EE3;&#x7801;&#x4E8C;&#x9009;&#x4E00;&#x3002;&#x57FA;&#x672C;&#x5C31;&#x662F;&#x76F4;&#x63A5;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x5427;&#xFF0C;&#x65B9;&#x4FBF;&#x7701;&#x4E8B;&#xFF0C;xib&#x5B8C;&#x5168;&#x6728;&#x6709;&#x7528;&#x3002;</p>
+<h2 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h2><p>&#x4EE5;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;Storyboard&#x4E3A;&#x6838;&#x5FC3;&#x6784;&#x5EFA;app&#x7684;&#x6574;&#x4F53;&#x7684;&#x754C;&#x9762;&#x3002;&#x5C06;&#x91CD;&#x7528;&#x6027;&#x9AD8;&#x7684;ViewController&#x5355;&#x72EC;&#x62BD;&#x79BB;&#x51FA;&#x6765;&#x3002;&#x5C06;&#x590D;&#x6742;&#x7684;UIView&#x4E5F;&#x5355;&#x72EC;&#x62BD;&#x79BB;&#x51FA;&#x6765;&#xFF0C;&#x5E76;&#x4E14;UIView&#x6700;&#x597D;&#x80FD;&#x591F;&#x6839;&#x636E;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x62BD;&#x79BB;&#x3002;</p>
+<p>&#x601D;&#x8DEF;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E00;&#x6B65;&#x6B65;&#x8FDB;&#x884C;&#x6A21;&#x5757;&#x5316;&#x7684;&#x8FC7;&#x7A0B;&#xFF5E;</p>
+<p>&#x6587;&#xFF0F;DanisAnim&#xFF08;&#x7B80;&#x4E66;&#x4F5C;&#x8005;&#xFF09;<br>&#x539F;&#x6587;&#x94FE;&#x63A5;&#xFF1A;<a href="http://www.jianshu.com/p/09b84d6db60b" target="_blank" rel="external">http://www.jianshu.com/p/09b84d6db60b</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Stroyboard/" rel="tag">#Stroyboard</a>
+          
+            <a href="/tags/xib/" rel="tag">#xib</a>
+          
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
+          
+            <a href="/tags/混用/" rel="tag">#混用</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/16/WatchKit示例：创建一个简单的猜数游戏/" rel="next" title="WatchKit示例：创建一个简单的猜数游戏">
+                <i class="fa fa-chevron-left"></i> WatchKit示例：创建一个简单的猜数游戏
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+<script>
+    window.onload =function(){
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width : 96,//设置宽高
+            height : 96
+        });
+        qrcode.makeCode("http://blog.kuleyang.com/2016/05/17/Storyboard-xib和代码混用知识点/");
+    }
+
+</script>
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/17/Storyboard-xib和代码混用知识点/"
+           data-title="Storyboard, xib和代码混用知识点" data-url="http://blog.kuleyang.com/2016/05/17/Storyboard-xib和代码混用知识点/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Kule Yang" />
+          <p class="site-author-name" itemprop="name">Kule Yang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以Storyboard为基础"><span class="nav-number">1.</span> <span class="nav-text">以Storyboard为基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#某一个连通的且与其他组件交互不大的UIViewController组合可以用一个单独的Storyboard"><span class="nav-number">2.</span> <span class="nav-text">某一个连通的且与其他组件交互不大的UIViewController组合可以用一个单独的Storyboard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重用性高的ViewController用xib或者代码构建"><span class="nav-number">3.</span> <span class="nav-text">重用性高的ViewController用xib或者代码构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂的UIView单独用xib或代码构建"><span class="nav-number">4.</span> <span class="nav-text">复杂的UIView单独用xib或代码构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kule Yang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/qrcode.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"kuleyang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>http://blog.kuleyang.com/2016/05/17/Storyboard-xib%E5%92%8C%E4%BB%A3%E7%A0%81%E6%B7%B7%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
+    <lastmod>2016-05-17T03:21:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>Storyboard, xib和代码混用知识点</title>
+        <pubTime>2016-05-17T03:14:21.000Z</pubTime>
+        
+        <tag>Stroyboard</tag>
+         
+        <tag>xib</tag>
+         
+        <tag>Swift</tag>
+         
+        <tag>混用</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.kuleyang.com/2016/05/16/WatchKit%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2016-05-16T16:19:18.000Z</lastmod>
     <data>
@@ -11,11 +34,11 @@
         <title>WatchKit示例：创建一个简单的猜数游戏</title>
         <pubTime>2016-05-16T14:21:34.000Z</pubTime>
         
-        <tag>IOS</tag>
-         
         <tag>Swift</tag>
          
         <tag>WatchKit</tag>
+         
+        <tag>IOS</tag>
          
          
            
@@ -34,9 +57,9 @@
         
         <tag>教程</tag>
          
-        <tag>IOS</tag>
-         
         <tag>Swift</tag>
+         
+        <tag>IOS</tag>
          
         <tag>Storyboard</tag>
          
@@ -551,9 +574,9 @@
         <title>Github使用GPG对评论及Tags签名</title>
         <pubTime>2016-04-21T18:56:48.000Z</pubTime>
         
-        <tag>GPG</tag>
-         
         <tag>Github</tag>
+         
+        <tag>GPG</tag>
          
         <tag>签名</tag>
          
