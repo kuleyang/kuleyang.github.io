@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>http://blog.kuleyang.com/2016/05/21/%E4%B8%BAAndroid%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91busybox/</loc>
+    <lastmod>2016-05-20T21:29:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>为Android交叉编译busybox</title>
+        <pubTime>2016-05-20T20:55:32.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>交叉编译</tag>
+         
+        <tag>NDK</tag>
+         
+        <tag>busybox</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.kuleyang.com/2016/05/17/StoryBoard-%E5%92%8C-Xib-%E5%BC%80%E5%8F%91%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2016-05-17T07:18:05.000Z</lastmod>
     <data>
@@ -57,9 +80,9 @@
         
         <tag>Swift</tag>
          
-        <tag>WatchKit</tag>
-         
         <tag>IOS</tag>
+         
+        <tag>WatchKit</tag>
          
          
            
