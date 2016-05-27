@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://blog.kuleyang.com/2016/05/26/Centos6-5-%E5%8D%87%E7%BA%A7Python/</loc>
+    <lastmod>2016-05-26T10:55:35.000Z</lastmod>
+    <data>
+        <display>
+        <title>Centos6.5 升级Python</title>
+        <pubTime>2016-05-26T09:29:43.000Z</pubTime>
+        
+        <tag>Centos</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>升级</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.kuleyang.com/2016/05/21/%E4%B8%BAAndroid%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91busybox/</loc>
     <lastmod>2016-05-20T21:29:04.000Z</lastmod>
     <data>
@@ -80,9 +101,9 @@
         
         <tag>Swift</tag>
          
-        <tag>IOS</tag>
-         
         <tag>WatchKit</tag>
+         
+        <tag>IOS</tag>
          
          
            
