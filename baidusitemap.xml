@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://blog.kuleyang.com/2016/05/26/Centos6-5-%E5%8D%87%E7%BA%A7Python/</loc>
-    <lastmod>2016-05-26T10:55:35.000Z</lastmod>
+    <lastmod>2016-05-29T13:45:29.000Z</lastmod>
     <data>
         <display>
         <title>Centos6.5 升级Python</title>
@@ -17,6 +17,21 @@
          
         <tag>升级</tag>
          
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.kuleyang.com/2016/05/29/Centos%E5%AE%89%E8%A3%85%E8%BF%85%E9%9B%B7%E8%BF%9C%E7%A8%8B%E4%B8%8B%E8%BD%BDXware/</loc>
+    <lastmod>2016-05-29T13:45:15.000Z</lastmod>
+    <data>
+        <display>
+        <title>Centos安装迅雷远程下载Xware</title>
+        <pubTime>2016-05-29T11:30:30.000Z</pubTime>
+        
          
            
         </display>
