@@ -85,30 +85,30 @@
 <meta name="description" content="&amp;#x5F53;&amp;#x4ECA;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x4E16;&amp;#x754C;&amp;#x6700;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x7B97;&amp;#x6CD5;&amp;#xFF0C;&amp;#x5F53;&amp;#x5C5E;&amp;#x201C;&amp;#x516C;&amp;#x94A5;&amp;#x52A0;&amp;#x5BC6;&amp;#x7B97;&amp;#x6CD5;&amp;#x201D;&amp;#x3002;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA算法原理">
-<meta property="og:url" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/index.html">
+<meta property="og:url" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/index.html">
 <meta property="og:site_name" content="技术分享">
 <meta property="og:description" content="&amp;#x5F53;&amp;#x4ECA;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x4E16;&amp;#x754C;&amp;#x6700;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x7B97;&amp;#x6CD5;&amp;#xFF0C;&amp;#x5F53;&amp;#x5C5E;&amp;#x201C;&amp;#x516C;&amp;#x94A5;&amp;#x52A0;&amp;#x5BC6;&amp;#x7B97;&amp;#x6CD5;&amp;#x201D;&amp;#x3002;">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/bg2013062703.jpg">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/bg2013062702.jpg">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart2.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart3.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart4.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart5.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart6.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart7.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart8.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart9.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart10.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart11.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/chart12.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/bg2013070301.png">
-<meta property="og:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/bg2013070302.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/bg2013062703.jpg">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/bg2013062702.jpg">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart2.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart3.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart4.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart5.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart6.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart7.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart8.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart9.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart10.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart11.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/chart12.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/bg2013070301.png">
+<meta property="og:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/bg2013070302.png">
 <meta property="og:updated_time" content="2016-04-21T14:46:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSA算法原理">
 <meta name="twitter:description" content="&amp;#x5F53;&amp;#x4ECA;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x4E16;&amp;#x754C;&amp;#x6700;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x7B97;&amp;#x6CD5;&amp;#xFF0C;&amp;#x5F53;&amp;#x5C5E;&amp;#x201C;&amp;#x516C;&amp;#x94A5;&amp;#x52A0;&amp;#x5BC6;&amp;#x7B97;&amp;#x6CD5;&amp;#x201D;&amp;#x3002;">
-<meta name="twitter:image" content="http://blog.kuleyang.com/2016/04/21/RSA算法原理/bg2013062703.jpg">
+<meta name="twitter:image" content="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/bg2013062703.jpg">
 
 
 
@@ -605,7 +605,7 @@
             width : 96,//设置宽高
             height : 96
         });
-        qrcode.makeCode("http://blog.kuleyang.com/2016/04/21/RSA算法原理/");
+        qrcode.makeCode("http://blog.kuleyang.cn/2016/04/21/RSA算法原理/");
     }
 
 </script>
@@ -627,7 +627,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/04/21/RSA算法原理/"
-           data-title="RSA算法原理" data-url="http://blog.kuleyang.com/2016/04/21/RSA算法原理/">
+           data-title="RSA算法原理" data-url="http://blog.kuleyang.cn/2016/04/21/RSA算法原理/">
       </div>
     
   </div>
