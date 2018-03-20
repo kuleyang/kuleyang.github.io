@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://blog.kuleyang.cn/2018/03/21/%E5%A6%82%E4%BD%95%E4%B8%8D%E4%BD%BF%E7%94%A8revel%E8%BF%90%E8%A1%8CLeanote/</loc>
+    <lastmod>2018-03-20T23:06:37.957Z</lastmod>
+    <data>
+        <display>
+        <title>如何不使用revel运行Leanote</title>
+        <pubTime>2018-03-20T23:00:08.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.kuleyang.cn/2016/05/26/Centos6-5-%E5%8D%87%E7%BA%A7Python/</loc>
     <lastmod>2016-05-29T13:45:29.000Z</lastmod>
     <data>
@@ -116,9 +131,9 @@
         
         <tag>Swift</tag>
          
-        <tag>WatchKit</tag>
-         
         <tag>IOS</tag>
+         
+        <tag>WatchKit</tag>
          
          
            
