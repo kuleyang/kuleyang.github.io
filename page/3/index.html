@@ -248,6 +248,113 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/28/Android-studio-多渠道打包/" itemprop="url">
+                  Android studio 多渠道打包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-28T23:50:28+08:00" content="2016-04-28">
+              2016-04-28
+            </time>
+          </span>
+
+          
+		
+          
+            
+              <span class="post-comments-count">
+                <a href="/2016/04/28/Android-studio-多渠道打包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/Android-studio-多渠道打包/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&#x4E00;&#x822C;&#x7528;&#x6E20;&#x9053;&#x7684;&#x7EDF;&#x8BA1;&#x65E0;&#x975E;&#x662F;&#x7528;&#x53CB;&#x76DF;&#x6216;&#x8005;&#x5176;&#x5B83;&#x4E4B;&#x7C7B;&#x7684;&#xFF0C;&#x4ECA;&#x5929;&#x5C31;&#x4EE5;&#x53CB;&#x76DF;&#x7684;&#x4E3A;&#x4F8B;&#x5427;&#x3002;<br>&#x6E20;&#x9053;&#x4FE1;&#x606F;&#x4E00;&#x822C;&#x5728; AndroidManifest.xml&#x4E2D;&#x4FEE;&#x6539;&#x4EE5;&#x4E0B;&#x503C;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;meta-data android:name=&quot;UMENG_CHANNEL&quot; android:value=&quot;wandoujia&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>&#x9996;&#x5148;&#x4F60;&#x5FC5;&#x987B;&#x5728;AndroidManifest.xml&#x4E2D;&#x7684;meta-data&#x4FEE;&#x6539;&#x4EE5;&#x4E0B;&#x7684;&#x6837;&#x5B50;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;meta-data</div><div class="line">    android:name=&quot;UMENG_CHANNEL&quot;</div><div class="line">    android:value=&quot;${UMENG_CHANNEL_VALUE}&quot; /&gt;</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/28/Android-studio-多渠道打包/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/28/Git传输协议介绍/" itemprop="url">
                   Git传输协议介绍
                 </a>
@@ -403,14 +510,14 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo port -f clean --all all</span><br><span class="line">$ sudo port -f uninstall inactive</span><br></pre></td></tr></table></figure>
+            <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ sudo port -f clean --all all</div><div class="line">$ sudo port -f uninstall inactive</div></pre></td></tr></table></figure>
 <p>If you can&#x2019;t wait for the clean one to run in the background, there are a few commands you can run manually and faster.</p>
 <p>Remove leftover build files (this is done automatically by default):  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo rm -rf /opt/local/var/macports/build/*</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo rm -rf /opt/local/var/macports/build/*</div></pre></td></tr></table></figure>
 <p>Remove download files:  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo rm -rf /opt/local/var/macports/distfiles/*</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo rm -rf /opt/local/var/macports/distfiles/*</div></pre></td></tr></table></figure>
 <p>Remove archives (these aren&#x2019;t created by default):  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo rm -rf /opt/local/var/macports/packages/*</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo rm -rf /opt/local/var/macports/packages/*</div></pre></td></tr></table></figure>
 
           
         
@@ -619,7 +726,7 @@
         
           <h3 id="&#x6280;&#x5DE7;&#x548C;&#x7A8D;&#x95E8;"><a href="#&#x6280;&#x5DE7;&#x548C;&#x7A8D;&#x95E8;" class="headerlink" title="&#x6280;&#x5DE7;&#x548C;&#x7A8D;&#x95E8;"></a>&#x6280;&#x5DE7;&#x548C;&#x7A8D;&#x95E8;</h3><p>&#x5206;&#x4EAB;&#x4E00;&#x4E9B; Git &#x4F7F;&#x7528;&#x7684;&#x6280;&#x5DE7;&#x548C;&#x7A8D;&#x95E8;</p>
 <h4 id="&#x81EA;&#x52A8;&#x5B8C;&#x6210;"><a href="#&#x81EA;&#x52A8;&#x5B8C;&#x6210;" class="headerlink" title="&#x81EA;&#x52A8;&#x5B8C;&#x6210;"></a>&#x81EA;&#x52A8;&#x5B8C;&#x6210;</h4><p>&#x5982;&#x679C;&#x4F60;&#x7528;&#x7684;&#x662F; <code>Bash shell</code>&#xFF0C;&#x53EF;&#x4EE5;&#x8BD5;&#x8BD5;&#x770B; Git &#x63D0;&#x4F9B;&#x7684;&#x81EA;&#x52A8;&#x5B8C;&#x6210;&#x811A;&#x672C;&#x3002;&#x4E0B;&#x8F7D; Git &#x7684;&#x6E90;&#x4EE3;&#x7801;&#xFF0C;&#x8FDB;&#x5165; <code>contrib/completion</code> &#x76EE;&#x5F55;&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#x4E00;&#x4E2A;<code>git-completion.bash</code> &#x6587;&#x4EF6;&#x3002;&#x5C06;&#x6B64;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x7528;&#x6237;&#x4E3B;&#x76EE;&#x5F55;&#x4E2D;&#xFF08;&#x8BD1;&#x6CE8;&#xFF1A;&#x6309;&#x7167;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x8FD8;&#x5E94;&#x6539;&#x540D;&#x52A0;&#x4E0A;&#x70B9;&#xFF1A;<code>cp git-completion.bash ~/.git-completion.bash</code>&#xFF09;&#xFF0C;&#x5E76;&#x628A;&#x4E0B;&#x9762;&#x4E00;&#x884C;&#x5185;&#x5BB9;&#x6DFB;&#x52A0;&#x5230;&#x4F60;&#x7684;<code>.bashrc</code> &#x6587;&#x4EF6;&#x4E2D;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source ~/.git-completion.bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">source ~/.git-completion.bash</div></pre></td></tr></table></figure>
 <p>&#x4E5F;&#x53EF;&#x4EE5;&#x4E3A;&#x7CFB;&#x7EDF;&#x4E0A;&#x6240;&#x6709;&#x7528;&#x6237;&#x90FD;&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x6B64;&#x811A;&#x672C;&#x3002;Mac &#x4E0A;&#x5C06;&#x6B64;&#x811A;&#x672C;&#x590D;&#x5236;&#x5230; <code>/opt/local/etc/bash_completion.d</code> &#x76EE;&#x5F55;&#x4E2D;&#xFF0C;Linux &#x4E0A;&#x5219;&#x590D;&#x5236;&#x5230;<code>/etc/bash_completion.d/</code> &#x76EE;&#x5F55;&#x4E2D;&#x3002;&#x8FD9;&#x4E24;&#x5904;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x90FD;&#x4F1A;&#x5728; Bash &#x542F;&#x52A8;&#x65F6;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x5728; Windows &#x4E0A;&#x5B89;&#x88C5;&#x4E86; <code>msysGit</code>&#xFF0C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684; Git Bash &#x5C31;&#x5DF2;&#x7ECF;&#x914D;&#x597D;&#x4E86;&#x8FD9;&#x4E2A;&#x81EA;&#x52A8;&#x5B8C;&#x6210;&#x811A;&#x672C;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;<br></p>
           <div class="post-more-link text-center">
@@ -727,7 +834,7 @@
         
           
             <p>&#x901A;&#x8FC7;ssh&#x65B9;&#x5F0F;&#x91CD;&#x7F6E;,&#x6240;&#x4F7F;&#x7528;&#x7684;&#x5E10;&#x53F7;&#x8DDF;Web&#x7AEF;&#x4E00;&#x6837;&#x3002;</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">macbook:~ kule$ ssh Administrator@192.168.1.9</span><br><span class="line">Administrator@192.168.1.9&apos;s password:</span><br><span class="line">User:Administrator logged-in to ILO6CU526VYTC.(0.0.0.0)</span><br><span class="line"></span><br><span class="line">iLO 4 Advanced Evaluation 2.20 at  May 20 2015</span><br><span class="line">Server Name: host is unnamed</span><br><span class="line">Server Power: On</span><br><span class="line"></span><br><span class="line">Based on customer feedback, we will be enhancing the SSH command line</span><br><span class="line">interface in a future release of the iLO 4 firmware.  Our future CLI will</span><br><span class="line">focus on increased usability and improved functionality.  This message is</span><br><span class="line">to provide advance notice of the coming change.  Please see the iLO 4</span><br><span class="line">Release Notes on www.hp.com/go/iLO for additional information.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/&gt;hpiLO-&gt; cd /map1</span><br><span class="line"></span><br><span class="line">status=0</span><br><span class="line">status_tag=COMMAND COMPLETED</span><br><span class="line">Sun Aug 24 11:35:32 2014</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/map1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/map1&gt;hpiLO-&gt; reset</span><br><span class="line"></span><br><span class="line">status=0</span><br><span class="line">status_tag=COMMAND COMPLETED</span><br><span class="line">Sun Aug 24 11:35:38 2014</span><br><span class="line"></span><br><span class="line">Resetting iLO.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CLI session stopped</span><br><span class="line">Received disconnect from 192.168.1.9: 11:  Client Disconnect</span><br><span class="line">Disconnected from 192.168.1.9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">macbook:~ kule$ ssh Administrator@192.168.1.9</div><div class="line">Administrator@192.168.1.9&apos;s password:</div><div class="line">User:Administrator logged-in to ILO6CU526VYTC.(0.0.0.0)</div><div class="line"></div><div class="line">iLO 4 Advanced Evaluation 2.20 at  May 20 2015</div><div class="line">Server Name: host is unnamed</div><div class="line">Server Power: On</div><div class="line"></div><div class="line">Based on customer feedback, we will be enhancing the SSH command line</div><div class="line">interface in a future release of the iLO 4 firmware.  Our future CLI will</div><div class="line">focus on increased usability and improved functionality.  This message is</div><div class="line">to provide advance notice of the coming change.  Please see the iLO 4</div><div class="line">Release Notes on www.hp.com/go/iLO for additional information.</div><div class="line"></div><div class="line"></div><div class="line">&lt;/&gt;hpiLO-&gt; cd /map1</div><div class="line"></div><div class="line">status=0</div><div class="line">status_tag=COMMAND COMPLETED</div><div class="line">Sun Aug 24 11:35:32 2014</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">/map1</div><div class="line"></div><div class="line"></div><div class="line">&lt;/map1&gt;hpiLO-&gt; reset</div><div class="line"></div><div class="line">status=0</div><div class="line">status_tag=COMMAND COMPLETED</div><div class="line">Sun Aug 24 11:35:38 2014</div><div class="line"></div><div class="line">Resetting iLO.</div><div class="line"></div><div class="line"></div><div class="line">CLI session stopped</div><div class="line">Received disconnect from 192.168.1.9: 11:  Client Disconnect</div><div class="line">Disconnected from 192.168.1.9</div></pre></td></tr></table></figure>
 
           
         
@@ -933,7 +1040,7 @@
 
       
         
-          <h3 id="&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;"><a href="#&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;"></a>&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;</h3><p>&#x9996;&#x5148;&#x8FDB;&#x5165;&#x7F51;&#x5740;<a href="http://www8.hp.com/us/en/products/servers/ilo/">http://www8.hp.com/us/en/products/servers/ilo/</a>&#xFF0C;&#x7136;&#x540E;&#x627E;&#x4E0B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x70B9;&#x51FB;&#x8FDB;&#x53BB;&#xFF1A;</p>
+          <h3 id="&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;"><a href="#&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;"></a>&#x83B7;&#x53D6;&#x8BD5;&#x7528;&#x7248;&#x6388;&#x6743;</h3><p>&#x9996;&#x5148;&#x8FDB;&#x5165;&#x7F51;&#x5740;<a href="http://www8.hp.com/us/en/products/servers/ilo/" target="_blank" rel="external">http://www8.hp.com/us/en/products/servers/ilo/</a>&#xFF0C;&#x7136;&#x540E;&#x627E;&#x4E0B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x70B9;&#x51FB;&#x8FDB;&#x53BB;&#xFF1A;</p>
 <p><img src="/2016/04/25/iLo-licenses&#x514D;&#x8D39;60&#x7248;&#x5B89;&#x88C5;/Screen Shot 2016-04-25 at 01.37.18.jpg" alt=""></p>
 <p>&#x4E2D;&#x95F4;&#x9700;&#x8981;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x5E10;&#x53F7;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x4E0B;&#x8F7D;&#x5230;&#x542B;&#x6709;&#x6388;&#x6743;Key&#x7684;PDF&#x6587;&#x6863;&#x3002;<br></p>
           <div class="post-more-link text-center">
@@ -1189,111 +1296,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/" itemprop="url">
-                  PHP性能分析工具xhprof介绍、安装、使用说明
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-23T03:53:37+08:00" content="2016-04-23">
-              2016-04-23
-            </time>
-          </span>
-
-          
-		
-          
-            
-              <span class="post-comments-count">
-                <a href="/2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>XHProf (A Hierarchical Profiler For PHP)&#x662F;&#x4E00;&#x4E2A;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x5206;&#x5C42;&#x6027;&#x80FD;&#x6D4B;&#x91CF;&#x5206;&#x6790;&#x5668;&#xFF0C;&#x662F;C&#x5B9E;&#x73B0;&#x7684;PHP Zend&#x6269;&#x5C55;&#xFF0C;&#x6700;&#x521D;&#x662F;facebook&#x7684;&#x5927;&#x795E;&#x4EEC;&#x5199;&#x7684;&#xFF0C;&#x662F;&#x5206;&#x5C42;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7EA7;&#x522B;&#x7684;&#x5206;&#x6790;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x3001;CPU&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x3001;&#x5185;&#x5B58;&#x6D88;&#x8017;&#x7684;PHP&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;&#x3002;XHProf &#x9664;&#x4E86;&#x7528;C&#x5B9E;&#x73B0;&#x7684;Zend&#x6269;&#x5C55;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;PHP&#x5B9E;&#x73B0;&#x7684;&#x754C;&#x9762;&#xFF0C;&#x4F7F;&#x5F97;&#x67E5;&#x770B;XHProf&#x5206;&#x6790;&#x7ED3;&#x679C;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x3002;  </p>
-<p><strong>&#x672C;&#x6587;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x73AF;&#x5883;&#xFF0C;Centos 6.5,PHP 7.0,Nginx 1.9&#x3002;</strong></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/23/PHP性能分析工具xhprof介绍、安装、使用说明/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-
-
-    
   </section>
 
   
@@ -1339,7 +1341,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1393,7 +1395,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

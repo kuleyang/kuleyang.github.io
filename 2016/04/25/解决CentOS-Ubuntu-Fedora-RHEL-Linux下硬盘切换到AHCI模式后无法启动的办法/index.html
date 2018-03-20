@@ -301,18 +301,18 @@
       
         <h2 id="&#x95EE;&#x9898;"><a href="#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h2><p>&#x5B89;&#x88C5;Linux&#x7684;&#x65F6;&#x5019;&#x786C;&#x76D8;&#x6CA1;&#x6709;&#x91C7;&#x7528;AHCI&#x6A21;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x7F16;&#x8BD1;&#x5185;&#x6838;&#x7684;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x52A0;&#x5165;AHCI&#x652F;&#x6301;</p>
 <h2 id="&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><a href="#&#x89E3;&#x51B3;&#x529E;&#x6CD5;" class="headerlink" title="&#x89E3;&#x51B3;&#x529E;&#x6CD5;"></a>&#x89E3;&#x51B3;&#x529E;&#x6CD5;</h2><h3 id="&#x5728;BIOS-&#x4E2D;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x5148;&#x4FEE;&#x6539;&#x4E3A;IDE-&#x7136;&#x540E;&#x6B63;&#x5E38;&#x8FDB;&#x5165;Linux"><a href="#&#x5728;BIOS-&#x4E2D;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x5148;&#x4FEE;&#x6539;&#x4E3A;IDE-&#x7136;&#x540E;&#x6B63;&#x5E38;&#x8FDB;&#x5165;Linux" class="headerlink" title="&#x5728;BIOS &#x4E2D;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x5148;&#x4FEE;&#x6539;&#x4E3A;IDE, &#x7136;&#x540E;&#x6B63;&#x5E38;&#x8FDB;&#x5165;Linux"></a>&#x5728;BIOS &#x4E2D;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x5148;&#x4FEE;&#x6539;&#x4E3A;IDE, &#x7136;&#x540E;&#x6B63;&#x5E38;&#x8FDB;&#x5165;Linux</h3><a id="more"></a>
-<h3 id="&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;"><a href="#&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;" class="headerlink" title="&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;"></a>&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">su - root</span><br><span class="line">mkdir /boot/backup</span><br><span class="line">mv /boot/initrd-2.6.18-128.el5xen.img /boot/backup/initrd-2.6.18-128.el5xen.img </span><br><span class="line">cp /etc/modprobe.conf /etc/modprobe.conf.bak</span><br></pre></td></tr></table></figure>
+<h3 id="&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;"><a href="#&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;" class="headerlink" title="&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;"></a>&#x5907;&#x4EFD;&#x5DF2;&#x6709;&#x6587;&#x4EF6;</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">su - root</div><div class="line">mkdir /boot/backup</div><div class="line">mv /boot/initrd-2.6.18-128.el5xen.img /boot/backup/initrd-2.6.18-128.el5xen.img </div><div class="line">cp /etc/modprobe.conf /etc/modprobe.conf.bak</div></pre></td></tr></table></figure>
 <h3 id="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h3><p><code>vi /etc/modprobe.conf</code></p>
 <p>&#x5728;&#xFF1A;</p>
 <p><code>alias scsi_hostadapter ata_piix</code>  </p>
 <p>&#x540E;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;<br><code>alias scsi_hostadapter ahci</code></p>
 <h3 id="&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5185;&#x6838;"><a href="#&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5185;&#x6838;" class="headerlink" title="&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5185;&#x6838;"></a>&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5185;&#x6838;</h3><p>&#x5148;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5185;&#x6838;&#x7248;&#x672C;&#x53F7;&#xFF1A;  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname -r </span><br><span class="line">2.6.18-128.el5xen</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">uname -r </div><div class="line">2.6.18-128.el5xen</div></pre></td></tr></table></figure>
 <p>&#x7136;&#x540E;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5185;&#x6838;&#xFF0C;&#x683C;&#x5F0F;&#xFF1A;  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkinitrd --preload ahci &lt;&#x5185;&#x6838;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#x548C;&#x540D;&#x79F0;&gt; &lt;&#x5185;&#x6838;&#x7248;&#x672C;&#x53F7;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mkinitrd --preload ahci &lt;&#x5185;&#x6838;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#x548C;&#x540D;&#x79F0;&gt; &lt;&#x5185;&#x6838;&#x7248;&#x672C;&#x53F7;&gt;</div></pre></td></tr></table></figure>
 <p>&#x5185;&#x6838;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#x548C;&#x540D;&#x79F0;&#xFF1A; &#x5373;&#x4E3A;&#x4E4B;&#x524D;&#x4FDD;&#x5B58;&#x7684;&#x5185;&#x6838;&#x7684;&#x8DEF;&#x5F84;&#x548C;&#x540D;&#x79F0;<br>&#x5185;&#x6838;&#x7248;&#x672C;&#x53F7;&#xFF1A;&#x5373;&#x4E3A;&#x4E0A;&#x9762;&#x4F7F;&#x7528;uname -r &#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x5185;&#x5BB9;</p>
 <p>&#x5B9E;&#x4F8B;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /boot</span><br><span class="line">mkinitrd --preload ahci /boot/initrd-2.6.18-128.el5xen.img 2.6.18-128.el5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd /boot</div><div class="line">mkinitrd --preload ahci /boot/initrd-2.6.18-128.el5xen.img 2.6.18-128.el5</div></pre></td></tr></table></figure>
 <h3 id="&#x91CD;&#x542F;&#xFF0C;&#x8FDB;&#x5165;BISO&#xFF0C;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x4E3A;AHCI&#x540E;&#x91CD;&#x65B0;&#x8FDB;&#x5165;Linux&#x5373;&#x53EF;&#x3002;"><a href="#&#x91CD;&#x542F;&#xFF0C;&#x8FDB;&#x5165;BISO&#xFF0C;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x4E3A;AHCI&#x540E;&#x91CD;&#x65B0;&#x8FDB;&#x5165;Linux&#x5373;&#x53EF;&#x3002;" class="headerlink" title="&#x91CD;&#x542F;&#xFF0C;&#x8FDB;&#x5165;BISO&#xFF0C;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x4E3A;AHCI&#x540E;&#x91CD;&#x65B0;&#x8FDB;&#x5165;Linux&#x5373;&#x53EF;&#x3002;"></a>&#x91CD;&#x542F;&#xFF0C;&#x8FDB;&#x5165;BISO&#xFF0C;&#x5C06;&#x786C;&#x76D8;&#x6A21;&#x5F0F;&#x4FEE;&#x6539;&#x4E3A;AHCI&#x540E;&#x91CD;&#x65B0;&#x8FDB;&#x5165;Linux&#x5373;&#x53EF;&#x3002;</h3>
       
     </div>
@@ -443,7 +443,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -508,7 +508,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

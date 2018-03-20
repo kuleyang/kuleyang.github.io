@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://blog.kuleyang.cn/2018/03/21/test-one/</loc>
+    <lastmod>2018-03-20T19:23:05.478Z</lastmod>
+    <data>
+        <display>
+        <title>test one</title>
+        <pubTime>2018-03-20T19:22:50.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.kuleyang.cn/2016/05/26/Centos6-5-%E5%8D%87%E7%BA%A7Python/</loc>
     <lastmod>2016-05-29T13:45:29.000Z</lastmod>
     <data>
@@ -654,9 +669,9 @@
         <title>Github使用GPG对评论及Tags签名</title>
         <pubTime>2016-04-21T18:56:48.000Z</pubTime>
         
-        <tag>GPG</tag>
-         
         <tag>Github</tag>
+         
+        <tag>GPG</tag>
          
         <tag>签名</tag>
          
