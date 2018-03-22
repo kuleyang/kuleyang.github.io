@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.kuleyang.cn/2018/03/22/for-test/</loc>
+    <loc>http://blog.kuleyang.cn/2018/03/23/IP110%E6%89%93%E5%8D%B0%E6%9C%BA%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/</loc>
     
-    <lastmod>2018-03-22T04:24:39.772Z</lastmod>
+    <lastmod>2018-03-22T19:16:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.kuleyang.cn/2018/03/22/Raspbian%E8%BF%81%E7%A7%BBMysql%20Datadir%E5%88%B0%E7%94%A8%E6%88%B7%E7%9B%AE%E5%BD%95%E4%B8%8B/</loc>
+    
+    <lastmod>2018-03-22T13:15:21.000Z</lastmod>
     
   </url>
   
@@ -215,13 +222,6 @@
     <loc>http://blog.kuleyang.cn/2016/04/23/%E5%9F%BA%E4%BA%8EYaf-MVC%E7%9A%84PHP%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/</loc>
     
     <lastmod>2016-04-23T16:47:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.kuleyang.cn/2016/04/22/IP110%E6%89%93%E5%8D%B0%E6%9C%BA%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/</loc>
-    
-    <lastmod>2016-04-23T16:41:54.000Z</lastmod>
     
   </url>
   
